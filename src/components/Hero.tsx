@@ -1,6 +1,7 @@
 import React from 'react';
 import { Github, Linkedin, Mail, FileDown, ChevronDown } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import ParticleBackground from './ParticleBackground'; // Import ParticleBackground
 
 const Hero = () => {
   const sectionRef = useIntersectionObserver();
@@ -11,7 +12,9 @@ const Hero = () => {
       id="home" 
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 pt-16 section-fade-in"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ParticleBackground /> {/* Include ParticleBackground here */}
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"> {/* Add z-10 to position above particles */}
         <div className="text-center">
           <div className="mb-8 animate-float">
             <img
@@ -24,9 +27,7 @@ const Hero = () => {
             Mainak Malay Saha
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-          Welcome to my personal website! a Master’s student in Robotics and Autonomous Systems with a focus on Artificial Intelligence at Arizona State University. With a Bachelor’s in Computer Engineering, I have a strong foundation in programming (Python, JavaScript, C++), frameworks (React, Node.js), and robotics technologies (ROS, Computer Vision).
-This website highlights my skills and projects in robotics and AI. I invite you to explore my work and connect with me!
-Thank you for visiting!
+            Welcome to my personal website! I'm a Master's student in Robotics and Autonomous Systems at Arizona State University, with a strong foundation in programming, frameworks, and robotics technologies. Explore my skills and projects in robotics and AI, and feel free to connect with me!
           </p>
           
           <div className="flex justify-center space-x-6 mb-12">
@@ -61,9 +62,9 @@ Thank you for visiting!
             </a>
           </div>
 
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
             <ChevronDown className="w-6 h-6 text-slate-400 dark:text-slate-500" />
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
