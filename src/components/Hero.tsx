@@ -24,8 +24,9 @@ const Hero = () => {
             Mainak Malay Saha
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-            Master's student in Robotics and Autonomous Systems at ASU, 
-            specializing in AI and Full-Stack Development
+          Welcome to my personal website! a Master’s student in Robotics and Autonomous Systems with a focus on Artificial Intelligence at Arizona State University. With a Bachelor’s in Computer Engineering, I have a strong foundation in programming (Python, JavaScript, C++), frameworks (React, Node.js), and robotics technologies (ROS, Computer Vision).
+This website highlights my skills and projects in robotics and AI. I invite you to explore my work and connect with me!
+Thank you for visiting!
           </p>
           
           <div className="flex justify-center space-x-6 mb-12">
