@@ -65,8 +65,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 Feel free to reach out to me for any inquiries or collaborations:
 
-- **Email**: your_email@example.com
-- **LinkedIn**: [Your LinkedIn Profile](YOUR_LINKEDIN_URL)
+- **Email**: msaha4@asu.edu
+- **LinkedIn**:https://www.linkedin.com/in/mainaksaha08/
 - **GitHub**: [MAINAKSAHA07](https://github.com/MAINAKSAHA07)
 
 ---
