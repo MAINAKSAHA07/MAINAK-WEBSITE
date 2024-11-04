@@ -12,7 +12,7 @@ const Leadership = () => {
         "Organized startup competitions and workshops",
         "Mentored student entrepreneurs",
         "Built partnerships with industry leaders",
-        "Managed a team of 20+ volunteers"
+        "Managed a team of 150+ volunteers"
       ]
     }
   ];

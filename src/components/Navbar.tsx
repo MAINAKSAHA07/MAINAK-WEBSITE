@@ -26,7 +26,7 @@ const Navbar = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          <a href="/MAINAK" className="flex items-center space-x-2 group">
+          <a href="https://mainaksaha.netlify.app/" className="flex items-center space-x-2 group">
             <Logo />
             <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600 dark:from-slate-200 dark:to-slate-400 group-hover:opacity-80 transition-opacity">
               MS
