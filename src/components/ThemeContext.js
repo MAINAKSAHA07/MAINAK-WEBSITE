@@ -6,9 +6,9 @@ export const ThemeProvider = ({ children }) => {
   // Set default theme to 'dark'
   const [theme, setTheme] = useState('dark');
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
-  };
+//   const toggleTheme = () => {
+//     setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
+//   };
 
   // Apply the theme to the body or another element
   useEffect(() => {
