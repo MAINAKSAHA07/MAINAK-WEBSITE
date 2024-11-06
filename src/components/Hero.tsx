@@ -53,7 +53,7 @@ const Hero = () => {
 
           <div className="flex justify-center space-x-4">
             <a
-              href="/MAINAKSAHA_RESUME_21.pdf"
+              href="/src/MAINAKSAHA_RESUME_NOV.pdf"
               className="inline-flex items-center px-6 py-3 bg-slate-800 dark:bg-slate-700 text-white rounded-md hover:bg-slate-700 dark:hover:bg-slate-600 transition-all duration-300 transform hover:scale-105"
               download
             >

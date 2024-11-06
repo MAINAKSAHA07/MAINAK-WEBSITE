@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,7 +18,22 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ['About', 'Projects', 'Experience', 'Leadership', 'Contact'];
+  const navLinks = [
+    { name: 'About', path: '/#about' },
+    { name: 'Projects', path: '/#projects' },
+    { name: 'Experience', path: '/#experience' },
+    { name: 'Leadership', path: '/#leadership' },
+    { name: 'Blogs', path: '/blogs' },
+    { name: 'Contact', path: '/#contact' }
+  ];
+
+  const handleNavClick = (path: string) => {
+    setIsOpen(false);
+    if (path.startsWith('/#') && location.pathname === '/') {
+      const element = document.querySelector(path.substring(1));
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
@@ -26,23 +43,24 @@ const Navbar = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          <a href="https://mainaksaha.netlify.app/" className="flex items-center space-x-2 group">
+          <Link to="/" className="flex items-center space-x-2 group">
             <Logo />
             <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600 dark:from-slate-200 dark:to-slate-400 group-hover:opacity-80 transition-opacity">
               MS
             </span>
-          </a>
+          </Link>
 
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link, index) => (
-              <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
+              <Link
+                key={link.name}
+                to={link.path}
+                onClick={() => handleNavClick(link.path)}
                 className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors transform hover:scale-110"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                {link}
-              </a>
+                {link.name}
+              </Link>
             ))}
             <button
               onClick={toggleTheme}
@@ -56,7 +74,7 @@ const Navbar = () => {
               )}
             </button>
             <a
-              href="/MAINAKSAHA_RESUME_21.pdf"
+              href="/src/MAINAKSAHA_RESUME_NOV.pdf"
               className="px-4 py-2 bg-slate-800 dark:bg-slate-700 text-white rounded-md hover:bg-slate-700 dark:hover:bg-slate-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
               download
             >
@@ -90,18 +108,18 @@ const Navbar = () => {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-slate-800 shadow-lg">
             {navLinks.map((link, index) => (
-              <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
+              <Link
+                key={link.name}
+                to={link.path}
+                onClick={() => handleNavClick(link.path)}
                 className="block px-3 py-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 rounded-md transition-all duration-300 animate-slide-right"
-                onClick={() => setIsOpen(false)}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                {link}
-              </a>
+                {link.name}
+              </Link>
             ))}
             <a
-              href="/MAINAKSAHA_RESUME_21.pdf"
+              href="/resume.pdf"
               className="block px-3 py-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 rounded-md transition-all duration-300 animate-slide-right"
               style={{ animationDelay: `${navLinks.length * 100}ms` }}
               download
