@@ -27,7 +27,7 @@ const Hero = () => {
             Mainak Malay Saha
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-            Welcome to my personal website! I'm a Master's student in Robotics and Autonomous Systems at Arizona State University, with a strong foundation in programming, frameworks, and robotics technologies. Explore my skills and projects in robotics and AI, and feel free to connect with me!
+            Welcome to my personal website! I'm a Master's student in Robotics and Autonomous Systems at Arizona State University, with a strong foundation in programming, frameworks, and robotics technologies. Explore my skills and projects in robotics and AI, and feel free to Connect with me!
           </p>
           
           <div className="flex justify-center space-x-6 mb-12">
