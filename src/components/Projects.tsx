@@ -78,14 +78,14 @@ const Projects = () => {
                 </div>
 
                 <div className="flex space-x-4">
-                  <a href="#" className="inline-flex items-center text-slate-600 hover:text-slate-900">
+                  <a href="https://github.com/MAINAKSAHA07" className="inline-flex items-center text-slate-600 hover:text-slate-900">
                     <Github className="w-5 h-5 mr-1" />
                     Code
                   </a>
-                  <a href="#" className="inline-flex items-center text-slate-600 hover:text-slate-900">
+                /*  <a href="#" className="inline-flex items-center text-slate-600 hover:text-slate-900">
                     <ExternalLink className="w-5 h-5 mr-1" />
                     Demo
-                  </a>
+                  </a> */
                 </div>
               </div>
             </div>
