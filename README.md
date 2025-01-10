@@ -5,20 +5,6 @@ This template includes sections that provide an overview of the project, install
 
 Welcome to the repository for my personal website! This site showcases my skills, education, and projects in the field of robotics and automation systems, with a focus on artificial intelligence.
 
-## Table of Contents
-
-- [Demo](#demo)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Contact](#contact)
-
-## Demo
-
-You can view the live version of the website [here](YOUR_LIVE_SITE_URL).
-
 ## Features
 
 - **About Me Section**: Learn about my educational background and skills.
