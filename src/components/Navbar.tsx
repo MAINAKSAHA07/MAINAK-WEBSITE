@@ -74,7 +74,7 @@ const Navbar = () => {
               )}
             </button>
             <a
-              href="https://drive.google.com/file/d/1-bjqmw7u2JrW-LDG6uSA5zfvv-lwxf2x/view?usp=sharing"
+              href="https://drive.google.com/file/d/1SczJaX2Z9b4Q1BAsKrTzw1mt0lfZCGWB/view?usp=sharing"
               className="px-4 py-2 bg-slate-800 dark:bg-slate-700 text-white rounded-md hover:bg-slate-700 dark:hover:bg-slate-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
               download
             >

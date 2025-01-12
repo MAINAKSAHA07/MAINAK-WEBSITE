@@ -51,7 +51,7 @@ const Contact = () => {
                 className="flex items-center text-slate-600 hover:text-slate-900 transition-colors"
               >
                 <Mail className="w-5 h-5 mr-3" />
-                MSAHA4@ASU.EDU
+                msaha4@asu.edu
               </a>
               <a
                 href="https://linkedin.com/MAINAKSAHA08"
@@ -75,7 +75,7 @@ const Contact = () => {
                 Download my resume to learn more about my experience and skills.
               </p>
               <a
-                href="https://drive.google.com/file/d/1-bjqmw7u2JrW-LDG6uSA5zfvv-lwxf2x/view?usp=sharing"
+                href="https://drive.google.com/file/d/1SczJaX2Z9b4Q1BAsKrTzw1mt0lfZCGWB/view?usp=sharing"
                 className="inline-flex items-center px-4 py-2 bg-slate-800 text-white rounded-md hover:bg-slate-700 transition-colors"
                 download
               >
