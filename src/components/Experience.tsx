@@ -6,7 +6,7 @@ const Experience = () => {
     {
       role: "Full-Stack Developer",
       company: "The Language Network",
-      period: "2023",
+      period: "2021 - 2022",
       description: "Led development of scalable website and implemented SEO improvements",
       achievements: [
         "Increased website visibility by 60% through optimization",
@@ -18,7 +18,7 @@ const Experience = () => {
     {
       role: "Marketing & Business Development Intern",
       company: "Ukiyo Stays",
-      period: "2022",
+      period: "2023",
       description: "Drove business growth through marketing initiatives and customer experience improvements",
       achievements: [
         "Increased client satisfaction by 15%",

@@ -39,9 +39,9 @@ To set up this project locally, follow these steps:
 
 To run the website locally, execute the following command:
 ```bash
-npm start
+npm run dev
 ```
-This will start the development server, and you can view the site at `http://localhost:3000`.
+This will start the development server, and you can view the site at `http://localhost:####`.
 
 ## License
 

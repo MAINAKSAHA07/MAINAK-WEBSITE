@@ -4,6 +4,19 @@ import { ExternalLink, Github } from 'lucide-react';
 const Projects = () => {
   const projects = [
     {
+      "title": "Smart Wearable Safety Device for Women",
+      "description": "Conceptualizing an IoT-enabled wearable device integrating GPS tracking, emergency alerts, and physiological monitoring to enhance women's security.",
+      "image": "https://i.imghippo.com/files/Le6101SXQ.webp",
+      "tags": ["IoT", "Embedded Systems", "AI", "Safety Tech"],
+      "achievements": [
+        "Designed a concept for real-time GPS tracking and emergency alerts",
+        "Proposed physiological monitoring for stress detection",
+        "Exploring electric shock deterrents for self-defense",
+        "Developing a multi-tier emergency response mechanism"
+      ],
+      "status": "In Idea & Research Stage"
+    },    
+    {
       title: "Pololu 3pi + Robot",
       description: "Developed an autonomous line-following and maze-solving robot with 95% accuracy using embedded systems expertise.",
       image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
@@ -25,7 +38,7 @@ const Projects = () => {
         "Implemented real-time detection system"
       ]
     },
-    {
+    /**{
       title: "Virtual Mouse",
       description: "Created a gesture-based control system using computer vision techniques for intuitive human-computer interaction.",
       image: "https://images.unsplash.com/photo-1527430253228-e93688616381?auto=format&fit=crop&w=800&q=80",
@@ -35,7 +48,7 @@ const Projects = () => {
         "Real-time hand gesture recognition",
         "Cross-platform compatibility"
       ]
-    }
+    }**/
   ];
 
   return (
