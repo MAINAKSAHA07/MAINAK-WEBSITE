@@ -75,7 +75,7 @@ const Contact = () => {
                 Download my resume to learn more about my experience and skills.
               </p>
               <a
-                href="https://drive.google.com/file/d/1SczJaX2Z9b4Q1BAsKrTzw1mt0lfZCGWB/view?usp=sharing"
+                href="https://drive.google.com/file/d/1SgY-3NIHEZtUGKnLgTI4bOJnZLdXxrhg/view?usp=sharing"
                 className="inline-flex items-center px-4 py-2 bg-slate-800 text-white rounded-md hover:bg-slate-700 transition-colors"
                 download
               >
