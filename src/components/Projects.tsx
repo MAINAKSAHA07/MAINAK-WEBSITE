@@ -1,5 +1,6 @@
 import React from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Tag } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Projects = () => {
   const projects = [
@@ -52,56 +53,73 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-slate-50">
+    <section id="projects" className="py-20 bg-white dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-slate-800 mb-16">Featured Projects</h2>
+        <h2 className="text-3xl font-bold text-center text-slate-800 dark:text-white mb-16">Featured Projects</h2>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 overflow-hidden">
+            <motion.div
+              key={index}
+              whileHover={{ y: -5 }}
+              className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+            >
+              <div className="relative h-56 overflow-hidden group flex-shrink-0">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transform hover:scale-105 transition-transform"
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white text-sm font-medium rounded-full">
+                    {project.tags[0]}
+                  </span>
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-slate-800 mb-2">{project.title}</h3>
-                <p className="text-slate-600 mb-4">{project.description}</p>
-                
-                <div className="mb-4">
-                  <h4 className="text-sm font-medium text-slate-700 mb-2">Key Achievements:</h4>
-                  <ul className="list-disc list-inside text-sm text-slate-600 space-y-1">
+
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-semibold text-slate-800 dark:text-white mb-3">
+                  {project.title}
+                </h3>
+                <p className="text-slate-600 dark:text-slate-300 mb-4 line-clamp-2">
+                  {project.description}
+                </p>
+
+                <div className="mb-4 flex-grow">
+                  <h4 className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Key Achievements:</h4>
+                  <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-1">
                     {project.achievements.map((achievement, i) => (
-                      <li key={i}>{achievement}</li>
+                      <li key={i} className="flex items-start">
+                        <span className="inline-block w-1.5 h-1.5 bg-slate-400 dark:bg-slate-500 rounded-full mt-2 mr-2"></span>
+                        <span className="line-clamp-1">{achievement}</span>
+                      </li>
                     ))}
                   </ul>
                 </div>
 
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, i) => (
+                  {project.tags.slice(1).map((tag, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 bg-slate-100 text-sm text-slate-600 rounded-full"
+                      className="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-sm text-slate-600 dark:text-slate-300 rounded-full"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex space-x-4">
-                  <a href="https://github.com/MAINAKSAHA07" className="inline-flex items-center text-slate-600 hover:text-slate-900">
+                <div className="flex space-x-4 mt-auto">
+                  <a 
+                    href="https://github.com/MAINAKSAHA07" 
+                    className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+                  >
                     <Github className="w-5 h-5 mr-1" />
                     Code
                   </a>
-                 {/*<a href="#" className="inline-flex items-center text-slate-600 hover:text-slate-900">
-                    <ExternalLink className="w-5 h-5 mr-1" />
-                    Demo
-                  </a> //*/}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

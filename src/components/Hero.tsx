@@ -1,7 +1,7 @@
 import React from 'react';
 import { Github, Linkedin, Mail, FileDown, ChevronDown } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
-import ParticleBackground from './ParticleBackground'; // Import ParticleBackground
+import ParticleBackground from './ParticleBackground';
 
 const Hero = () => {
   const sectionRef = useIntersectionObserver();
@@ -12,9 +12,9 @@ const Hero = () => {
       id="home" 
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 pt-16 section-fade-in"
     >
-      <ParticleBackground /> {/* Include ParticleBackground here */}
+      <ParticleBackground />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"> {/* Add z-10 to position above particles */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
           <div className="mb-8 animate-float">
             <img
@@ -61,10 +61,6 @@ const Hero = () => {
               Download Resume
             </a>
           </div>
-
-          {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <ChevronDown className="w-6 h-6 text-slate-400 dark:text-slate-500" />
-          </div> */}
         </div>
       </div>
     </section>
