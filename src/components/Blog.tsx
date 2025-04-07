@@ -110,7 +110,10 @@ const Blog = () => {
                       </p>
 
                       <button
-                        onClick={() => navigate(`/blog/${blog.id}`)}
+                        onClick={() => {
+                          const blogSlug = blog.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                          navigate(`/blog/${blogSlug}`);
+                        }}
                         className="inline-flex items-center text-slate-800 dark:text-white font-medium hover:text-slate-600 dark:hover:text-slate-300 transition-colors mt-auto"
                       >
                         Read More

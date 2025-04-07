@@ -5,13 +5,16 @@ import { motion } from 'framer-motion';
 import { blogs } from '../data/blogs';
 
 const BlogPost = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
   const [isLiked, setIsLiked] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [showShareMenu, setShowShareMenu] = useState(false);
 
-  const blog = blogs.find(b => b.id === Number(id));
+  const blog = blogs.find(b => {
+    const blogSlug = b.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    return blogSlug === slug;
+  });
 
   if (!blog) {
     return (
