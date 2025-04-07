@@ -3,6 +3,7 @@ import { ArrowRight, Clock, User, ChevronLeft, ChevronRight, Calendar } from 'lu
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { blogs } from '../data/blogs';
+import { slugify } from '../utils/slugify';
 
 const Blog = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -111,7 +112,7 @@ const Blog = () => {
 
                       <button
                         onClick={() => {
-                          const blogSlug = blog.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                          const blogSlug = slugify(blog.title);
                           navigate(`/blog/${blogSlug}`);
                         }}
                         className="inline-flex items-center text-slate-800 dark:text-white font-medium hover:text-slate-600 dark:hover:text-slate-300 transition-colors mt-auto"

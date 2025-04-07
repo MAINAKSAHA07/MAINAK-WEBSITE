@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Clock, User, Calendar, ArrowLeft, Share2, Bookmark, ThumbsUp, MessageCircle, Tag } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { blogs } from '../data/blogs';
+import { slugify } from '../utils/slugify';
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -12,7 +13,8 @@ const BlogPost = () => {
   const [showShareMenu, setShowShareMenu] = useState(false);
 
   const blog = blogs.find(b => {
-    const blogSlug = b.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    const blogSlug = slugify(b.title);
+    console.log(`Comparing slugs - URL: ${slug}, Generated: ${blogSlug}`);
     return blogSlug === slug;
   });
 

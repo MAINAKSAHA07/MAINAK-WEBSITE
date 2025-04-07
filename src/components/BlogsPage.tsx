@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, Clock, User } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { blogs } from '../data/blogs';
+import { slugify } from '../utils/slugify';
 
 const BlogsPage = () => {
   const navigate = useNavigate();
@@ -56,7 +57,7 @@ const BlogsPage = () => {
 
                 <button
                   onClick={() => {
-                    const blogSlug = blog.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                    const blogSlug = slugify(blog.title);
                     navigate(`/blog/${blogSlug}`);
                   }}
                   className="inline-flex items-center text-slate-800 dark:text-white font-medium hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
