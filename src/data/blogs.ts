@@ -792,124 +792,61 @@ export const blogs = [
     title: "AI for Women's Safety: Empowering Through Technology",
     excerpt: "Examining how artificial intelligence and smart technologies are creating safer environments for women through innovative safety solutions and emergency response systems.",
     content: `
-      <div class="space-y-6">
-        <p class="text-lg leading-relaxed">
-          In today's digital age, artificial intelligence is playing a crucial role in enhancing women's safety through innovative technological solutions. From smart surveillance to emergency response systems, AI is helping create safer environments and providing women with tools to protect themselves.
-        </p>
-
-        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
-          <h3 class="text-xl font-semibold mb-4">Key Takeaways</h3>
-          <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
-            <li>AI-powered safety apps provide real-time protection</li>
-            <li>Smart surveillance systems enhance public safety</li>
-            <li>Emergency response optimization through AI analytics</li>
-            <li>Community-based safety networks powered by technology</li>
-          </ul>
-        </div>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4">Safety Applications</h2>
-        <p class="text-lg leading-relaxed">
-          AI-powered safety applications are revolutionizing personal security by providing real-time monitoring, emergency alerts, and quick response mechanisms.
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+      <div class="space-y-8">
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Safety Applications</h2>
           <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
-            <h3 class="text-xl font-semibold mb-4">Features</h3>
-            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
-              <li>Real-time location tracking</li>
-              <li>Emergency SOS alerts</li>
-              <li>Voice-activated distress signals</li>
-              <li>Smart route planning</li>
+            <h3 class="text-xl font-semibold mb-2">Key Applications</h3>
+            <ul class="list-disc list-inside space-y-2">
+              <li>Emergency response systems</li>
+              <li>Location tracking and sharing</li>
+              <li>Smart surveillance systems</li>
+              <li>Voice-activated safety features</li>
             </ul>
           </div>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Smart Surveillance</h2>
           <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
-            <h3 class="text-xl font-semibold mb-4">Benefits</h3>
-            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
-              <li>Immediate emergency response</li>
-              <li>Location-based safety alerts</li>
-              <li>Contact sharing with trusted networks</li>
-              <li>Discreet distress signals</li>
+            <h3 class="text-xl font-semibold mb-2">Features</h3>
+            <ul class="list-disc list-inside space-y-2">
+              <li>Real-time threat detection</li>
+              <li>Automated emergency alerts</li>
+              <li>Pattern recognition for suspicious behavior</li>
+              <li>Integration with law enforcement</li>
             </ul>
           </div>
-        </div>
+        </section>
 
-        <h2 class="text-2xl font-bold mt-8 mb-4">Smart Surveillance</h2>
-        <p class="text-lg leading-relaxed">
-          Advanced surveillance systems powered by AI are enhancing public safety through intelligent monitoring and threat detection.
-        </p>
-
-        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
-          <h3 class="text-xl font-semibold mb-4">Surveillance Technologies</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="text-center">
-              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
-                <CameraIcon className="w-6 h-6 text-slate-600 dark:text-slate-300" />
-              </div>
-              <h4 class="font-semibold mb-2">Smart Cameras</h4>
-              <p class="text-sm text-slate-600 dark:text-slate-300">AI-powered monitoring systems</p>
-            </div>
-            <div class="text-center">
-              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
-                <ShieldIcon className="w-6 h-6 text-slate-600 dark:text-slate-300" />
-              </div>
-              <h4 class="font-semibold mb-2">Threat Detection</h4>
-              <p class="text-sm text-slate-600 dark:text-slate-300">Behavioral analysis systems</p>
-            </div>
-            <div class="text-center">
-              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
-                <NetworkIcon className="w-6 h-6 text-slate-600 dark:text-slate-300" />
-              </div>
-              <h4 class="font-semibold mb-2">Response Networks</h4>
-              <p class="text-sm text-slate-600 dark:text-slate-300">Integrated emergency systems</p>
-            </div>
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Community Safety</h2>
+          <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-2">Initiatives</h3>
+            <ul class="list-disc list-inside space-y-2">
+              <li>Community safety networks</li>
+              <li>Safe route planning</li>
+              <li>Anonymous reporting systems</li>
+              <li>Public awareness campaigns</li>
+            </ul>
           </div>
-        </div>
+        </section>
 
-        <h2 class="text-2xl font-bold mt-8 mb-4">Community Safety</h2>
-        <p class="text-lg leading-relaxed">
-          AI is enabling the creation of community-based safety networks that connect women with local support systems and emergency services.
-        </p>
-
-        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
-          <h3 class="text-xl font-semibold mb-4">Community Features</h3>
-          <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
-            <li>Local safety ratings and reviews</li>
-            <li>Community watch programs</li>
-            <li>Safe route sharing</li>
-            <li>Emergency contact networks</li>
-            <li>Real-time incident reporting</li>
-          </ul>
-        </div>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4">Future Developments</h2>
-        <p class="text-lg leading-relaxed">
-          The future of AI in women's safety holds exciting possibilities, from advanced wearable technology to integrated safety ecosystems.
-        </p>
-
-        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
-          <h3 class="text-xl font-semibold mb-4">Emerging Technologies</h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h4 class="font-semibold mb-2">Wearable Tech</h4>
-              <p class="text-slate-600 dark:text-slate-300">Smart jewelry and accessories</p>
-            </div>
-            <div>
-              <h4 class="font-semibold mb-2">Voice Recognition</h4>
-              <p class="text-slate-600 dark:text-slate-300">Emergency voice commands</p>
-            </div>
-            <div>
-              <h4 class="font-semibold mb-2">Augmented Reality</h4>
-              <p class="text-slate-600 dark:text-slate-300">Enhanced navigation and alerts</p>
-            </div>
-            <div>
-              <h4 class="font-semibold mb-2">Predictive Safety</h4>
-              <p class="text-slate-600 dark:text-slate-300">AI-powered risk assessment</p>
-            </div>
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Future Developments</h2>
+          <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-2">Emerging Technologies</h3>
+            <ul class="list-disc list-inside space-y-2">
+              <li>AI-powered predictive analytics</li>
+              <li>Wearable safety devices</li>
+              <li>Smart city integration</li>
+              <li>Enhanced privacy protection</li>
+            </ul>
           </div>
-        </div>
+        </section>
       </div>
     `,
-    image: "https://images.unsplash.com/photo-1517841905240-4729889dfc26?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop",
     author: "Mainak Saha",
     date: "March 25, 2024",
     readTime: "6 min read",
