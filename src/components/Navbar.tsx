@@ -32,15 +32,41 @@ const Navbar = () => {
     setIsOpen(false);
     if (path.startsWith('/#')) {
       e.preventDefault();
+      const targetId = path.substring(2);
+      
       if (location.pathname === '/') {
-        const element = document.querySelector(path.substring(2));
-        element?.scrollIntoView({ behavior: 'smooth' });
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
       } else {
-        navigate('/');
-        setTimeout(() => {
-          const element = document.querySelector(path.substring(2));
-          element?.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
+        // Navigate to home page first
+        navigate('/', { replace: true });
+        
+        // Wait for the home page to load and then scroll to the target section
+        const scrollToTarget = () => {
+          const element = document.getElementById(targetId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+            return true;
+          }
+          return false;
+        };
+
+        // Try to scroll immediately
+        if (!scrollToTarget()) {
+          // If the element isn't found yet, try again after a short delay
+          const interval = setInterval(() => {
+            if (scrollToTarget()) {
+              clearInterval(interval);
+            }
+          }, 100);
+
+          // Clear the interval after 2 seconds to prevent infinite checking
+          setTimeout(() => {
+            clearInterval(interval);
+          }, 2000);
+        }
       }
     }
   };
