@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Logo from './Logo';
 
 const Navbar = () => {
@@ -9,6 +9,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,11 +28,20 @@ const Navbar = () => {
     { name: 'Contact', path: '/#contact' }
   ];
 
-  const handleNavClick = (path: string) => {
+  const handleNavClick = (path: string, e: React.MouseEvent) => {
     setIsOpen(false);
-    if (path.startsWith('/#') && location.pathname === '/') {
-      const element = document.querySelector(path.substring(1));
-      element?.scrollIntoView({ behavior: 'smooth' });
+    if (path.startsWith('/#')) {
+      e.preventDefault();
+      if (location.pathname === '/') {
+        const element = document.querySelector(path.substring(2));
+        element?.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        navigate('/');
+        setTimeout(() => {
+          const element = document.querySelector(path.substring(2));
+          element?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
     }
   };
 
@@ -55,7 +65,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                onClick={() => handleNavClick(link.path)}
+                onClick={(e) => handleNavClick(link.path, e)}
                 className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors transform hover:scale-110"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
@@ -111,7 +121,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                onClick={() => handleNavClick(link.path)}
+                onClick={(e) => handleNavClick(link.path, e)}
                 className="block px-3 py-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 rounded-md transition-all duration-300 animate-slide-right"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
