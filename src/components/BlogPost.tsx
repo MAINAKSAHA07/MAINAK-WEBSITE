@@ -25,7 +25,7 @@ const BlogPost = () => {
           <h1 className="text-4xl font-bold text-slate-800 dark:text-white mb-4">Blog Not Found</h1>
           <p className="text-lg text-slate-600 dark:text-slate-300 mb-8">The blog post you're looking for doesn't exist.</p>
           <button
-            onClick={() => navigate('/blogs')}
+            onClick={() => navigate('/blog')}
             className="inline-flex items-center px-6 py-3 bg-slate-800 dark:bg-slate-700 text-white rounded-lg hover:bg-slate-700 dark:hover:bg-slate-600 transition-colors"
           >
             <ArrowLeft className="w-5 h-5 mr-2" />
@@ -56,7 +56,7 @@ const BlogPost = () => {
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <button
-          onClick={() => navigate('/blogs')}
+          onClick={() => navigate('/blog')}
           className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white mb-8 transition-colors"
         >
           <ArrowLeft className="w-5 h-5 mr-2" />

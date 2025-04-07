@@ -49,7 +49,7 @@ const Blog = () => {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-16">
           <h2 className="text-3xl font-bold text-slate-800 dark:text-white mb-4 sm:mb-0">Latest Blog Posts</h2>
           <button
-            onClick={() => navigate('/blogs')}
+            onClick={() => navigate('/blog')}
             className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white transition-colors"
           >
             View All Posts

@@ -36,7 +36,7 @@ function App() {
               <Contact />
             </main>
           } />
-          <Route path="/blogs" element={<BlogsPage />} />
+          <Route path="/blog" element={<BlogsPage />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
         </Routes>
         <Footer />
