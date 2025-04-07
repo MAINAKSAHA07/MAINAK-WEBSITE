@@ -655,5 +655,267 @@ export const blogs = [
     tags: ["Autonomous Systems", "AI", "Transportation", "Technology"],
     likes: 145,
     comments: 35
+  },
+  {
+    id: 6,
+    title: "AI in Safety: Protecting Lives Through Technology",
+    excerpt: "Exploring how artificial intelligence is revolutionizing safety measures across industries, from workplace safety to public security and emergency response systems.",
+    content: `
+      <div class="space-y-6">
+        <p class="text-lg leading-relaxed">
+          Artificial Intelligence is playing an increasingly vital role in enhancing safety across various domains. From predictive maintenance to real-time hazard detection, AI systems are helping prevent accidents and protect lives in both industrial and public settings.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold mb-4">Key Takeaways</h3>
+          <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+            <li>AI-powered predictive maintenance prevents equipment failures</li>
+            <li>Real-time hazard detection systems enhance workplace safety</li>
+            <li>Emergency response optimization through AI analytics</li>
+            <li>Public safety improvements through smart surveillance</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Workplace Safety</h2>
+        <p class="text-lg leading-relaxed">
+          AI is transforming workplace safety by providing real-time monitoring and predictive analytics. These systems can identify potential hazards before they cause accidents and help maintain safe working environments.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-4">Applications</h3>
+            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+              <li>Equipment monitoring</li>
+              <li>Worker behavior analysis</li>
+              <li>Environmental hazard detection</li>
+              <li>Safety protocol compliance</li>
+            </ul>
+          </div>
+          <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-4">Benefits</h3>
+            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+              <li>Reduced workplace accidents</li>
+              <li>Improved compliance monitoring</li>
+              <li>Early warning systems</li>
+              <li>Data-driven safety improvements</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Public Safety</h2>
+        <p class="text-lg leading-relaxed">
+          AI systems are enhancing public safety through smart surveillance, emergency response optimization, and crime prevention strategies.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-4">Safety Systems</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="text-center">
+              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
+                <ShieldIcon className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+              </div>
+              <h4 class="font-semibold mb-2">Surveillance</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-300">Smart monitoring systems</p>
+            </div>
+            <div class="text-center">
+              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
+                <NetworkIcon className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+              </div>
+              <h4 class="font-semibold mb-2">Emergency Response</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-300">Optimized dispatch systems</p>
+            </div>
+            <div class="text-center">
+              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
+                <DatabaseIcon className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+              </div>
+              <h4 class="font-semibold mb-2">Crime Prevention</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-300">Predictive analytics</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Industrial Safety</h2>
+        <p class="text-lg leading-relaxed">
+          In industrial settings, AI is revolutionizing safety through predictive maintenance, automated inspections, and real-time monitoring of critical systems.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-4">Industrial Applications</h3>
+          <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+            <li>Predictive maintenance systems</li>
+            <li>Automated safety inspections</li>
+            <li>Real-time equipment monitoring</li>
+            <li>Hazardous material tracking</li>
+            <li>Worker safety compliance</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Future Developments</h2>
+        <p class="text-lg leading-relaxed">
+          The future of AI in safety holds exciting possibilities, from advanced predictive systems to integrated safety networks.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-4">Emerging Technologies</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold mb-2">Edge AI</h4>
+              <p class="text-slate-600 dark:text-slate-300">Real-time processing at the source</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">IoT Integration</h4>
+              <p class="text-slate-600 dark:text-slate-300">Connected safety systems</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Predictive Analytics</h4>
+              <p class="text-slate-600 dark:text-slate-300">Advanced risk assessment</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Autonomous Response</h4>
+              <p class="text-slate-600 dark:text-slate-300">Automated safety measures</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    author: "Mainak Saha",
+    date: "March 20, 2024",
+    readTime: "7 min read",
+    category: "AI",
+    tags: ["Safety", "Technology", "Industry", "Innovation"],
+    likes: 0,
+    comments: 0
+  },
+  {
+    id: 7,
+    title: "AI for Women's Safety: Empowering Through Technology",
+    excerpt: "Examining how artificial intelligence and smart technologies are creating safer environments for women through innovative safety solutions and emergency response systems.",
+    content: `
+      <div class="space-y-6">
+        <p class="text-lg leading-relaxed">
+          In today's digital age, artificial intelligence is playing a crucial role in enhancing women's safety through innovative technological solutions. From smart surveillance to emergency response systems, AI is helping create safer environments and providing women with tools to protect themselves.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold mb-4">Key Takeaways</h3>
+          <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+            <li>AI-powered safety apps provide real-time protection</li>
+            <li>Smart surveillance systems enhance public safety</li>
+            <li>Emergency response optimization through AI analytics</li>
+            <li>Community-based safety networks powered by technology</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Safety Applications</h2>
+        <p class="text-lg leading-relaxed">
+          AI-powered safety applications are revolutionizing personal security by providing real-time monitoring, emergency alerts, and quick response mechanisms.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-4">Features</h3>
+            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+              <li>Real-time location tracking</li>
+              <li>Emergency SOS alerts</li>
+              <li>Voice-activated distress signals</li>
+              <li>Smart route planning</li>
+            </ul>
+          </div>
+          <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-4">Benefits</h3>
+            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+              <li>Immediate emergency response</li>
+              <li>Location-based safety alerts</li>
+              <li>Contact sharing with trusted networks</li>
+              <li>Discreet distress signals</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Smart Surveillance</h2>
+        <p class="text-lg leading-relaxed">
+          Advanced surveillance systems powered by AI are enhancing public safety through intelligent monitoring and threat detection.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-4">Surveillance Technologies</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="text-center">
+              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
+                <CameraIcon className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+              </div>
+              <h4 class="font-semibold mb-2">Smart Cameras</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-300">AI-powered monitoring systems</p>
+            </div>
+            <div class="text-center">
+              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
+                <ShieldIcon className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+              </div>
+              <h4 class="font-semibold mb-2">Threat Detection</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-300">Behavioral analysis systems</p>
+            </div>
+            <div class="text-center">
+              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
+                <NetworkIcon className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+              </div>
+              <h4 class="font-semibold mb-2">Response Networks</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-300">Integrated emergency systems</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Community Safety</h2>
+        <p class="text-lg leading-relaxed">
+          AI is enabling the creation of community-based safety networks that connect women with local support systems and emergency services.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-4">Community Features</h3>
+          <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+            <li>Local safety ratings and reviews</li>
+            <li>Community watch programs</li>
+            <li>Safe route sharing</li>
+            <li>Emergency contact networks</li>
+            <li>Real-time incident reporting</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Future Developments</h2>
+        <p class="text-lg leading-relaxed">
+          The future of AI in women's safety holds exciting possibilities, from advanced wearable technology to integrated safety ecosystems.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-4">Emerging Technologies</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold mb-2">Wearable Tech</h4>
+              <p class="text-slate-600 dark:text-slate-300">Smart jewelry and accessories</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Voice Recognition</h4>
+              <p class="text-slate-600 dark:text-slate-300">Emergency voice commands</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Augmented Reality</h4>
+              <p class="text-slate-600 dark:text-slate-300">Enhanced navigation and alerts</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Predictive Safety</h4>
+              <p class="text-slate-600 dark:text-slate-300">AI-powered risk assessment</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1517841905240-4729889dfc26?auto=format&fit=crop&w=1200&q=80",
+    author: "Mainak Saha",
+    date: "March 25, 2024",
+    readTime: "6 min read",
+    category: "AI",
+    tags: ["Women's Safety", "Technology", "Security", "Innovation"],
+    likes: 0,
+    comments: 0
   }
 ]; 
