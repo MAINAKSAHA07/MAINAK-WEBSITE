@@ -1,24 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Clock, User, Calendar, ArrowLeft, Share2, Bookmark, ThumbsUp, MessageCircle, Tag } from 'lucide-react';
+import { Clock, User, Calendar, ArrowLeft, Share2, Bookmark, ThumbsUp, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { blogs } from '../data/blogs';
-import { slugify } from '../utils/slugify';
+import { Blog, matchSlug } from '../utils/slugify';
 
-const BlogPost = () => {
-  const { slug } = useParams();
+interface ShareOption {
+  name: string;
+  url: string;
+}
+
+const BlogPost: React.FC = () => {
+  const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const [isLiked, setIsLiked] = useState(false);
-  const [isBookmarked, setIsBookmarked] = useState(false);
-  const [showShareMenu, setShowShareMenu] = useState(false);
+  const [isLiked, setIsLiked] = useState<boolean>(false);
+  const [isBookmarked, setIsBookmarked] = useState<boolean>(false);
+  const [showShareMenu, setShowShareMenu] = useState<boolean>(false);
 
-  const blog = blogs.find(b => {
-    const blogSlug = slugify(b.title);
-    console.log(`Comparing slugs - URL: ${slug}, Generated: ${blogSlug}`);
-    return blogSlug === slug;
-  });
+  const blog = blogs.find(b => slug && matchSlug(slug, b.title));
 
-  if (!blog) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  if (!blog || !slug) {
     return (
       <div className="min-h-screen bg-white dark:bg-slate-900 pt-20 flex items-center justify-center">
         <div className="text-center">
@@ -36,16 +41,12 @@ const BlogPost = () => {
     );
   }
 
-  const shareOptions = [
+  const shareOptions: ShareOption[] = [
     { name: 'Twitter', url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(blog.title)}&url=${encodeURIComponent(window.location.href)}` },
     { name: 'LinkedIn', url: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(window.location.href)}&title=${encodeURIComponent(blog.title)}` },
     { name: 'Facebook', url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}` },
     { name: 'Email', url: `mailto:?subject=${encodeURIComponent(blog.title)}&body=${encodeURIComponent(window.location.href)}` }
   ];
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <motion.div

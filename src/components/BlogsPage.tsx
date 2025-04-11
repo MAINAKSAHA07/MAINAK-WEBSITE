@@ -2,9 +2,9 @@ import React from 'react';
 import { ArrowRight, Clock, User } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { blogs } from '../data/blogs';
-import { slugify } from '../utils/slugify';
+import { Blog, createBlogUrl } from '../utils/slugify';
 
-const BlogsPage = () => {
+const BlogsPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
@@ -18,10 +18,11 @@ const BlogsPage = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogs.map((blog) => (
+          {blogs.map((blog: Blog) => (
             <div 
               key={blog.id}
-              className="bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              className="bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+              onClick={() => navigate(createBlogUrl(blog.title))}
             >
               <div className="relative h-48 overflow-hidden group">
                 <img
@@ -55,16 +56,10 @@ const BlogsPage = () => {
                   {blog.excerpt}
                 </p>
 
-                <button
-                  onClick={() => {
-                    const blogSlug = slugify(blog.title);
-                    navigate(`/blog/${blogSlug}`);
-                  }}
-                  className="inline-flex items-center text-slate-800 dark:text-white font-medium hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
-                >
+                <div className="inline-flex items-center text-slate-800 dark:text-white font-medium hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
                   Read More
                   <ArrowRight className="w-4 h-4 ml-2" />
-                </button>
+                </div>
               </div>
             </div>
           ))}

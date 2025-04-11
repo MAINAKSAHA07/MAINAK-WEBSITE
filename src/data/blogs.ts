@@ -854,5 +854,137 @@ export const blogs = [
     tags: ["Women's Safety", "Technology", "Security", "Innovation"],
     likes: 0,
     comments: 0
+  },
+  {
+    id: 8,
+    title: "Import/Export Perks in the USA: A Comprehensive Guide",
+    excerpt: "Discover the key benefits and advantages of import/export operations in the United States, from tax incentives to market access and trade agreements.",
+    content: `
+      <div class="space-y-6">
+        <p class="text-lg leading-relaxed">
+          The United States offers numerous advantages for businesses engaged in import/export operations. From favorable trade agreements to tax incentives and a robust infrastructure, the U.S. provides an ideal environment for international trade.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold mb-4">Key Takeaways</h3>
+          <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+            <li>Access to multiple free trade agreements</li>
+            <li>Favorable tax incentives and duty drawbacks</li>
+            <li>World-class infrastructure and logistics</li>
+            <li>Strong intellectual property protection</li>
+            <li>Diverse market access opportunities</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Trade Agreements and Market Access</h2>
+        <p class="text-lg leading-relaxed">
+          The United States has established numerous free trade agreements (FTAs) with countries worldwide, providing preferential access to key markets. These agreements reduce or eliminate tariffs and create more favorable conditions for trade.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-4">Major Trade Agreements</h3>
+            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+              <li>USMCA (United States-Mexico-Canada Agreement)</li>
+              <li>CAFTA-DR (Central America-Dominican Republic)</li>
+              <li>KORUS (Korea-U.S. Free Trade Agreement)</li>
+              <li>Multiple bilateral trade agreements</li>
+            </ul>
+          </div>
+          <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-4">Benefits</h3>
+            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+              <li>Reduced or eliminated tariffs</li>
+              <li>Simplified customs procedures</li>
+              <li>Enhanced market access</li>
+              <li>Improved regulatory cooperation</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Tax Incentives and Duty Drawbacks</h2>
+        <p class="text-lg leading-relaxed">
+          The U.S. offers several tax incentives and duty drawback programs that can significantly reduce the cost of import/export operations. These programs are designed to encourage international trade and support domestic manufacturing.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-4">Key Programs</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="text-center">
+              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
+                <PackageIcon className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+              </div>
+              <h4 class="font-semibold mb-2">Duty Drawback</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-300">Refund of import duties on re-exported goods</p>
+            </div>
+            <div class="text-center">
+              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
+                <TruckIcon className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+              </div>
+              <h4 class="font-semibold mb-2">Foreign Trade Zones</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-300">Deferred or eliminated customs duties</p>
+            </div>
+            <div class="text-center">
+              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
+                <Chart className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+              </div>
+              <h4 class="font-semibold mb-2">Tax Credits</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-300">Incentives for export activities</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Infrastructure and Logistics</h2>
+        <p class="text-lg leading-relaxed">
+          The United States boasts world-class infrastructure and logistics capabilities, making it an ideal hub for international trade. From modern ports to extensive transportation networks, the U.S. provides efficient movement of goods.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-4">Infrastructure Advantages</h3>
+          <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+            <li>Modern port facilities and customs clearance</li>
+            <li>Extensive highway and rail networks</li>
+            <li>Advanced air cargo capabilities</li>
+            <li>State-of-the-art warehousing facilities</li>
+            <li>Efficient supply chain management systems</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Intellectual Property Protection</h2>
+        <p class="text-lg leading-relaxed">
+          The U.S. offers strong intellectual property protection, which is crucial for businesses involved in international trade. This protection helps safeguard innovations, brands, and trade secrets.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-4">Protection Mechanisms</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold mb-2">Patent Protection</h4>
+              <p class="text-slate-600 dark:text-slate-300">Strong legal framework for inventions and innovations</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Trademark Rights</h4>
+              <p class="text-slate-600 dark:text-slate-300">Comprehensive brand protection</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Copyright Laws</h4>
+              <p class="text-slate-600 dark:text-slate-300">Protection for creative works and software</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Trade Secret Protection</h4>
+              <p class="text-slate-600 dark:text-slate-300">Legal safeguards for confidential business information</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1552664730-d307ca88427e?auto=format&fit=crop&w=1200&q=80",
+    author: "Mainak Saha",
+    date: "April 7, 2024",
+    readTime: "10 min read",
+    category: "Business",
+    tags: ["Import/Export", "Trade", "Business", "USA"],
+    likes: 0,
+    comments: 0
   }
 ]; 
