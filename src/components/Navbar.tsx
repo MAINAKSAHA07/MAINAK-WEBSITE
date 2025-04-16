@@ -110,9 +110,10 @@ const Navbar = () => {
               )}
             </button>
             <a
-              href="https://drive.google.com/file/d/1SgY-3NIHEZtUGKnLgTI4bOJnZLdXxrhg/view?usp=sharing"
-              className="px-4 py-2 bg-slate-800 dark:bg-slate-700 text-white rounded-md hover:bg-slate-700 dark:hover:bg-slate-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-              download
+              href="/MAINAKSAHA_RESUME_Apr10.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
             >
               Resume
             </a>
@@ -155,10 +156,11 @@ const Navbar = () => {
               </Link>
             ))}
             <a
-              href="/resume.pdf"
+              href="/MAINAKSAHA_RESUME_Apr10.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="block px-3 py-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 rounded-md transition-all duration-300 animate-slide-right"
               style={{ animationDelay: `${navLinks.length * 100}ms` }}
-              download
             >
               Resume
             </a>

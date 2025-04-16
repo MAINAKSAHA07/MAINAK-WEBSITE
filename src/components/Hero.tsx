@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail, FileDown, ChevronDown } from 'lucide-react';
+import { Github, Linkedin, Mail, FileDown } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import ParticleBackground from './ParticleBackground';
 
@@ -16,7 +16,7 @@ const Hero = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
-          <div className="mb-8 animate-float">
+          <div className="mb-8">
             <img
               src="https://i.ibb.co/zhjqH1f/Mainak-RESUME-PHOTO.png"
               alt="Mainak Malay Saha"
@@ -33,19 +33,19 @@ const Hero = () => {
           <div className="flex justify-center space-x-6 mb-12">
             <a 
               href="https://github.com/mainaksaha07" 
-              className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors transform hover:scale-110"
+              className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
             >
               <Github className="w-6 h-6" />
             </a>
             <a 
               href="https://www.linkedin.com/in/mainaksaha08/" 
-              className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors transform hover:scale-110"
+              className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
             >
               <Linkedin className="w-6 h-6" />
             </a>
             <a 
               href="mailto:msaha4@asu.edu" 
-              className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors transform hover:scale-110"
+              className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
             >
               <Mail className="w-6 h-6" />
             </a>
@@ -53,9 +53,10 @@ const Hero = () => {
 
           <div className="flex justify-center space-x-4">
             <a
-              href="https://drive.google.com/file/d/1SgY-3NIHEZtUGKnLgTI4bOJnZLdXxrhg/view?usp=sharing"
-              className="inline-flex items-center px-6 py-3 bg-slate-800 dark:bg-slate-700 text-white rounded-md hover:bg-slate-700 dark:hover:bg-slate-600 transition-all duration-300 transform hover:scale-105"
-              download
+              href="/MAINAKSAHA_RESUME_Apr10.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
             >
               <FileDown className="w-5 h-5 mr-2" />
               Download Resume
