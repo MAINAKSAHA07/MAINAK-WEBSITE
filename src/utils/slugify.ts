@@ -17,14 +17,15 @@ export const slugify = (title: string): string => {
   return title
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, '') // Remove special characters except whitespace and hyphens
-    .replace(/\s+/g, '-') // Replace whitespace with hyphens
+    .replace(/[^a-z0-9\s-]/g, '') // Remove all special characters except spaces and hyphens
+    .replace(/\s+/g, '-') // Replace spaces with hyphens
     .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
     .replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
 };
 
 export const matchSlug = (urlSlug: string, blogTitle: string): boolean => {
   const generatedSlug = slugify(blogTitle);
+  console.log('Comparing slugs:', { urlSlug, generatedSlug }); // Add logging for debugging
   return urlSlug === generatedSlug;
 };
 
