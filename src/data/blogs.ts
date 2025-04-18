@@ -1374,7 +1374,7 @@ export const blogs = [
         </div>
       </div>
     `,
-    image: "https://images.unsplash.com/photo-1581094794329-1c1c0a0a0a0a?auto=format&fit=crop&w=1200&q=80",
+    image: "/src/data/1717845096797.png",
     author: "Mainak Saha",
     date: "April 20, 2024",
     readTime: "8 min read",
