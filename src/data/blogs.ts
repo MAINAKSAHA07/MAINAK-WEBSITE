@@ -1,4 +1,5 @@
 import { Bot, Brain, Cpu, Code, Terminal, LineChart, Network, Database, Shield, Car, Truck, Package, Camera, Eye, Layers, CircuitBoard, Microscope, Rocket } from 'lucide-react';
+import indiaAIImage from '../assets/1717845096797.png';
 
 const standardCardStyle = `bg-white dark:bg-slate-700 rounded-lg shadow-sm p-6`;
 const standardIconWrapperStyle = `inline-block p-4 bg-slate-100 dark:bg-slate-600 rounded-full mb-4`;
@@ -1361,7 +1362,7 @@ export const blogs = [
         </div>
       </div>
     `,
-    image: "/public/data/1717845096797.png",
+    image: "/assets/1717845096797.png",
     author: "Mainak Saha",
     date: "April 20, 2024",
     readTime: "8 min read",
