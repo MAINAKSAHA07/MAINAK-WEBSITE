@@ -1171,26 +1171,26 @@ export const blogs = [
           Beyond hardware, Nvidia has built a comprehensive software ecosystem that makes AI development more accessible and efficient.
         </p>
 
-        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
           <h3 class="text-xl font-semibold mb-4">AI Development Tools</h3>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div class="text-center">
               <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
-                <Code className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+                <Code class="w-6 h-6 text-slate-600 dark:text-slate-300" />
               </div>
               <h4 class="font-semibold mb-2">CUDA</h4>
               <p class="text-sm text-slate-600 dark:text-slate-300">Parallel computing platform</p>
             </div>
             <div class="text-center">
               <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
-                <Terminal className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+                <Terminal class="w-6 h-6 text-slate-600 dark:text-slate-300" />
               </div>
               <h4 class="font-semibold mb-2">TensorRT</h4>
               <p class="text-sm text-slate-600 dark:text-slate-300">High-performance inference</p>
             </div>
             <div class="text-center">
               <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
-                <RocketIcon className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+                <RocketIcon class="w-6 h-6 text-slate-600 dark:text-slate-300" />
               </div>
               <h4 class="font-semibold mb-2">NVIDIA AI</h4>
               <p class="text-sm text-slate-600 dark:text-slate-300">Enterprise AI platform</p>
@@ -1248,6 +1248,138 @@ export const blogs = [
     readTime: "8 min read",
     category: "Technology",
     tags: ["AI", "Nvidia", "Deep Learning", "GPU", "Technology"],
+    likes: 0,
+    comments: 0
+  },
+  {
+    id: 11,
+    title: "India's Rising Role in Artificial Intelligence",
+    excerpt: "Exploring India's growing influence in the global AI landscape, from research and development to practical applications and policy initiatives.",
+    content: `
+      <div class="space-y-6">
+        <p class="text-lg leading-relaxed">
+          India is rapidly emerging as a significant player in the global artificial intelligence landscape. With its vast talent pool, growing startup ecosystem, and government initiatives, the country is making substantial contributions to AI research, development, and implementation.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold mb-4">Key Takeaways</h3>
+          <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+            <li>India's AI talent pool is among the largest in the world</li>
+            <li>Government initiatives are fostering AI innovation</li>
+            <li>Startup ecosystem is thriving with AI-focused companies</li>
+            <li>Research institutions are making significant contributions</li>
+            <li>AI applications are transforming various sectors</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Talent and Education</h2>
+        <p class="text-lg leading-relaxed">
+          India boasts one of the largest pools of AI talent globally, with numerous world-class educational institutions producing skilled professionals. The country's strong foundation in mathematics and computer science has created a fertile ground for AI development.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-4">Leading Institutions</h3>
+            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+              <li>Indian Institutes of Technology (IITs)</li>
+              <li>Indian Institute of Science (IISc)</li>
+              <li>Indian Statistical Institute (ISI)</li>
+              <li>International Institute of Information Technology (IIITs)</li>
+            </ul>
+          </div>
+          <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-4">Educational Programs</h3>
+            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+              <li>AI and Machine Learning courses</li>
+              <li>Data Science programs</li>
+              <li>Research opportunities</li>
+              <li>Industry collaborations</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Government Initiatives</h2>
+        <p class="text-lg leading-relaxed">
+          The Indian government has launched several initiatives to promote AI development and adoption across various sectors. These programs aim to create an ecosystem that fosters innovation and practical applications of AI.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-4">Key Programs</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="text-center">
+              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
+                <Brain className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+              </div>
+              <h4 class="font-semibold mb-2">National AI Strategy</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-300">Comprehensive AI development plan</p>
+            </div>
+            <div class="text-center">
+              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
+                <Network className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+              </div>
+              <h4 class="font-semibold mb-2">AI Research Centers</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-300">Centers of Excellence in AI</p>
+            </div>
+            <div class="text-center">
+              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
+                <Database className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+              </div>
+              <h4 class="font-semibold mb-2">Data Governance</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-300">Data protection and privacy framework</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Startup Ecosystem</h2>
+        <p class="text-lg leading-relaxed">
+          India's startup ecosystem has seen remarkable growth in AI-focused companies. These startups are developing innovative solutions across various domains, from healthcare to agriculture and finance.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-4">Success Stories</h3>
+          <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+            <li>Healthcare AI solutions</li>
+            <li>Agricultural technology innovations</li>
+            <li>Financial technology applications</li>
+            <li>Education technology platforms</li>
+            <li>Smart city solutions</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Future Prospects</h2>
+        <p class="text-lg leading-relaxed">
+          India's AI journey is just beginning, with immense potential for growth and innovation. The country is well-positioned to become a global leader in AI development and applications.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-4">Emerging Opportunities</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold mb-2">Research & Development</h4>
+              <p class="text-slate-600 dark:text-slate-300">Advanced AI research initiatives</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Industry Applications</h4>
+              <p class="text-slate-600 dark:text-slate-300">Sector-specific AI solutions</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Global Collaboration</h4>
+              <p class="text-slate-600 dark:text-slate-300">International partnerships</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Ethical AI</h4>
+              <p class="text-slate-600 dark:text-slate-300">Responsible AI development</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1581094794329-1c1c0a0a0a0a?auto=format&fit=crop&w=1200&q=80",
+    author: "Mainak Saha",
+    date: "April 20, 2024",
+    readTime: "8 min read",
+    category: "AI",
+    tags: ["India", "Technology", "Innovation", "Research"],
     likes: 0,
     comments: 0
   }

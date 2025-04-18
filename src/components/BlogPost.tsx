@@ -11,30 +11,29 @@ interface ShareOption {
 }
 
 const BlogPost: React.FC = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug } = useParams();
   const navigate = useNavigate();
   const [isLiked, setIsLiked] = useState<boolean>(false);
   const [isBookmarked, setIsBookmarked] = useState<boolean>(false);
   const [showShareMenu, setShowShareMenu] = useState<boolean>(false);
 
-  const blog = blogs.find(b => slug && matchSlug(slug, b.title));
+  const blog = blogs.find(blog => matchSlug(slug || '', blog.title));
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  if (!blog || !slug) {
+  if (!blog) {
     return (
-      <div className="min-h-screen bg-white dark:bg-slate-900 pt-20 flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-slate-800 dark:text-white mb-4">Blog Not Found</h1>
-          <p className="text-lg text-slate-600 dark:text-slate-300 mb-8">The blog post you're looking for doesn't exist.</p>
+          <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">Blog Not Found</h1>
+          <p className="text-gray-600 dark:text-gray-300 mb-8">The blog post you're looking for doesn't exist.</p>
           <button
             onClick={() => navigate('/blog')}
-            className="inline-flex items-center px-6 py-3 bg-slate-800 dark:bg-slate-700 text-white rounded-lg hover:bg-slate-700 dark:hover:bg-slate-600 transition-colors"
+            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
           >
-            <ArrowLeft className="w-5 h-5 mr-2" />
-            Back to Blogs
+            Back to Blog
           </button>
         </div>
       </div>
@@ -53,139 +52,27 @@ const BlogPost: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-white dark:bg-slate-900 pt-20"
+      className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <button
-          onClick={() => navigate('/blog')}
-          className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white mb-8 transition-colors"
-        >
-          <ArrowLeft className="w-5 h-5 mr-2" />
-          Back to Blogs
-        </button>
-
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="relative h-[400px] sm:h-[500px] rounded-xl overflow-hidden mb-8"
-        >
+      <div className="max-w-4xl mx-auto px-4">
+        <article className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
           <img
             src={blog.image}
             alt={blog.title}
-            className="w-full h-full object-cover"
+            className="w-full h-96 object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 p-8">
-            <div className="flex flex-wrap gap-2 mb-4">
-              <span className="px-4 py-2 bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white text-sm font-medium rounded-full">
-                {blog.category}
-              </span>
-              {blog.tags.map((tag, index) => (
-                <span key={index} className="px-4 py-2 bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white text-sm font-medium rounded-full">
-                  {tag}
-                </span>
-              ))}
+          <div className="p-8">
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              {blog.title}
+            </h1>
+            <div className="flex items-center text-gray-600 dark:text-gray-300 mb-6">
+              <span className="mr-4">By {blog.author}</span>
+              <span className="mr-4">{blog.date}</span>
+              <span>{blog.readTime}</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-bold text-white">{blog.title}</h1>
+            <div className="prose dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: blog.content }} />
           </div>
-        </motion.div>
-
-        <div className="flex flex-wrap items-center space-x-6 mb-8 text-slate-600 dark:text-slate-400">
-          <div className="flex items-center">
-            <User className="w-5 h-5 mr-2" />
-            {blog.author}
-          </div>
-          <div className="flex items-center">
-            <Calendar className="w-5 h-5 mr-2" />
-            {blog.date}
-          </div>
-          <div className="flex items-center">
-            <Clock className="w-5 h-5 mr-2" />
-            {blog.readTime}
-          </div>
-        </div>
-
-        <div className="flex flex-wrap items-center space-x-4 mb-8">
-          <button
-            onClick={() => setIsLiked(!isLiked)}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-colors ${
-              isLiked
-                ? 'bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400'
-                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-            }`}
-          >
-            <ThumbsUp className="w-5 h-5" />
-            <span>{blog.likes + (isLiked ? 1 : 0)}</span>
-          </button>
-          <button className="flex items-center space-x-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
-            <MessageCircle className="w-5 h-5" />
-            <span>{blog.comments}</span>
-          </button>
-          <button
-            onClick={() => setIsBookmarked(!isBookmarked)}
-            className={`p-2 rounded-full transition-colors ${
-              isBookmarked
-                ? 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400'
-                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-            }`}
-          >
-            <Bookmark className="w-5 h-5" />
-          </button>
-          <div className="relative">
-            <button
-              onClick={() => setShowShareMenu(!showShareMenu)}
-              className="flex items-center space-x-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
-            >
-              <Share2 className="w-5 h-5" />
-            </button>
-            {showShareMenu && (
-              <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-lg shadow-lg py-2 z-10">
-                {shareOptions.map((option) => (
-                  <a
-                    key={option.name}
-                    href={option.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
-                  >
-                    {option.name}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-
-        <motion.article
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="prose prose-slate dark:prose-invert prose-lg max-w-none mb-16"
-          dangerouslySetInnerHTML={{ __html: blog.content }}
-        />
-
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.6 }}
-          className="border-t border-slate-200 dark:border-slate-700 pt-8 mb-16"
-        >
-          <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-4">About the Author</h3>
-          <div className="flex items-start space-x-4">
-            <img
-              src="https://i.ibb.co/zhjqH1f/Mainak-RESUME-PHOTO.png"
-              alt="Author"
-              className="w-16 h-16 rounded-full object-cover"
-            />
-            <div>
-              <h4 className="font-medium text-slate-800 dark:text-white">{blog.author}</h4>
-              <p className="text-slate-600 dark:text-slate-300 mt-1">
-                A robotics enthusiast and researcher specializing in healthcare automation and AI applications. Currently pursuing a Master's degree in Robotics and Autonomous Systems at Arizona State University.
-              </p>
-            </div>
-          </div>
-        </motion.div>
+        </article>
       </div>
     </motion.div>
   );
