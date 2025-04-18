@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "mainaksaha-6c3fd"
-  }
+    "default": "mainaksaha-6c3fd",
+    "hosting": "mainaksaha-6c3fd"
+  },
+  "targets": {},
+  "etags": {}
 }

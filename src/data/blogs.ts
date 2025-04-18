@@ -1,4 +1,10 @@
-import { Bot, Brain, Cpu, Code, Terminal, LineChart, Network, Database, Shield, Car, Truck, Package, Camera, Eye, Layers, CircuitBoard, Microscope, Rocket, LineChart as Chart, Network as NetworkIcon, Database as DatabaseIcon, Shield as ShieldIcon, Car as CarIcon, Truck as TruckIcon, Package as PackageIcon, Camera as CameraIcon, Eye as EyeIcon, Layers as LayersIcon, CircuitBoard as CircuitBoardIcon, Microscope as MicroscopeIcon, Rocket as RocketIcon } from 'lucide-react';
+import { Bot, Brain, Cpu, Code, Terminal, LineChart, Network, Database, Shield, Car, Truck, Package, Camera, Eye, Layers, CircuitBoard, Microscope, Rocket } from 'lucide-react';
+
+const standardCardStyle = `bg-white dark:bg-slate-700 rounded-lg shadow-sm p-6`;
+const standardIconWrapperStyle = `inline-block p-4 bg-slate-100 dark:bg-slate-600 rounded-full mb-4`;
+const standardIconStyle = `w-8 h-8 text-slate-700 dark:text-slate-200`;
+const standardHeadingStyle = `text-lg font-semibold mb-2 text-slate-800 dark:text-white`;
+const standardTextStyle = `text-slate-600 dark:text-slate-300`;
 
 export const blogs = [
   {
@@ -7,13 +13,13 @@ export const blogs = [
     excerpt: "Exploring how autonomous robots are revolutionizing medical procedures and patient care through advanced AI and machine learning technologies.",
     content: `
       <div class="space-y-6">
-        <p class="text-lg leading-relaxed">
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
           The integration of robotics in healthcare is revolutionizing the way medical procedures are performed and how patient care is delivered. From surgical assistance to rehabilitation therapy, robots are becoming an integral part of modern healthcare systems.
         </p>
 
         <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
-          <h3 class="text-xl font-semibold mb-4">Key Takeaways</h3>
-          <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+          <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-white">Key Takeaways</h3>
+          <ul class="list-disc list-inside space-y-3 text-slate-600 dark:text-slate-300">
             <li>Robotic surgical systems provide enhanced precision and control</li>
             <li>AI-powered robots assist in patient care and monitoring</li>
             <li>Rehabilitation robots help in physical therapy</li>
@@ -21,24 +27,24 @@ export const blogs = [
           </ul>
         </div>
 
-        <h2 class="text-2xl font-bold mt-8 mb-4">Surgical Robotics</h2>
-        <p class="text-lg leading-relaxed">
+        <h2 class="text-2xl font-bold mt-8 mb-4 text-slate-800 dark:text-white">Surgical Robotics</h2>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
           Robotic surgical systems have transformed the operating room, enabling surgeons to perform minimally invasive procedures with unprecedented precision. These systems provide enhanced visualization, greater range of motion, and improved accuracy compared to traditional surgical methods.
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-          <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
-            <h3 class="text-xl font-semibold mb-4">Advantages</h3>
-            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+          <div class="${standardCardStyle}">
+            <h3 class="${standardHeadingStyle}">Advantages</h3>
+            <ul class="list-disc list-inside space-y-3 ${standardTextStyle}">
               <li>Minimally invasive procedures</li>
               <li>Reduced recovery time</li>
               <li>Lower risk of complications</li>
               <li>Enhanced precision</li>
             </ul>
           </div>
-          <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
-            <h3 class="text-xl font-semibold mb-4">Applications</h3>
-            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+          <div class="${standardCardStyle}">
+            <h3 class="${standardHeadingStyle}">Applications</h3>
+            <ul class="list-disc list-inside space-y-3 ${standardTextStyle}">
               <li>Cardiac surgery</li>
               <li>Orthopedic procedures</li>
               <li>Gynecological surgery</li>
@@ -47,77 +53,67 @@ export const blogs = [
           </div>
         </div>
 
-        <h2 class="text-2xl font-bold mt-8 mb-4">Patient Care Automation</h2>
-        <p class="text-lg leading-relaxed">
+        <h2 class="text-2xl font-bold mt-8 mb-4 text-slate-800 dark:text-white">Patient Care Automation</h2>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
           Autonomous robots are being deployed in hospitals to assist with routine tasks such as medication delivery, patient monitoring, and sanitization. This automation helps reduce the workload on healthcare staff and minimizes the risk of human error.
         </p>
 
         <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
-          <h3 class="text-xl font-semibold mb-4">Current Applications</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="text-center">
-              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
-                <Bot className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+          <h3 class="text-xl font-semibold mb-6 text-slate-800 dark:text-white">Current Applications</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="${standardCardStyle} text-center">
+              <div class="${standardIconWrapperStyle}">
+                <svg class="${standardIconStyle}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2a10 10 0 0110 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 6a4 4 0 100 8 4 4 0 000-8z"/>
+                </svg>
               </div>
-              <h4 class="font-semibold mb-2">Medication Delivery</h4>
-              <p class="text-sm text-slate-600 dark:text-slate-300">Automated dispensing and delivery systems</p>
+              <h4 class="${standardHeadingStyle}">Medication Delivery</h4>
+              <p class="text-sm ${standardTextStyle}">Automated dispensing and delivery systems</p>
             </div>
-            <div class="text-center">
-              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
-                <Brain className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+            <div class="${standardCardStyle} text-center">
+              <div class="${standardIconWrapperStyle}">
+                <svg class="${standardIconStyle}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2a10 10 0 0110 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 6v4l3 3"/>
+                </svg>
               </div>
-              <h4 class="font-semibold mb-2">Patient Monitoring</h4>
-              <p class="text-sm text-slate-600 dark:text-slate-300">24/7 vital signs monitoring</p>
+              <h4 class="${standardHeadingStyle}">Patient Monitoring</h4>
+              <p class="text-sm ${standardTextStyle}">24/7 vital signs monitoring</p>
             </div>
-            <div class="text-center">
-              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
-                <Cpu className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+            <div class="${standardCardStyle} text-center">
+              <div class="${standardIconWrapperStyle}">
+                <svg class="${standardIconStyle}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
               </div>
-              <h4 class="font-semibold mb-2">Sanitization</h4>
-              <p class="text-sm text-slate-600 dark:text-slate-300">UV disinfection robots</p>
+              <h4 class="${standardHeadingStyle}">Sanitization</h4>
+              <p class="text-sm ${standardTextStyle}">UV disinfection robots</p>
             </div>
           </div>
         </div>
 
-        <h2 class="text-2xl font-bold mt-8 mb-4">Rehabilitation Robotics</h2>
-        <p class="text-lg leading-relaxed">
-          Robotic devices are playing a crucial role in physical therapy and rehabilitation. These systems can provide consistent, repetitive movements and real-time feedback, helping patients recover more effectively from injuries or surgeries.
-        </p>
-
-        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
-          <h3 class="text-xl font-semibold mb-4">Benefits of Robotic Rehabilitation</h3>
-          <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
-            <li>Consistent and precise movement patterns</li>
-            <li>Real-time feedback and progress tracking</li>
-            <li>Reduced therapist workload</li>
-            <li>Increased patient engagement</li>
-            <li>Customizable therapy programs</li>
-          </ul>
-        </div>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4">Future Prospects</h2>
-        <p class="text-lg leading-relaxed">
+        <h2 class="text-2xl font-bold mt-8 mb-4 text-slate-800 dark:text-white">Future Prospects</h2>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
           As technology continues to advance, we can expect to see even more sophisticated robotic systems in healthcare. Artificial intelligence integration will enable these robots to make more autonomous decisions and provide more personalized care to patients.
         </p>
 
         <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
-          <h3 class="text-xl font-semibold mb-4">Emerging Technologies</h3>
+          <h3 class="text-xl font-semibold mb-6 text-slate-800 dark:text-white">Emerging Technologies</h3>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h4 class="font-semibold mb-2">AI Integration</h4>
-              <p class="text-slate-600 dark:text-slate-300">Machine learning algorithms for diagnosis and treatment planning</p>
+            <div class="${standardCardStyle}">
+              <h4 class="${standardHeadingStyle}">AI Integration</h4>
+              <p class="${standardTextStyle}">Machine learning algorithms for diagnosis and treatment planning</p>
             </div>
-            <div>
-              <h4 class="font-semibold mb-2">Advanced Sensors</h4>
-              <p class="text-slate-600 dark:text-slate-300">Enhanced environmental awareness and patient monitoring</p>
+            <div class="${standardCardStyle}">
+              <h4 class="${standardHeadingStyle}">Advanced Sensors</h4>
+              <p class="${standardTextStyle}">Enhanced environmental awareness and patient monitoring</p>
             </div>
-            <div>
-              <h4 class="font-semibold mb-2">Human-Robot Collaboration</h4>
-              <p class="text-slate-600 dark:text-slate-300">Improved interaction and communication systems</p>
+            <div class="${standardCardStyle}">
+              <h4 class="${standardHeadingStyle}">Human-Robot Collaboration</h4>
+              <p class="${standardTextStyle}">Improved interaction and communication systems</p>
             </div>
-            <div>
-              <h4 class="font-semibold mb-2">Telemedicine Integration</h4>
-              <p class="text-slate-600 dark:text-slate-300">Remote surgery and consultation capabilities</p>
+            <div class="${standardCardStyle}">
+              <h4 class="${standardHeadingStyle}">Telemedicine Integration</h4>
+              <p class="${standardTextStyle}">Remote surgery and consultation capabilities</p>
             </div>
           </div>
         </div>
@@ -138,13 +134,13 @@ export const blogs = [
     excerpt: "How AI is transforming trading strategies and risk management in modern finance through predictive analytics and automated decision-making systems.",
     content: `
       <div class="space-y-6">
-        <p class="text-lg leading-relaxed">
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
           The financial industry is undergoing a significant transformation with the integration of machine learning technologies. From algorithmic trading to risk assessment, AI is revolutionizing how financial decisions are made and markets are analyzed.
         </p>
 
         <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
-          <h3 class="text-xl font-semibold mb-4">Key Takeaways</h3>
-          <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+          <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-white">Key Takeaways</h3>
+          <ul class="list-disc list-inside space-y-3 text-slate-600 dark:text-slate-300">
             <li>AI-powered trading algorithms are outperforming traditional methods</li>
             <li>Machine learning improves risk assessment and fraud detection</li>
             <li>Real-time market analysis and prediction capabilities</li>
@@ -152,24 +148,24 @@ export const blogs = [
           </ul>
         </div>
 
-        <h2 class="text-2xl font-bold mt-8 mb-4">Algorithmic Trading</h2>
-        <p class="text-lg leading-relaxed">
+        <h2 class="text-2xl font-bold mt-8 mb-4 text-slate-800 dark:text-white">Algorithmic Trading</h2>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
           Machine learning algorithms are revolutionizing trading strategies by analyzing vast amounts of market data in real-time. These systems can identify patterns, predict market movements, and execute trades with minimal human intervention.
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-          <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
-            <h3 class="text-xl font-semibold mb-4">Advantages</h3>
-            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+          <div class="${standardCardStyle}">
+            <h3 class="${standardHeadingStyle}">Advantages</h3>
+            <ul class="list-disc list-inside space-y-3 ${standardTextStyle}">
               <li>24/7 market monitoring</li>
               <li>Reduced emotional bias</li>
               <li>Faster execution speed</li>
               <li>Scalable trading strategies</li>
             </ul>
           </div>
-          <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
-            <h3 class="text-xl font-semibold mb-4">Applications</h3>
-            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+          <div class="${standardCardStyle}">
+            <h3 class="${standardHeadingStyle}">Applications</h3>
+            <ul class="list-disc list-inside space-y-3 ${standardTextStyle}">
               <li>High-frequency trading</li>
               <li>Portfolio optimization</li>
               <li>Market making</li>
@@ -178,77 +174,67 @@ export const blogs = [
           </div>
         </div>
 
-        <h2 class="text-2xl font-bold mt-8 mb-4">Risk Management</h2>
-        <p class="text-lg leading-relaxed">
+        <h2 class="text-2xl font-bold mt-8 mb-4 text-slate-800 dark:text-white">Risk Management</h2>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
           AI systems are enhancing risk management by providing more accurate predictions and early warning systems. Machine learning models can analyze historical data and market conditions to identify potential risks and suggest mitigation strategies.
         </p>
 
         <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
-          <h3 class="text-xl font-semibold mb-4">Risk Assessment Tools</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="text-center">
-              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
-                <Chart className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+          <h3 class="text-xl font-semibold mb-6 text-slate-800 dark:text-white">Risk Assessment Tools</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="${standardCardStyle} text-center">
+              <div class="${standardIconWrapperStyle}">
+                <svg class="${standardIconStyle}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 3v18h18 M3 12h18 M7 8l5-5 5 5 M7 16l5 5 5-5"/>
+                </svg>
               </div>
-              <h4 class="font-semibold mb-2">Market Analysis</h4>
-              <p class="text-sm text-slate-600 dark:text-slate-300">Real-time market trend analysis</p>
+              <h4 class="${standardHeadingStyle}">Market Analysis</h4>
+              <p class="text-sm ${standardTextStyle}">Real-time market trend analysis</p>
             </div>
-            <div class="text-center">
-              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
-                <NetworkIcon className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+            <div class="${standardCardStyle} text-center">
+              <div class="${standardIconWrapperStyle}">
+                <svg class="${standardIconStyle}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2a10 10 0 0110 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 6v4l3 3"/>
+                </svg>
               </div>
-              <h4 class="font-semibold mb-2">Network Analysis</h4>
-              <p class="text-sm text-slate-600 dark:text-slate-300">Systemic risk assessment</p>
+              <h4 class="${standardHeadingStyle}">Network Analysis</h4>
+              <p class="text-sm ${standardTextStyle}">Systemic risk assessment</p>
             </div>
-            <div class="text-center">
-              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
-                <DatabaseIcon className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+            <div class="${standardCardStyle} text-center">
+              <div class="${standardIconWrapperStyle}">
+                <svg class="${standardIconStyle}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 3H3v18h18V3zM9 9h6M9 15h6M9 12h6"/>
+                </svg>
               </div>
-              <h4 class="font-semibold mb-2">Data Analytics</h4>
-              <p class="text-sm text-slate-600 dark:text-slate-300">Historical pattern analysis</p>
+              <h4 class="${standardHeadingStyle}">Data Analytics</h4>
+              <p class="text-sm ${standardTextStyle}">Historical pattern analysis</p>
             </div>
           </div>
         </div>
 
-        <h2 class="text-2xl font-bold mt-8 mb-4">Fraud Detection</h2>
-        <p class="text-lg leading-relaxed">
-          Machine learning algorithms are playing a crucial role in detecting and preventing financial fraud. These systems can analyze transaction patterns and identify suspicious activities in real-time.
-        </p>
-
-        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
-          <h3 class="text-xl font-semibold mb-4">Fraud Prevention Features</h3>
-          <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
-            <li>Anomaly detection in transaction patterns</li>
-            <li>Behavioral analysis of user activities</li>
-            <li>Real-time fraud alerts</li>
-            <li>Automated investigation workflows</li>
-            <li>Pattern recognition across multiple accounts</li>
-          </ul>
-        </div>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4">Future Developments</h2>
-        <p class="text-lg leading-relaxed">
+        <h2 class="text-2xl font-bold mt-8 mb-4 text-slate-800 dark:text-white">Future Developments</h2>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
           The future of machine learning in finance holds exciting possibilities, from quantum computing applications to advanced natural language processing for market sentiment analysis.
         </p>
 
         <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
-          <h3 class="text-xl font-semibold mb-4">Emerging Technologies</h3>
+          <h3 class="text-xl font-semibold mb-6 text-slate-800 dark:text-white">Emerging Technologies</h3>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h4 class="font-semibold mb-2">Quantum Computing</h4>
-              <p class="text-slate-600 dark:text-slate-300">Enhanced computational power for complex financial models</p>
+            <div class="${standardCardStyle}">
+              <h4 class="${standardHeadingStyle}">Quantum Computing</h4>
+              <p class="${standardTextStyle}">Enhanced computational power for complex financial models</p>
             </div>
-            <div>
-              <h4 class="font-semibold mb-2">Natural Language Processing</h4>
-              <p class="text-slate-600 dark:text-slate-300">Advanced sentiment analysis of market news</p>
+            <div class="${standardCardStyle}">
+              <h4 class="${standardHeadingStyle}">Natural Language Processing</h4>
+              <p class="${standardTextStyle}">Advanced sentiment analysis of market news</p>
             </div>
-            <div>
-              <h4 class="font-semibold mb-2">Reinforcement Learning</h4>
-              <p class="text-slate-600 dark:text-slate-300">Dynamic trading strategy optimization</p>
+            <div class="${standardCardStyle}">
+              <h4 class="${standardHeadingStyle}">Reinforcement Learning</h4>
+              <p class="${standardTextStyle}">Dynamic trading strategy optimization</p>
             </div>
-            <div>
-              <h4 class="font-semibold mb-2">Explainable AI</h4>
-              <p class="text-slate-600 dark:text-slate-300">Transparent decision-making processes</p>
+            <div class="${standardCardStyle}">
+              <h4 class="${standardHeadingStyle}">Explainable AI</h4>
+              <p class="${standardTextStyle}">Transparent decision-making processes</p>
             </div>
           </div>
         </div>
@@ -1166,33 +1152,34 @@ export const blogs = [
           </div>
         </div>
 
-        <h2 class="text-2xl font-bold mt-8 mb-4">Software Ecosystem</h2>
-        <p class="text-lg leading-relaxed">
-          Beyond hardware, Nvidia has built a comprehensive software ecosystem that makes AI development more accessible and efficient.
-        </p>
-
-          <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
-          <h3 class="text-xl font-semibold mb-4">AI Development Tools</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="text-center">
-              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
-                <Code class="w-6 h-6 text-slate-600 dark:text-slate-300" />
+        <h2 class="text-2xl font-bold mt-8 mb-4">AI Development Tools</h2>
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center p-6 bg-white dark:bg-slate-700 rounded-lg shadow-sm">
+              <div class="inline-block p-4 bg-slate-100 dark:bg-slate-600 rounded-full mb-4">
+                <svg class="w-8 h-8 text-slate-700 dark:text-slate-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M8 9l3 3-3 3M13 15h3M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z"/>
+                </svg>
               </div>
-              <h4 class="font-semibold mb-2">CUDA</h4>
+              <h4 class="text-lg font-semibold mb-2 text-slate-800 dark:text-white">CUDA</h4>
               <p class="text-sm text-slate-600 dark:text-slate-300">Parallel computing platform</p>
             </div>
-            <div class="text-center">
-              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
-                <Terminal class="w-6 h-6 text-slate-600 dark:text-slate-300" />
+            <div class="text-center p-6 bg-white dark:bg-slate-700 rounded-lg shadow-sm">
+              <div class="inline-block p-4 bg-slate-100 dark:bg-slate-600 rounded-full mb-4">
+                <svg class="w-8 h-8 text-slate-700 dark:text-slate-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                </svg>
               </div>
-              <h4 class="font-semibold mb-2">TensorRT</h4>
+              <h4 class="text-lg font-semibold mb-2 text-slate-800 dark:text-white">TensorRT</h4>
               <p class="text-sm text-slate-600 dark:text-slate-300">High-performance inference</p>
             </div>
-            <div class="text-center">
-              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
-                <RocketIcon class="w-6 h-6 text-slate-600 dark:text-slate-300" />
+            <div class="text-center p-6 bg-white dark:bg-slate-700 rounded-lg shadow-sm">
+              <div class="inline-block p-4 bg-slate-100 dark:bg-slate-600 rounded-full mb-4">
+                <svg class="w-8 h-8 text-slate-700 dark:text-slate-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
               </div>
-              <h4 class="font-semibold mb-2">NVIDIA AI</h4>
+              <h4 class="text-lg font-semibold mb-2 text-slate-800 dark:text-white">NVIDIA AI</h4>
               <p class="text-sm text-slate-600 dark:text-slate-300">Enterprise AI platform</p>
             </div>
           </div>
@@ -1205,7 +1192,7 @@ export const blogs = [
 
         <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
           <h3 class="text-xl font-semibold mb-4">Transformative Applications</h3>
-          <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+          <ul class="list-disc list-inside space-y-3 text-slate-600 dark:text-slate-300">
             <li>Healthcare: Medical imaging analysis and drug discovery</li>
             <li>Automotive: Autonomous driving systems and simulation</li>
             <li>Finance: Fraud detection and algorithmic trading</li>
@@ -1222,20 +1209,20 @@ export const blogs = [
         <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
           <h3 class="text-xl font-semibold mb-4">Emerging Technologies</h3>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h4 class="font-semibold mb-2">AI Supercomputing</h4>
+            <div class="p-4 bg-white dark:bg-slate-700 rounded-lg">
+              <h4 class="font-semibold mb-2 text-slate-800 dark:text-white">AI Supercomputing</h4>
               <p class="text-slate-600 dark:text-slate-300">Exascale computing for AI research</p>
             </div>
-            <div>
-              <h4 class="font-semibold mb-2">Edge AI</h4>
+            <div class="p-4 bg-white dark:bg-slate-700 rounded-lg">
+              <h4 class="font-semibold mb-2 text-slate-800 dark:text-white">Edge AI</h4>
               <p class="text-slate-600 dark:text-slate-300">Bringing AI capabilities to edge devices</p>
             </div>
-            <div>
-              <h4 class="font-semibold mb-2">Omniverse</h4>
+            <div class="p-4 bg-white dark:bg-slate-700 rounded-lg">
+              <h4 class="font-semibold mb-2 text-slate-800 dark:text-white">Omniverse</h4>
               <p class="text-slate-600 dark:text-slate-300">Virtual simulation for AI training</p>
             </div>
-            <div>
-              <h4 class="font-semibold mb-2">AI Research</h4>
+            <div class="p-4 bg-white dark:bg-slate-700 rounded-lg">
+              <h4 class="font-semibold mb-2 text-slate-800 dark:text-white">AI Research</h4>
               <p class="text-slate-600 dark:text-slate-300">Advancing foundational AI capabilities</p>
             </div>
           </div>
@@ -1374,7 +1361,7 @@ export const blogs = [
         </div>
       </div>
     `,
-    image: "/src/data/1717845096797.png",
+    image: "/public/data/1717845096797.png",
     author: "Mainak Saha",
     date: "April 20, 2024",
     readTime: "8 min read",
@@ -1382,6 +1369,137 @@ export const blogs = [
     tags: ["India", "Technology", "Innovation", "Research"],
     likes: 0,
     comments: 0
-  }
+  },
+  {
+    id: 12,
+    title: "The Future of Education: AI-Powered Learning",
+    excerpt: "Exploring how artificial intelligence is transforming education through personalized learning, intelligent tutoring systems, and adaptive assessment tools.",
+    content: `
+      <div class="space-y-6">
+        <p class="text-lg leading-relaxed">
+          Artificial Intelligence is revolutionizing the education sector, offering personalized learning experiences and innovative teaching tools. From intelligent tutoring systems to automated grading and adaptive learning platforms, AI is reshaping how we learn and teach.
+        </p>
 
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold mb-4">Key Innovations</h3>
+          <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+            <li>Personalized learning paths for each student</li>
+            <li>Intelligent tutoring systems with real-time feedback</li>
+            <li>Automated grading and assessment tools</li>
+            <li>Adaptive learning platforms</li>
+            <li>Virtual learning assistants</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Personalized Learning</h2>
+        <p class="text-lg leading-relaxed">
+          AI-powered systems can analyze individual learning patterns and adapt content to match each student's pace and style. This personalization helps students learn more effectively and stay engaged with the material.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-4">Benefits</h3>
+            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+              <li>Customized learning paths</li>
+              <li>Adaptive difficulty levels</li>
+              <li>Targeted feedback</li>
+              <li>Progress tracking</li>
+            </ul>
+          </div>
+          <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-4">Applications</h3>
+            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+              <li>K-12 education</li>
+              <li>Higher education</li>
+              <li>Professional training</li>
+              <li>Language learning</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Intelligent Tutoring Systems</h2>
+        <p class="text-lg leading-relaxed">
+          AI-powered tutoring systems provide real-time assistance and feedback to students, helping them understand complex concepts and improve their skills.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-4">Features</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="text-center">
+              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
+                <Brain className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+              </div>
+              <h4 class="font-semibold mb-2">Adaptive Learning</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-300">Personalized content delivery</p>
+            </div>
+            <div class="text-center">
+              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
+                <Chart className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+              </div>
+              <h4 class="font-semibold mb-2">Progress Tracking</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-300">Real-time performance analysis</p>
+            </div>
+            <div class="text-center">
+              <div class="inline-block p-3 bg-slate-200 dark:bg-slate-700 rounded-full mb-2">
+                <RocketIcon className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+              </div>
+              <h4 class="font-semibold mb-2">Skill Development</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-300">Targeted practice exercises</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Automated Assessment</h2>
+        <p class="text-lg leading-relaxed">
+          AI systems are transforming assessment methods, providing instant feedback and reducing the workload on educators while maintaining accuracy and fairness.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-4">Assessment Tools</h3>
+          <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+            <li>Automated essay grading</li>
+            <li>Multiple-choice assessment</li>
+            <li>Code evaluation</li>
+            <li>Plagiarism detection</li>
+            <li>Performance analytics</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4">Future Developments</h2>
+        <p class="text-lg leading-relaxed">
+          The future of AI in education holds exciting possibilities, from virtual reality classrooms to advanced learning analytics and predictive modeling.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-4">Emerging Technologies</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold mb-2">Virtual Reality</h4>
+              <p class="text-slate-600 dark:text-slate-300">Immersive learning experiences</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Predictive Analytics</h4>
+              <p class="text-slate-600 dark:text-slate-300">Early intervention systems</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Natural Language Processing</h4>
+              <p class="text-slate-600 dark:text-slate-300">Advanced language learning tools</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Blockchain</h4>
+              <p class="text-slate-600 dark:text-slate-300">Secure credential verification</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `,
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80",
+    author: "Mainak Saha",
+    date: "April 25, 2024",
+    readTime: "7 min read",
+    category: "Education",
+    tags: ["AI", "Education", "Technology", "Learning"],
+    likes: 0,
+    comments: 0
+  }
 ]; 

@@ -5,9 +5,21 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { blogs } from '../data/blogs';
 import { slugify } from '../utils/slugify';
 
-const Blog = () => {
+interface Blog {
+  id: number;
+  title: string;
+  excerpt: string;
+  image: string;
+  author: string;
+  date: string;
+  readTime: string;
+  category: string;
+}
+
+const Blog: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isAutoSliding, setIsAutoSliding] = useState(true);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const navigate = useNavigate();
 
@@ -23,21 +35,40 @@ const Blog = () => {
   const maxSlides = isMobile ? blogs.length - 1 : Math.ceil(blogs.length / 3) - 1;
 
   const resetTimeout = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
   };
 
   useEffect(() => {
-    resetTimeout();
-    timeoutRef.current = setTimeout(() => {
-      setCurrentSlide((prev) => (prev === maxSlides ? 0 : prev + 1));
-    }, 10000);
+    if (isAutoSliding) {
+      resetTimeout();
+      timeoutRef.current = setTimeout(() => {
+        setCurrentSlide((prev) => (prev === maxSlides ? 0 : prev + 1));
+      }, 10000);
+    }
 
     return () => resetTimeout();
-  }, [currentSlide, maxSlides]);
+  }, [currentSlide, maxSlides, isAutoSliding]);
 
-  const goToSlide = (index: number) => setCurrentSlide(index);
-  const nextSlide = () => setCurrentSlide((prev) => (prev === maxSlides ? 0 : prev + 1));
-  const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? maxSlides : prev - 1));
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+    setIsAutoSliding(false);
+    resetTimeout();
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === maxSlides ? 0 : prev + 1));
+    setIsAutoSliding(false);
+    resetTimeout();
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? maxSlides : prev - 1));
+    setIsAutoSliding(false);
+    resetTimeout();
+  };
 
   const visibleBlogs = isMobile
     ? [blogs[currentSlide]]
@@ -51,6 +82,7 @@ const Blog = () => {
           <button
             onClick={() => navigate('/blog')}
             className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white transition-colors"
+            aria-label="View all blog posts"
           >
             View All Posts
             <ArrowRight className="w-4 h-4 ml-2" />
@@ -65,64 +97,65 @@ const Blog = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex gap-8"
+              className="grid grid-cols-1 md:grid-cols-3 gap-8"
             >
               {visibleBlogs.map((blog) => (
-                <div key={blog.id} className={`${isMobile ? 'w-full' : 'w-1/3'} flex-shrink-0`}>
-                  <motion.div
-                    whileHover={{ y: -5 }}
-                    className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-                  >
-                    <div className="relative h-56 overflow-hidden group flex-shrink-0">
-                      <img
-                        src={blog.image}
-                        alt={blog.title}
-                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white text-sm font-medium rounded-full">
-                          {blog.category}
-                        </span>
+                <motion.div
+                  key={blog.id}
+                  whileHover={{ y: -5 }}
+                  className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+                >
+                  <div className="relative h-56 overflow-hidden group">
+                    <img
+                      src={blog.image}
+                      alt={blog.title}
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1 bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white text-sm font-medium rounded-full">
+                        {blog.category}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="p-6 flex flex-col flex-grow">
+                    <div className="flex flex-wrap items-center text-sm text-slate-500 dark:text-slate-400 mb-3 space-x-4">
+                      <div className="flex items-center">
+                        <User className="w-4 h-4 mr-1" />
+                        {blog.author}
+                      </div>
+                      <div className="flex items-center">
+                        <Calendar className="w-4 h-4 mr-1" />
+                        {blog.date}
+                      </div>
+                      <div className="flex items-center">
+                        <Clock className="w-4 h-4 mr-1" />
+                        {blog.readTime}
                       </div>
                     </div>
 
-                    <div className="p-6 flex flex-col flex-grow">
-                      <div className="flex flex-wrap items-center text-sm text-slate-500 dark:text-slate-400 mb-3 space-x-4">
-                        <div className="flex items-center">
-                          <User className="w-4 h-4 mr-1" />
-                          {blog.author}
-                        </div>
-                        <div className="flex items-center">
-                          <Calendar className="w-4 h-4 mr-1" />
-                          {blog.date}
-                        </div>
-                        <div className="flex items-center">
-                          <Clock className="w-4 h-4 mr-1" />
-                          {blog.readTime}
-                        </div>
-                      </div>
+                    <h3 className="text-xl font-semibold text-slate-800 dark:text-white mb-2">
+                      {blog.title}
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-300 mb-4 line-clamp-3 flex-grow">
+                      {blog.excerpt}
+                    </p>
 
-                      <h3 className="text-xl font-semibold text-slate-800 dark:text-white mb-2">
-                        {blog.title}
-                      </h3>
-                      <p className="text-slate-600 dark:text-slate-300 mb-4 line-clamp-3 flex-grow">
-                        {blog.excerpt}
-                      </p>
-
-                      <button
-                        onClick={() => {
-                          const blogSlug = slugify(blog.title);
-                          navigate(`/blog/${blogSlug}`);
-                        }}
-                        className="inline-flex items-center text-slate-800 dark:text-white font-medium hover:text-slate-600 dark:hover:text-slate-300 transition-colors mt-auto"
-                      >
-                        Read More
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </button>
-                    </div>
-                  </motion.div>
-                </div>
+                    <button
+                      onClick={() => {
+                        const blogSlug = slugify(blog.title);
+                        navigate(`/blog/${blogSlug}`);
+                      }}
+                      className="inline-flex items-center text-slate-800 dark:text-white font-medium hover:text-slate-600 dark:hover:text-slate-300 transition-colors mt-auto"
+                      aria-label={`Read more about ${blog.title}`}
+                    >
+                      Read More
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </button>
+                  </div>
+                </motion.div>
               ))}
             </motion.div>
           </AnimatePresence>
@@ -132,6 +165,7 @@ const Blog = () => {
               <button
                 onClick={prevSlide}
                 className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
+                aria-label="Previous slide"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
@@ -139,6 +173,7 @@ const Blog = () => {
               <button
                 onClick={nextSlide}
                 className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
+                aria-label="Next slide"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
@@ -151,6 +186,7 @@ const Blog = () => {
                     className={`w-2 h-2 rounded-full transition-colors ${
                       currentSlide === index ? 'bg-slate-800 dark:bg-white' : 'bg-slate-300 dark:bg-slate-600'
                     }`}
+                    aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
               </div>
