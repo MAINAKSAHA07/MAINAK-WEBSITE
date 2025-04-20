@@ -54,7 +54,7 @@ const Contact = () => {
                 msaha4@asu.edu
               </a>
               <a
-                href="https://linkedin.com/MAINAKSAHA08"
+                href="https://www.linkedin.com/in/mainaksaha08/"
                 className="flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
               >
                 <Linkedin className="w-5 h-5 mr-3" />
