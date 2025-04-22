@@ -18,7 +18,7 @@ const Hero = () => {
         <div className="text-center">
           <div className="mb-8">
             <img
-              src="https://i.ibb.co/zhjqH1f/Mainak-RESUME-PHOTO.png"
+              src="/assets/Mainak-RESUME-PHOTO.webp"
               alt="Mainak Malay Saha"
               className="w-48 h-48 rounded-full mx-auto shadow-lg object-cover ring-4 ring-white dark:ring-slate-700"
             />

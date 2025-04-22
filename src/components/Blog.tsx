@@ -5,17 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { blogs } from '../data/blogs';
 import { slugify } from '../utils/slugify';
 
-interface Blog {
-  id: number;
-  title: string;
-  excerpt: string;
-  image: string;
-  author: string;
-  date: string;
-  readTime: string;
-  category: string;
-}
-
 const Blog: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -48,7 +37,6 @@ const Blog: React.FC = () => {
         setCurrentSlide((prev) => (prev === maxSlides ? 0 : prev + 1));
       }, 10000);
     }
-
     return () => resetTimeout();
   }, [currentSlide, maxSlides, isAutoSliding]);
 
@@ -75,13 +63,13 @@ const Blog: React.FC = () => {
     : blogs.slice(currentSlide * 3, currentSlide * 3 + 3);
 
   return (
-    <section id="blog" className="py-20 bg-white dark:bg-slate-900">
+    <section id="blog" className="py-20 bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-16">
-          <h2 className="text-3xl font-bold text-slate-800 dark:text-white mb-4 sm:mb-0">Latest Blog Posts</h2>
+          <h2 className="text-3xl font-bold text-white mb-4 sm:mb-0">Latest Blog Posts</h2>
           <button
             onClick={() => navigate('/blog')}
-            className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white transition-colors"
+            className="inline-flex items-center text-slate-300 hover:text-white transition-colors"
             aria-label="View all blog posts"
           >
             View All Posts
@@ -103,29 +91,24 @@ const Blog: React.FC = () => {
                 <motion.div
                   key={blog.id}
                   whileHover={{ y: -5 }}
-                  className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+                  className="bg-slate-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
                 >
-                  <div className="relative h-56 overflow-hidden group">
-                    <img
-                      src={blog.image}
-                      alt={blog.title}
-                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white text-sm font-medium rounded-full">
+                  <div className="relative h-48 overflow-hidden">
+                    <div className="absolute top-4 left-4 z-10">
+                      <span className="px-3 py-1 bg-slate-900/90 text-white text-sm font-medium rounded-full">
                         {blog.category}
                       </span>
                     </div>
+                    <img
+                      src={blog.image}
+                      alt={blog.title}
+                      className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                    />
                   </div>
 
-                  <div className="p-6 flex flex-col flex-grow">
-                    <div className="flex flex-wrap items-center text-sm text-slate-500 dark:text-slate-400 mb-3 space-x-4">
-                      <div className="flex items-center">
-                        <User className="w-4 h-4 mr-1" />
-                        {blog.author}
-                      </div>
+                  <div className="p-6">
+                    <div className="flex items-center text-sm text-slate-400 mb-3 space-x-4">
                       <div className="flex items-center">
                         <Calendar className="w-4 h-4 mr-1" />
                         {blog.date}
@@ -136,24 +119,27 @@ const Blog: React.FC = () => {
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-semibold text-slate-800 dark:text-white mb-2">
+                    <h3 className="text-xl font-semibold text-white mb-2 line-clamp-2">
                       {blog.title}
                     </h3>
-                    <p className="text-slate-600 dark:text-slate-300 mb-4 line-clamp-3 flex-grow">
+                    <p className="text-slate-300 mb-4 line-clamp-2">
                       {blog.excerpt}
                     </p>
 
-                    <button
-                      onClick={() => {
-                        const blogSlug = slugify(blog.title);
-                        navigate(`/blog/${blogSlug}`);
-                      }}
-                      className="inline-flex items-center text-slate-800 dark:text-white font-medium hover:text-slate-600 dark:hover:text-slate-300 transition-colors mt-auto"
-                      aria-label={`Read more about ${blog.title}`}
-                    >
-                      Read More
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </button>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center text-sm text-slate-400">
+                        <User className="w-4 h-4 mr-1" />
+                        {blog.author}
+                      </div>
+                      <button
+                        onClick={() => navigate(`/blog/${slugify(blog.title)}`)}
+                        className="inline-flex items-center text-white hover:text-slate-300 transition-colors"
+                        aria-label={`Read more about ${blog.title}`}
+                      >
+                        Read More
+                        <ArrowRight className="w-4 h-4 ml-1" />
+                      </button>
+                    </div>
                   </div>
                 </motion.div>
               ))}
@@ -164,7 +150,7 @@ const Blog: React.FC = () => {
             <>
               <button
                 onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-slate-800/80 text-white hover:bg-slate-700 transition-colors shadow-lg"
                 aria-label="Previous slide"
               >
                 <ChevronLeft className="w-6 h-6" />
@@ -172,19 +158,19 @@ const Blog: React.FC = () => {
 
               <button
                 onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-slate-800/80 text-white hover:bg-slate-700 transition-colors shadow-lg"
                 aria-label="Next slide"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
 
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex space-x-2">
                 {Array.from({ length: maxSlides + 1 }).map((_, index) => (
                   <button
                     key={index}
                     onClick={() => goToSlide(index)}
                     className={`w-2 h-2 rounded-full transition-colors ${
-                      currentSlide === index ? 'bg-slate-800 dark:bg-white' : 'bg-slate-300 dark:bg-slate-600'
+                      currentSlide === index ? 'bg-white' : 'bg-slate-600'
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />

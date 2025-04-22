@@ -46,27 +46,33 @@ const Contact = () => {
           <div>
             <h3 className="text-xl font-semibold text-slate-800 dark:text-white mb-6">Contact Information</h3>
             <div className="space-y-4">
-              <a
-                href="mailto:msaha4@asu.edu"
-                className="flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
-              >
-                <Mail className="w-5 h-5 mr-3" />
-                msaha4@asu.edu
-              </a>
-              <a
-                href="https://www.linkedin.com/in/mainaksaha08/"
-                className="flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
-              >
-                <Linkedin className="w-5 h-5 mr-3" />
-                LinkedIn Profile
-              </a>
-              <a
-                href="https://github.com/MAINAKSAHA07"
-                className="flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
-              >
-                <Github className="w-5 h-5 mr-3" />
-                GitHub Profile
-              </a>
+              <div className="flex justify-center space-x-6">
+                <a
+                  href="https://github.com/mainaksaha07"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-800 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white transition-colors"
+                  aria-label="Visit my GitHub profile"
+                >
+                  <Github className="w-6 h-6" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/mainaksaha08/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-800 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white transition-colors"
+                  aria-label="Visit my LinkedIn profile"
+                >
+                  <Linkedin className="w-6 h-6" />
+                </a>
+                <a
+                  href="mailto:msaha4@asu.edu"
+                  className="text-slate-800 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white transition-colors"
+                  aria-label="Send me an email"
+                >
+                  <Mail className="w-6 h-6" />
+                </a>
+              </div>
             </div>
 
             <div className="mt-12">
