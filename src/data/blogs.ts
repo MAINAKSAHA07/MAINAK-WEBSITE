@@ -1757,7 +1757,7 @@ export const blogs = [
         </div>
       </div>
     `,
-    image: "/assests/aifood.png",
+    image: "/assets/aifood.png",
     author: "Mainak Saha",
     date: "May 1, 2024",
     readTime: "7 min read",
