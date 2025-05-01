@@ -1897,5 +1897,88 @@ export const blogs = [
     tags: ["Analytics", "Business", "Data Science", "Strategy"],
     likes: 0,
     comments: 0
+  },
+  {
+    id: 16,
+    title: "Sentiment Analysis for Stress Detection During Jogging",
+    excerpt: "Exploring how sentiment analysis and biometric data can be used to detect and manage stress levels during physical exercise.",
+    content: `
+      <div class="space-y-6">
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          The integration of sentiment analysis with biometric monitoring during jogging opens new possibilities for understanding and managing stress levels. By analyzing both physiological data and emotional responses, we can create a comprehensive stress detection system that helps runners optimize their performance and well-being.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-white">Key Takeaways</h3>
+          <ul class="list-disc list-inside space-y-3 text-slate-600 dark:text-slate-300">
+            <li>Real-time stress detection through biometric sensors</li>
+            <li>Emotional state analysis using sentiment analysis</li>
+            <li>Personalized feedback for stress management</li>
+            <li>Integration with fitness tracking apps</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4 text-slate-800 dark:text-white">Biometric Monitoring</h2>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          Modern wearable devices can track various physiological indicators of stress, including heart rate variability, skin conductance, and breathing patterns. These metrics provide valuable insights into the body's stress response during physical activity.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div class="${standardCardStyle}">
+            <h3 class="${standardHeadingStyle}">Key Metrics</h3>
+            <ul class="list-disc list-inside space-y-3 ${standardTextStyle}">
+              <li>Heart rate variability (HRV)</li>
+              <li>Galvanic skin response (GSR)</li>
+              <li>Breathing rate and patterns</li>
+              <li>Muscle tension levels</li>
+            </ul>
+          </div>
+          <div class="${standardCardStyle}">
+            <h3 class="${standardHeadingStyle}">Applications</h3>
+            <ul class="list-disc list-inside space-y-3 ${standardTextStyle}">
+              <li>Stress level monitoring</li>
+              <li>Performance optimization</li>
+              <li>Injury prevention</li>
+              <li>Recovery tracking</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4 text-slate-800 dark:text-white">Sentiment Analysis Integration</h2>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          By combining biometric data with sentiment analysis of voice patterns and facial expressions, we can create a more comprehensive understanding of stress levels during jogging. This multimodal approach provides more accurate and personalized insights.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg mt-8">
+          <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-white">Future Developments</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold mb-2">AI-Powered Analysis</h4>
+              <p class="text-slate-600 dark:text-slate-300">Advanced machine learning for pattern recognition</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Real-time Feedback</h4>
+              <p class="text-slate-600 dark:text-slate-300">Instant stress level notifications</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Personalized Training</h4>
+              <p class="text-slate-600 dark:text-slate-300">Customized workout recommendations</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Health Integration</h4>
+              <p class="text-slate-600 dark:text-slate-300">Connection with healthcare providers</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `,
+    image: "/assets/sentiment.png",
+    author: "Mainak Saha",
+    date: "May 6, 2024",
+    readTime: "7 min read",
+    category: "Technology",
+    tags: ["Sentiment Analysis", "Health Tech", "AI", "Fitness"],
+    likes: 0,
+    comments: 0
   }
 ]; 
