@@ -12,7 +12,10 @@ import BlogPost from './components/BlogPost';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
+import CustomCursor from './components/CustomCursor';
 import { useTheme } from './context/ThemeContext';
+import Games from './pages/Games';
+import InteractiveBallsGame from './pages/games/InteractiveBallsGame';
 
 function App() {
   const { theme } = useTheme();
@@ -23,6 +26,7 @@ function App() {
         theme === 'dark' ? 'bg-slate-900' : 'bg-slate-50'
       }`}>
         <ParticleBackground />
+        <CustomCursor />
         <Navbar />
         <Routes>
           <Route path="/" element={
@@ -38,6 +42,8 @@ function App() {
           } />
           <Route path="/blog" element={<BlogsPage />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/games" element={<Games />} />
+          <Route path="/games/interactive-balls" element={<InteractiveBallsGame />} />
         </Routes>
         <Footer />
       </div>

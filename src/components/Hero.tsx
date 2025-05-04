@@ -3,6 +3,16 @@ import { Github, Linkedin, Mail, FileDown } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import ParticleBackground from './ParticleBackground';
 
+// Declare the custom element for TypeScript/React
+// eslint-disable-next-line @typescript-eslint/no-namespace
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'a-hole': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+    }
+  }
+}
+
 const Hero = () => {
   const sectionRef = useIntersectionObserver();
 
@@ -10,8 +20,14 @@ const Hero = () => {
     <section 
       ref={sectionRef}
       id="home" 
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 pt-16 section-fade-in"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 pt-16 section-fade-in relative overflow-hidden"
     >
+      {/* Animated a-hole background */}
+      <a-hole style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
+        <canvas className="js-canvas"></canvas>
+        <div className="aura"></div>
+        <div className="overlay"></div>
+      </a-hole>
       <ParticleBackground />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
