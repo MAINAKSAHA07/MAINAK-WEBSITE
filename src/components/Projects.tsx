@@ -29,7 +29,20 @@ const Projects = () => {
         "Developing a multi-tier emergency response mechanism"
       ],
       "status": "In Idea & Research Stage"
-    },    
+    },
+    {
+      "title": "Automated Warehouse Scenario",
+      "description": "A sophisticated Answer Set Programming (ASP) based simulation of an automated warehouse environment, optimizing robot movements and task completion.",
+      "image": "/assets/warehouse.png",
+      "tags": ["Answer Set Programming", "Python", "Robotics", "Optimization"],
+      "achievements": [
+        "Implemented multi-robot coordination system",
+        "Developed shelf handling and product delivery optimization",
+        "Created path tracking and logging system",
+        "Built multiple test instances for simulation"
+      ],
+      "githubLink": "https://github.com/MAINAKSAHA07/Automated-Warehouse_Scenario"
+    },
     {
       title: "Pololu 3pi + Robot",
       description: "Developed an autonomous line-following and maze-solving robot with 95% accuracy using embedded systems expertise.",
