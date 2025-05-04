@@ -16,6 +16,7 @@ import CustomCursor from './components/CustomCursor';
 import { useTheme } from './context/ThemeContext';
 import Games from './pages/Games';
 import InteractiveBallsGame from './pages/games/InteractiveBallsGame';
+import StackGame from './pages/games/StackGame';
 
 function App() {
   const { theme } = useTheme();
@@ -44,6 +45,7 @@ function App() {
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/games" element={<Games />} />
           <Route path="/games/interactive-balls" element={<InteractiveBallsGame />} />
+          <Route path="/games/stack-game" element={<StackGame />} />
         </Routes>
         <Footer />
       </div>

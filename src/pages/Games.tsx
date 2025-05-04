@@ -8,6 +8,12 @@ const games = [
     image: '/assets/ball_light.png',
     path: '/games/interactive-balls'
   },
+  {
+    title: 'Stack Game',
+    description: 'Click or press the spacebar to stack the blocks as high as you can!',
+    image: '/assets/stack.png',
+    path: '/games/stack-game'
+  },
   // Add more games here as you create them
 ];
 
