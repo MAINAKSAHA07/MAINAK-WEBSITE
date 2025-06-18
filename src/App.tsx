@@ -23,31 +23,35 @@ function App() {
 
   return (
     <Router>
-      <div className={`min-h-screen transition-colors duration-300 ${
+      <div className={`min-h-screen w-full transition-colors duration-300 ${
         theme === 'dark' ? 'bg-slate-900' : 'bg-slate-50'
       }`}>
-        <ParticleBackground />
+        <div className="fixed inset-0">
+          <ParticleBackground />
+        </div>
         <CustomCursor />
         <Navbar />
-        <Routes>
-          <Route path="/" element={
-            <main className="relative z-10">
-              <Hero />
-              <About />
-              <Projects />
-              <Experience />
-              <Leadership />
-              <Blog />
-              <Contact />
-            </main>
-          } />
-          <Route path="/blog" element={<BlogsPage />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/games" element={<Games />} />
-          <Route path="/games/interactive-balls" element={<InteractiveBallsGame />} />
-          <Route path="/games/stack-game" element={<StackGame />} />
-        </Routes>
-        <Footer />
+        <div className="relative z-10">
+          <Routes>
+            <Route path="/" element={
+              <main>
+                <Hero />
+                <About />
+                <Projects />
+                <Experience />
+                <Leadership />
+                <Blog />
+                <Contact />
+              </main>
+            } />
+            <Route path="/blog" element={<BlogsPage />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/games" element={<Games />} />
+            <Route path="/games/interactive-balls" element={<InteractiveBallsGame />} />
+            <Route path="/games/stack-game" element={<StackGame />} />
+          </Routes>
+          <Footer />
+        </div>
       </div>
     </Router>
   );
