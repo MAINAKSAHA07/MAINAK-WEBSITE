@@ -111,7 +111,7 @@ const Navbar = () => {
               )}
             </button>
             <a
-              href="/assets/MAINAKSAHA_RESUME_jun18.pdf"
+              href="/assets/MAINAKSAHA_RESUME_jun19.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
