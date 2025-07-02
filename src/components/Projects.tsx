@@ -103,6 +103,19 @@ const Projects = () => {
         "Achieved high accuracy in emotion classification"
       ],
       githubLink: "https://github.com/MAINAKSAHA07/MLA_Project"
+    },
+    {
+      title: "Ball Tracking with Live Trajectory Visualization",
+      description: "Real-time ball tracking system with live trajectory visualization using OpenCV and Matplotlib. Features physics-based prediction, performance optimization with blitting, and advanced visualization with Rerun SDK.",
+      image: "/assets/balltracking.png",
+      tags: ["Computer Vision", "Python", "OpenCV", "Physics"],
+      achievements: [
+        "Implemented real-time ball tracking with OpenCV computer vision",
+        "Developed live trajectory visualization with Matplotlib blitting",
+        "Created physics-based prediction using polynomial fitting",
+        "Built advanced 3D visualization with Rerun SDK"
+      ],
+      githubLink: "https://github.com/MAINAKSAHA07/Balltracking_pathploting"
     }
   ];
 
@@ -129,10 +142,17 @@ const Projects = () => {
     ? [projects[currentSlide]]
     : projects.slice(currentSlide * 3, currentSlide * 3 + 3);
 
+  // Fill with placeholders if fewer than 3 projects on desktop
+  const filledProjects = isMobile
+    ? visibleProjects
+    : [...visibleProjects, ...Array(3 - visibleProjects.length).fill(null)];
+
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-slate-800 dark:text-white mb-16">Featured Projects</h2>
+    <section id="projects" className="section-padding bg-white dark:bg-slate-900">
+      <div className="container">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-800 dark:text-white mb-16 tracking-tight">
+          Featured Projects
+        </h2>
         
         <div className="relative overflow-hidden">
           <AnimatePresence mode="wait">
@@ -142,73 +162,77 @@ const Projects = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-4"
             >
-              {visibleProjects.map((project, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ y: -5 }}
-                  className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-                >
-                  <div className="relative h-56 overflow-hidden group flex-shrink-0">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white text-sm font-medium rounded-full">
-                        {project.tags[0]}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-xl font-semibold text-slate-800 dark:text-white mb-3">
-                      {project.title}
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-300 mb-4 line-clamp-2">
-                      {project.description}
-                    </p>
-
-                    <div className="mb-4 flex-grow">
-                      <h4 className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Key Achievements:</h4>
-                      <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-1">
-                        {project.achievements.map((achievement, i) => (
-                          <li key={i} className="flex items-start">
-                            <span className="inline-block w-1.5 h-1.5 bg-slate-400 dark:bg-slate-500 rounded-full mt-2 mr-2"></span>
-                            <span className="line-clamp-1">{achievement}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tags.slice(1).map((tag, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-sm text-slate-600 dark:text-slate-300 rounded-full"
-                        >
-                          {tag}
+              {filledProjects.map((project, index) =>
+                project ? (
+                  <motion.div
+                    key={index}
+                    whileHover={{ y: -5 }}
+                    className="card card-hover-effect h-full min-h-[340px] flex flex-col p-3"
+                  >
+                    <div className="relative h-64 overflow-hidden group flex-shrink-0">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="absolute top-4 left-4">
+                        <span className="px-3 py-1 bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white text-sm font-medium rounded-full">
+                          {project.tags[0]}
                         </span>
-                      ))}
+                      </div>
                     </div>
 
-                    <div className="flex space-x-4 mt-auto">
-                      <a 
-                        href={project.githubLink || "https://github.com/MAINAKSAHA07"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
-                      >
-                        <Github className="w-5 h-5 mr-1" />
-                        Code
-                      </a>
+                    <div className="p-6 flex flex-col flex-grow">
+                      <h3 className="text-base md:text-lg font-semibold text-slate-800 dark:text-white mb-2 tracking-tight">
+                        {project.title}
+                      </h3>
+                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300 mb-4 line-clamp-2 leading-relaxed">
+                        {project.description}
+                      </p>
+
+                      <div className="mb-4 flex-grow">
+                        <h4 className="text-xs font-medium text-slate-700 dark:text-slate-300 mb-2">Key Achievements:</h4>
+                        <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-1">
+                          {project.achievements.map((achievement: string, i: number) => (
+                            <li key={i} className="flex items-start">
+                              <span className="inline-block w-1 h-1 bg-slate-400 dark:bg-slate-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                              <span className="line-clamp-1 leading-relaxed">{achievement}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="flex flex-wrap gap-1 mb-4">
+                        {project.tags.slice(1).map((tag: string, i: number) => (
+                          <span
+                            key={i}
+                            className="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-xs text-slate-600 dark:text-slate-300 rounded-full"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="flex space-x-4 mt-auto">
+                        <a 
+                          href={project.githubLink || "https://github.com/MAINAKSAHA07"}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200"
+                        >
+                          <Github className="w-5 h-5 mr-2" />
+                          Code
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                ) : (
+                  <div key={index} className="invisible lg:block h-full min-h-[420px]" />
+                )
+              )}
             </motion.div>
           </AnimatePresence>
 
@@ -216,14 +240,14 @@ const Projects = () => {
             <>
               <button
                 onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
 
               <button
                 onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>

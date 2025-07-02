@@ -12,7 +12,6 @@ import BlogPost from './components/BlogPost';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
-import CustomCursor from './components/CustomCursor';
 import { useTheme } from './context/ThemeContext';
 import Games from './pages/Games';
 import InteractiveBallsGame from './pages/games/InteractiveBallsGame';
@@ -29,7 +28,6 @@ function App() {
         <div className="fixed inset-0">
           <ParticleBackground />
         </div>
-        <CustomCursor />
         <Navbar />
         <div className="relative z-10">
           <Routes>

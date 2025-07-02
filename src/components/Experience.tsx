@@ -5,6 +5,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Experience = () => {
   const experiences = [
     {
+      role: "Graduate Research Assistant",
+      company: "ASU Center for Engagement Science – Adidas, ASU",
+      period: "May 25 – Present",
+      description: "Collaborating on multidisciplinary research focused on motion analysis and real-time feedback for athletic performance enhancement.",
+      achievements: [
+        "Collaborating with Dr. Aurel Coza on a multidisciplinary research project focused on motion analysis and real-time feedback for athletic performance.",
+        "Developing an iOS application using Swift that integrates OpenCV for real-time video processing and motion detection.",
+        "Designing and implementing algorithms to analyze human movement patterns and provide actionable feedback for enhanced physical training outcomes.",
+        "Working closely with UI/UX and data science teams to ensure usability, performance, and data accuracy."
+      ]
+    },
+    {
       role: "Data Engineering Intern",
       company: "Looqup.AI, Boston, USA",
       period: "Mar 25 – Apr 25",
@@ -59,71 +71,85 @@ const Experience = () => {
   const prev = () => setCurrent((prev) => (prev === 0 ? maxIndex : prev - 1));
   const next = () => setCurrent((prev) => (prev >= maxIndex ? 0 : prev + 1));
 
-  const visibleExperiences = experiences.slice(current, current + cardsToShow);
+  let visibleExperiences = experiences.slice(current, current + cardsToShow);
   // If at the end, wrap around to show the first card(s)
   if (visibleExperiences.length < cardsToShow) {
-    visibleExperiences.push(...experiences.slice(0, cardsToShow - visibleExperiences.length));
+    visibleExperiences = visibleExperiences.concat(Array(cardsToShow - visibleExperiences.length).fill(null));
   }
 
   return (
-    <section id="experience" className="py-20 bg-white dark:bg-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-slate-800 dark:text-white mb-16">Professional Experience</h2>
+    <section id="experience" className="section-padding bg-white dark:bg-slate-900">
+      <div className="container">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-800 dark:text-white mb-16 tracking-tight">
+          Professional Experience
+        </h2>
         <div className="relative">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <AnimatePresence mode="wait">
-              {visibleExperiences.map((exp, idx) => (
-                <motion.div
-                  key={exp.role + exp.company}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -50 }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-slate-50 dark:bg-slate-800 rounded-xl shadow-md p-8 flex flex-col border border-slate-200 dark:border-slate-700 h-full min-h-[420px]"
-                >
-                  <div className="flex items-center mb-4">
-                    <Briefcase className="w-5 h-5 text-blue-500 dark:text-blue-400 mr-2" />
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mr-2">{exp.role}</h3>
-                  </div>
-                  <div className="flex items-center text-slate-600 dark:text-slate-400 mb-1">
-                    <span className="font-medium">{exp.company}</span>
-                  </div>
-                  <div className="flex items-center text-slate-500 dark:text-slate-400 mb-4">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    <span className="text-sm">{exp.period}</span>
-                  </div>
-                  <p className="text-slate-700 dark:text-slate-300 mb-4 font-medium">{exp.description}</p>
-                  <ul className="space-y-2 pl-2">
-                    {exp.achievements.map((achievement, i) => (
-                      <li key={i} className="flex items-start">
-                        <span className="inline-block w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        <span className="text-slate-700 dark:text-slate-300 leading-relaxed">{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
+              {visibleExperiences.map((exp, idx) =>
+                exp ? (
+                  <motion.div
+                    key={exp.role + exp.company}
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -50 }}
+                    transition={{ duration: 0.5 }}
+                    className="card card-hover-effect h-full min-h-[420px]"
+                  >
+                    <div className="p-8 flex flex-col h-full">
+                      <div className="flex items-center mb-6">
+                        <Briefcase className="w-6 h-6 text-blue-500 dark:text-blue-400 mr-3" />
+                        <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+                          {exp.role}
+                        </h3>
+                      </div>
+                      <div className="flex items-center text-slate-600 dark:text-slate-400 mb-2">
+                        <span className="font-medium text-lg">{exp.company}</span>
+                      </div>
+                      <div className="flex items-center text-slate-500 dark:text-slate-400 mb-6">
+                        <Calendar className="w-5 h-5 mr-2" />
+                        <span className="text-base">{exp.period}</span>
+                      </div>
+                      <p className="text-slate-700 dark:text-slate-300 mb-6 font-medium leading-relaxed text-lg">
+                        {exp.description}
+                      </p>
+                      <ul className="space-y-3 pl-2 flex-grow">
+                        {exp.achievements.map((achievement, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="inline-block w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full mt-2.5 mr-4 flex-shrink-0"></span>
+                            <span className="text-slate-700 dark:text-slate-300 leading-relaxed text-base">
+                              {achievement}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                ) : (
+                  <div key={idx} className="invisible md:block h-full min-h-[420px]" />
+                )
+              )}
             </AnimatePresence>
           </div>
 
           {/* Carousel Controls */}
           <button
             onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
+            className="absolute left-0 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
             aria-label="Previous Experience"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
+            className="absolute right-0 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
             aria-label="Next Experience"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
 
           {/* Dots */}
-          <div className="flex justify-center mt-6 space-x-2">
+          <div className="flex justify-center mt-8 space-x-3">
             {Array.from({ length: experiences.length }).map((_, idx) => (
               <button
                 key={idx}

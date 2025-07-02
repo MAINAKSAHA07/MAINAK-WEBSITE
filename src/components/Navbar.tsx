@@ -78,22 +78,22 @@ const Navbar = () => {
         ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm' 
         : 'bg-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
-          <Link to="/" className="flex items-center space-x-2 group">
+      <div className="container">
+        <div className="flex justify-between h-20 items-center">
+          <Link to="/" className="flex items-center space-x-3 group">
             <Logo />
-            <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600 dark:from-slate-200 dark:to-slate-400 group-hover:opacity-80 transition-opacity">
+            <span className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600 dark:from-slate-200 dark:to-slate-400 group-hover:opacity-80 transition-opacity tracking-tight">
               MS
             </span>
           </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-10">
             {navLinks.map((link, index) => (
               <Link
                 key={link.name}
                 to={link.path}
                 onClick={(e) => handleNavClick(link.path, e)}
-                className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors transform hover:scale-110"
+                className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200 transform hover:scale-105 font-medium text-base"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {link.name}
@@ -101,7 +101,7 @@ const Navbar = () => {
             ))}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 transform hover:rotate-180"
+              className="p-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 transform hover:rotate-180"
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? (
@@ -114,7 +114,7 @@ const Navbar = () => {
               href="/assets/MAINAKSAHA_RESUME_jun22.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+              className="btn-primary"
             >
               Resume
             </a>
@@ -123,7 +123,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center space-x-4">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 transform hover:rotate-180"
+              className="p-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 transform hover:rotate-180"
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? (
@@ -134,9 +134,9 @@ const Navbar = () => {
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-600 dark:text-slate-300 transition-transform duration-300 transform hover:scale-110"
+              className="text-slate-600 dark:text-slate-300 transition-transform duration-300 transform hover:scale-110 p-2"
             >
-              {isOpen ? <X /> : <Menu />}
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -144,13 +144,13 @@ const Navbar = () => {
 
       {isOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-slate-800 shadow-lg">
+          <div className="px-4 pt-4 pb-6 space-y-2 bg-white dark:bg-slate-800 shadow-lg">
             {navLinks.map((link, index) => (
               <Link
                 key={link.name}
                 to={link.path}
                 onClick={(e) => handleNavClick(link.path, e)}
-                className="block px-3 py-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 rounded-md transition-all duration-300 animate-slide-right"
+                className="block px-4 py-3 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg transition-all duration-300 animate-slide-right font-medium text-base"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {link.name}
@@ -160,7 +160,7 @@ const Navbar = () => {
               href="/MAINAKSAHA_RESUME_Apr10.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="block px-3 py-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 rounded-md transition-all duration-300 animate-slide-right"
+              className="block px-4 py-3 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg transition-all duration-300 animate-slide-right font-medium text-base"
               style={{ animationDelay: `${navLinks.length * 100}ms` }}
             >
               Resume

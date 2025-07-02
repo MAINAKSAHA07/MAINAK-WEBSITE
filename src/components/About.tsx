@@ -54,32 +54,44 @@ const About = () => {
   }
 
   return (
-    <section id="about" className="py-20 bg-white dark:bg-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-slate-800 dark:text-white mb-16">About Me</h2>
-        <div className="grid md:grid-cols-2 gap-12">
-          <div>
-            <h3 className="text-xl font-semibold mb-4 text-slate-700 dark:text-slate-300">Education</h3>
-            <div className="space-y-6">
+    <section id="about" className="section-padding bg-white dark:bg-slate-900">
+      <div className="container">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-800 dark:text-white mb-16 tracking-tight">
+          About Me
+        </h2>
+        <div className="flex flex-col md:flex-row gap-12 md:gap-16">
+          <div className="md:w-1/2 min-w-0">
+            <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-slate-700 dark:text-slate-300 tracking-tight">
+              Education
+            </h3>
+            <div className="space-y-8">
               {education.map((edu, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
-                    <edu.icon className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+                <div key={index} className="flex items-start space-x-6">
+                  <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl">
+                    <edu.icon className="w-7 h-7 text-slate-600 dark:text-slate-300" />
                   </div>
-                  <div>
-                    <h4 className="font-medium text-slate-800 dark:text-white">{edu.degree}</h4>
-                    <p className="text-slate-600 dark:text-slate-400">{edu.school}</p>
-                    <p className="text-sm text-slate-500 dark:text-slate-500">{edu.period}</p>
+                  <div className="min-w-0 break-words">
+                    <h4 className="font-semibold text-lg text-slate-800 dark:text-white mb-2 tracking-tight">
+                      {edu.degree}
+                    </h4>
+                    <p className="text-slate-600 dark:text-slate-400 text-lg mb-1">
+                      {edu.school}
+                    </p>
+                    <p className="text-base text-slate-500 dark:text-slate-500">
+                      {edu.period}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div>
-            <h3 className="text-xl font-semibold mb-4 text-slate-700 dark:text-slate-300">Skills</h3>
+          <div className="md:w-1/2 min-w-0 overflow-x-auto">
+            <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-slate-700 dark:text-slate-300 tracking-tight">
+              Skills
+            </h3>
             <div className="relative">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 min-w-[280px] md:min-w-0">
                 <AnimatePresence mode="wait">
                   {visibleSkills.map((skillGroup, index) => (
                     <motion.div
@@ -88,17 +100,19 @@ const About = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -30 }}
                       transition={{ duration: 0.4 }}
-                      className="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl flex flex-col gap-2"
+                      className="card card-hover-effect p-3 flex flex-col gap-2 min-w-0 break-words"
                     >
                       <div className="flex items-center mb-2">
                         <skillGroup.icon className="w-5 h-5 text-blue-500 dark:text-blue-400 mr-2" />
-                        <h4 className="font-medium text-slate-100 dark:text-slate-300 text-lg">{skillGroup.category}</h4>
+                        <h4 className="font-semibold text-slate-800 dark:text-slate-200 text-base tracking-tight min-w-0 break-words">
+                          {skillGroup.category}
+                        </h4>
                       </div>
-                      <div className="flex flex-wrap gap-3 mt-2">
+                      <div className="flex flex-wrap gap-2 mt-1">
                         {skillGroup.items.map((skill, skillIndex) => (
                           <span
                             key={skillIndex}
-                            className="px-4 py-2 bg-slate-700/40 dark:bg-slate-700/40 text-base text-slate-100 dark:text-slate-300 rounded-2xl border border-slate-500/30 dark:border-slate-600/30 shadow-sm"
+                            className="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-xs text-slate-700 dark:text-slate-300 rounded-lg border border-slate-200 dark:border-slate-600 shadow-sm font-medium min-w-0 break-words"
                           >
                             {skill}
                           </span>
@@ -113,20 +127,20 @@ const About = () => {
                 <>
                   <button
                     onClick={prev}
-                    className="absolute left-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
+                    className="absolute left-0 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
                     aria-label="Previous Skills"
                   >
                     <ChevronLeft className="w-6 h-6" />
                   </button>
                   <button
                     onClick={next}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
+                    className="absolute right-0 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
                     aria-label="Next Skills"
                   >
                     <ChevronRight className="w-6 h-6" />
                   </button>
                   {/* Dots */}
-                  <div className="flex justify-center mt-6 space-x-2">
+                  <div className="flex justify-center mt-8 space-x-3">
                     {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
                       <button
                         key={idx}

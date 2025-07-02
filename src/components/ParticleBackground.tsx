@@ -35,6 +35,7 @@ const ParticleBackground = () => {
     });
 
     const initParticles = () => {
+      particles.length = 0;
       for (let i = 0; i < particleCount; i++) {
         particles.push(createParticle());
       }
@@ -85,4 +86,4 @@ const ParticleBackground = () => {
   );
 };
 
-export default ParticleBackground;
+export default ParticleBackground; 
