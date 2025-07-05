@@ -83,72 +83,79 @@ const Experience = () => {
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-800 dark:text-white mb-16 tracking-tight">
           Professional Experience
         </h2>
-        <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <AnimatePresence mode="wait">
-              {visibleExperiences.map((exp, idx) =>
-                exp ? (
-                  <motion.div
-                    key={exp.role + exp.company}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
-                    transition={{ duration: 0.5 }}
-                    className="card card-hover-effect h-full min-h-[420px]"
-                  >
-                    <div className="p-8 flex flex-col h-full">
-                      <div className="flex items-center mb-6">
-                        <Briefcase className="w-6 h-6 text-blue-500 dark:text-blue-400 mr-3" />
-                        <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
-                          {exp.role}
-                        </h3>
-                      </div>
-                      <div className="flex items-center text-slate-600 dark:text-slate-400 mb-2">
-                        <span className="font-medium text-lg">{exp.company}</span>
-                      </div>
-                      <div className="flex items-center text-slate-500 dark:text-slate-400 mb-6">
-                        <Calendar className="w-5 h-5 mr-2" />
-                        <span className="text-base">{exp.period}</span>
-                      </div>
-                      <p className="text-slate-700 dark:text-slate-300 mb-6 font-medium leading-relaxed text-lg">
-                        {exp.description}
-                      </p>
-                      <ul className="space-y-3 pl-2 flex-grow">
-                        {exp.achievements.map((achievement, i) => (
-                          <li key={i} className="flex items-start">
-                            <span className="inline-block w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full mt-2.5 mr-4 flex-shrink-0"></span>
-                            <span className="text-slate-700 dark:text-slate-300 leading-relaxed text-base">
-                              {achievement}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </motion.div>
-                ) : (
-                  <div key={idx} className="invisible md:block h-full min-h-[420px]" />
-                )
-              )}
-            </AnimatePresence>
+        <div className="relative overflow-visible">
+          <div className="flex items-center">
+            <button
+              onClick={prev}
+              className="hidden md:flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 shadow-lg transition-colors"
+              style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
+              aria-label="Previous Experience"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <div className="w-full">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={current}
+                  initial={{ x: 100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: -100, opacity: 0 }}
+                  transition={{ duration: 0.5, ease: 'easeInOut' }}
+                  className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                >
+                  {visibleExperiences.map((exp, idx) =>
+                    exp ? (
+                      <motion.div
+                        key={exp.role + exp.company}
+                        initial={false}
+                        whileHover={{ y: -5 }}
+                        className="card card-hover-effect h-full min-h-[260px] p-3"
+                      >
+                        <div className="p-8 flex flex-col h-full">
+                          <div className="flex items-center mb-6">
+                            <Briefcase className="w-6 h-6 text-blue-500 dark:text-blue-400 mr-3" />
+                            <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+                              {exp.role}
+                            </h3>
+                          </div>
+                          <div className="flex items-center text-slate-600 dark:text-slate-400 mb-2">
+                            <span className="font-medium text-lg">{exp.company}</span>
+                          </div>
+                          <div className="flex items-center text-slate-500 dark:text-slate-400 mb-6">
+                            <Calendar className="w-5 h-5 mr-2" />
+                            <span className="text-base">{exp.period}</span>
+                          </div>
+                          <p className="text-slate-700 dark:text-slate-300 mb-6 font-medium leading-relaxed text-lg">
+                            {exp.description}
+                          </p>
+                          <ul className="space-y-3 pl-2 flex-grow">
+                            {exp.achievements.map((achievement, i) => (
+                              <li key={i} className="flex items-start">
+                                <span className="inline-block w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full mt-2.5 mr-4 flex-shrink-0"></span>
+                                <span className="text-slate-700 dark:text-slate-300 leading-relaxed text-base">
+                                  {achievement}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </motion.div>
+                    ) : (
+                      <div key={idx} className="invisible md:block h-full min-h-[260px]" />
+                    )
+                  )}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+            <button
+              onClick={next}
+              className="hidden md:flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 shadow-lg transition-colors"
+              style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
+              aria-label="Next Experience"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
           </div>
-
-          {/* Carousel Controls */}
-          <button
-            onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
-            aria-label="Previous Experience"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button
-            onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
-            aria-label="Next Experience"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-
-          {/* Dots */}
           <div className="flex justify-center mt-8 space-x-3">
             {Array.from({ length: experiences.length }).map((_, idx) => (
               <button

@@ -16,6 +16,7 @@ import { useTheme } from './context/ThemeContext';
 import Games from './pages/Games';
 import InteractiveBallsGame from './pages/games/InteractiveBallsGame';
 import StackGame from './pages/games/StackGame';
+import ChatBot from './components/ChatBot';
 
 function App() {
   const { theme } = useTheme();
@@ -49,6 +50,7 @@ function App() {
             <Route path="/games/stack-game" element={<StackGame />} />
           </Routes>
           <Footer />
+          <ChatBot />
         </div>
       </div>
     </Router>

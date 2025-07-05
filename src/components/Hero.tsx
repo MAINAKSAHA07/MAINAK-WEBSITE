@@ -26,13 +26,15 @@ const Hero = () => {
         {/* Animated gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-indigo-600/10 dark:from-blue-400/5 dark:via-purple-400/5 dark:to-indigo-400/5 animate-pulse"></div>
         
-        {/* Geometric shapes */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-indigo-400/20 to-pink-400/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-purple-400/15 to-blue-400/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
-        
-        {/* Grid pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.1)_1px,transparent_1px)] bg-[size:50px_50px] dark:bg-[linear-gradient(rgba(148,163,184,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.05)_1px,transparent_1px)]"></div>
+        {/* Floating blurred bubbles */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-blue-400/30 to-purple-400/30 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-indigo-400/30 to-pink-400/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-purple-400/20 to-blue-400/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
+        {/* More bubbles */}
+        <div className="absolute top-10 right-1/4 w-40 h-40 bg-gradient-to-br from-pink-400/30 to-blue-400/20 rounded-full blur-2xl animate-float" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute bottom-10 left-1/4 w-56 h-56 bg-gradient-to-br from-green-400/20 to-blue-400/20 rounded-full blur-2xl animate-float" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-1/3 right-10 w-32 h-32 bg-gradient-to-br from-yellow-400/20 to-pink-400/20 rounded-full blur-2xl animate-float" style={{ animationDelay: '2.5s' }}></div>
+        <div className="absolute bottom-1/3 left-10 w-24 h-24 bg-gradient-to-br from-indigo-400/20 to-green-400/20 rounded-full blur-2xl animate-float" style={{ animationDelay: '5s' }}></div>
         
         {/* Floating elements */}
         <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>

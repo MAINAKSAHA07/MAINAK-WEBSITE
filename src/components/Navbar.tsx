@@ -73,72 +73,68 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm' 
-        : 'bg-transparent'
-    }`}>
-      <div className="container">
-        <div className="flex justify-between h-20 items-center">
-          <Link to="/" className="flex items-center space-x-3 group">
-            <Logo />
-            <span className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600 dark:from-slate-200 dark:to-slate-400 group-hover:opacity-80 transition-opacity tracking-tight">
-              MS
-            </span>
-          </Link>
+    <nav className={`fixed w-full z-50 transition-all duration-300 shadow-md border-b border-slate-200 dark:border-slate-700
+      ${isScrolled ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-md' : 'bg-white/80 dark:bg-slate-900/80 backdrop-blur'}
+    `} style={{ minHeight: '72px' }}>
+      <div className="container py-3 flex items-center justify-between">
+        <Link to="/" className="flex items-center space-x-3 group">
+          <Logo />
+          <span className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600 dark:from-slate-200 dark:to-slate-400 group-hover:opacity-80 transition-opacity tracking-tight">
+            MS
+          </span>
+        </Link>
 
-          <div className="hidden md:flex items-center space-x-10">
-            {navLinks.map((link, index) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                onClick={(e) => handleNavClick(link.path, e)}
-                className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200 transform hover:scale-105 font-medium text-base"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <button
-              onClick={toggleTheme}
-              className="p-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 transform hover:rotate-180"
-              aria-label="Toggle theme"
+        <div className="hidden md:flex items-center space-x-10">
+          {navLinks.map((link, index) => (
+            <Link
+              key={link.name}
+              to={link.path}
+              onClick={(e) => handleNavClick(link.path, e)}
+              className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200 transform hover:scale-105 font-medium text-base"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              {theme === 'dark' ? (
-                <Sun className="w-5 h-5 text-slate-300" />
-              ) : (
-                <Moon className="w-5 h-5 text-slate-600" />
-              )}
-            </button>
-            <a
-              href="/assets/MAINAKSAHA_RESUME_jun22.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
-              Resume
-            </a>
-          </div>
+              {link.name}
+            </Link>
+          ))}
+          <button
+            onClick={toggleTheme}
+            className="p-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 transform hover:rotate-180"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? (
+              <Sun className="w-5 h-5 text-slate-300" />
+            ) : (
+              <Moon className="w-5 h-5 text-slate-600" />
+            )}
+          </button>
+          <a
+            href="/assets/MAINAKSAHA_RESUME_jun22.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
+            Resume
+          </a>
+        </div>
 
-          <div className="md:hidden flex items-center space-x-4">
-            <button
-              onClick={toggleTheme}
-              className="p-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 transform hover:rotate-180"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? (
-                <Sun className="w-5 h-5 text-slate-300" />
-              ) : (
-                <Moon className="w-5 h-5 text-slate-600" />
-              )}
-            </button>
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-600 dark:text-slate-300 transition-transform duration-300 transform hover:scale-110 p-2"
-            >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
+        <div className="md:hidden flex items-center space-x-4">
+          <button
+            onClick={toggleTheme}
+            className="p-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 transform hover:rotate-180"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? (
+              <Sun className="w-5 h-5 text-slate-300" />
+            ) : (
+              <Moon className="w-5 h-5 text-slate-600" />
+            )}
+          </button>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-slate-600 dark:text-slate-300 transition-transform duration-300 transform hover:scale-110 p-2"
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
       </div>
 

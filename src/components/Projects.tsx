@@ -154,116 +154,119 @@ const Projects = () => {
           Featured Projects
         </h2>
         
-        <div className="relative overflow-hidden">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-4"
+        <div className="relative overflow-visible">
+          <div className="flex items-center">
+            <button
+              onClick={prevSlide}
+              className="hidden lg:flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 shadow-lg transition-colors"
+              style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
+              aria-label="Previous Slide"
             >
-              {filledProjects.map((project, index) =>
-                project ? (
-                  <motion.div
-                    key={index}
-                    whileHover={{ y: -5 }}
-                    className="card card-hover-effect h-full min-h-[340px] flex flex-col p-3"
-                  >
-                    <div className="relative h-64 overflow-hidden group flex-shrink-0">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white text-sm font-medium rounded-full">
-                          {project.tags[0]}
-                        </span>
-                      </div>
-                    </div>
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <div className="w-full">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={currentSlide}
+                  initial={{ x: 100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: -100, opacity: 0 }}
+                  transition={{ duration: 0.5, ease: 'easeInOut' }}
+                  className="grid md:grid-cols-2 lg:grid-cols-3 gap-4"
+                >
+                  {filledProjects.map((project, index) =>
+                    project ? (
+                      <motion.div
+                        key={index}
+                        whileHover={{ y: -5 }}
+                        className="card card-hover-effect h-full min-h-[340px] flex flex-col p-3"
+                      >
+                        <div className="relative h-64 overflow-hidden group flex-shrink-0">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                          <div className="absolute top-4 left-4">
+                            <span className="px-3 py-1 bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white text-sm font-medium rounded-full">
+                              {project.tags[0]}
+                            </span>
+                          </div>
+                        </div>
 
-                    <div className="p-6 flex flex-col flex-grow">
-                      <h3 className="text-base md:text-lg font-semibold text-slate-800 dark:text-white mb-2 tracking-tight">
-                        {project.title}
-                      </h3>
-                      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300 mb-4 line-clamp-2 leading-relaxed">
-                        {project.description}
-                      </p>
+                        <div className="p-6 flex flex-col flex-grow">
+                          <h3 className="text-base md:text-lg font-semibold text-slate-800 dark:text-white mb-2 tracking-tight">
+                            {project.title}
+                          </h3>
+                          <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300 mb-4 line-clamp-2 leading-relaxed">
+                            {project.description}
+                          </p>
 
-                      <div className="mb-4 flex-grow">
-                        <h4 className="text-xs font-medium text-slate-700 dark:text-slate-300 mb-2">Key Achievements:</h4>
-                        <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-1">
-                          {project.achievements.map((achievement: string, i: number) => (
-                            <li key={i} className="flex items-start">
-                              <span className="inline-block w-1 h-1 bg-slate-400 dark:bg-slate-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
-                              <span className="line-clamp-1 leading-relaxed">{achievement}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                          <div className="mb-4 flex-grow">
+                            <h4 className="text-xs font-medium text-slate-700 dark:text-slate-300 mb-2">Key Achievements:</h4>
+                            <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-1">
+                              {project.achievements.map((achievement: string, i: number) => (
+                                <li key={i} className="flex items-start">
+                                  <span className="inline-block w-1 h-1 bg-slate-400 dark:bg-slate-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                                  <span className="line-clamp-1 leading-relaxed">{achievement}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
 
-                      <div className="flex flex-wrap gap-1 mb-4">
-                        {project.tags.slice(1).map((tag: string, i: number) => (
-                          <span
-                            key={i}
-                            className="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-xs text-slate-600 dark:text-slate-300 rounded-full"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
+                          <div className="flex flex-wrap gap-1 mb-4">
+                            {project.tags.slice(1).map((tag: string, i: number) => (
+                              <span
+                                key={i}
+                                className="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-xs text-slate-600 dark:text-slate-300 rounded-full"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
 
-                      <div className="flex space-x-4 mt-auto">
-                        <a 
-                          href={project.githubLink || "https://github.com/MAINAKSAHA07"}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200"
-                        >
-                          <Github className="w-5 h-5 mr-2" />
-                          Code
-                        </a>
-                      </div>
-                    </div>
-                  </motion.div>
-                ) : (
-                  <div key={index} className="invisible lg:block h-full min-h-[420px]" />
-                )
-              )}
-            </motion.div>
-          </AnimatePresence>
-
+                          <div className="flex space-x-4 mt-auto">
+                            <a 
+                              href={project.githubLink || "https://github.com/MAINAKSAHA07"}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200"
+                            >
+                              <Github className="w-5 h-5 mr-2" />
+                              Code
+                            </a>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ) : (
+                      <div key={index} className="invisible lg:block h-full min-h-[340px]" />
+                    )
+                  )}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+            <button
+              onClick={nextSlide}
+              className="hidden lg:flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 shadow-lg transition-colors"
+              style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
+              aria-label="Next Slide"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
           {projects.length > 3 && (
-            <>
-              <button
-                onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-
-              <button
-                onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition-colors shadow-lg"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-                {Array.from({ length: maxSlides + 1 }).map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`w-2 h-2 rounded-full transition-colors ${
-                      currentSlide === index ? 'bg-slate-800 dark:bg-white' : 'bg-slate-300 dark:bg-slate-600'
-                    }`}
-                  />
-                ))}
-              </div>
-            </>
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+              {Array.from({ length: maxSlides + 1 }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-2 h-2 rounded-full transition-colors ${
+                    currentSlide === index ? 'bg-slate-800 dark:bg-white' : 'bg-slate-300 dark:bg-slate-600'
+                  }`}
+                />
+              ))}
+            </div>
           )}
         </div>
       </div>
