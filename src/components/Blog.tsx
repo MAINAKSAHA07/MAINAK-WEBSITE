@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { blogs } from '../data/blogs';
 import { slugify } from '../utils/slugify';
+import { useTheme } from '../context/ThemeContext';
 
 const Blog: React.FC = () => {
+  const { theme } = useTheme();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [isAutoSliding, setIsAutoSliding] = useState(true);
@@ -63,13 +65,17 @@ const Blog: React.FC = () => {
     : blogs.slice(currentSlide * 3, currentSlide * 3 + 3);
 
   return (
-    <section id="blog" className="py-20 bg-slate-900">
+    <section id="blog" className={`py-20 ${theme === 'dark' ? 'bg-slate-900' : 'bg-white'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-16">
-          <h2 className="text-3xl font-bold text-white mb-4 sm:mb-0">Latest Blog Posts</h2>
+          <h2 className={`text-3xl font-bold mb-4 sm:mb-0 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Latest Blog Posts</h2>
           <button
             onClick={() => navigate('/blog')}
-            className="inline-flex items-center text-slate-300 hover:text-white transition-colors"
+            className={`inline-flex items-center transition-colors ${
+              theme === 'dark' 
+                ? 'text-slate-300 hover:text-white' 
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
             aria-label="View all blog posts"
           >
             View All Posts
@@ -91,11 +97,17 @@ const Blog: React.FC = () => {
                 <motion.div
                   key={blog.id}
                   whileHover={{ y: -5 }}
-                  className="bg-slate-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                  className={`rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow ${
+                    theme === 'dark' ? 'bg-slate-800' : 'bg-white border border-slate-200'
+                  }`}
                 >
                   <div className="relative h-48 overflow-hidden">
                     <div className="absolute top-4 left-4 z-10">
-                      <span className="px-3 py-1 bg-slate-900/90 text-white text-sm font-medium rounded-full">
+                      <span className={`px-3 py-1 text-sm font-medium rounded-full ${
+                        theme === 'dark' 
+                          ? 'bg-slate-900/90 text-white' 
+                          : 'bg-white/90 text-slate-900'
+                      }`}>
                         {blog.category}
                       </span>
                     </div>
@@ -108,7 +120,9 @@ const Blog: React.FC = () => {
                   </div>
 
                   <div className="p-6">
-                    <div className="flex items-center text-sm text-slate-400 mb-3 space-x-4">
+                    <div className={`flex items-center text-sm mb-3 space-x-4 ${
+                      theme === 'dark' ? 'text-slate-400' : 'text-slate-600'
+                    }`}>
                       <div className="flex items-center">
                         <Calendar className="w-4 h-4 mr-1" />
                         {blog.date}
@@ -119,21 +133,31 @@ const Blog: React.FC = () => {
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-semibold text-white mb-2 line-clamp-2">
+                    <h3 className={`text-xl font-semibold mb-2 line-clamp-2 ${
+                      theme === 'dark' ? 'text-white' : 'text-slate-900'
+                    }`}>
                       {blog.title}
                     </h3>
-                    <p className="text-slate-300 mb-4 line-clamp-2">
+                    <p className={`mb-4 line-clamp-2 ${
+                      theme === 'dark' ? 'text-slate-300' : 'text-slate-600'
+                    }`}>
                       {blog.excerpt}
                     </p>
 
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center text-sm text-slate-400">
+                      <div className={`flex items-center text-sm ${
+                        theme === 'dark' ? 'text-slate-400' : 'text-slate-600'
+                      }`}>
                         <User className="w-4 h-4 mr-1" />
                         {blog.author}
                       </div>
                       <button
                         onClick={() => navigate(`/blog/${slugify(blog.title)}`)}
-                        className="inline-flex items-center text-white hover:text-slate-300 transition-colors"
+                        className={`inline-flex items-center transition-colors ${
+                          theme === 'dark' 
+                            ? 'text-white hover:text-slate-300' 
+                            : 'text-slate-900 hover:text-slate-600'
+                        }`}
                         aria-label={`Read more about ${blog.title}`}
                       >
                         Read More
@@ -150,7 +174,11 @@ const Blog: React.FC = () => {
             <>
               <button
                 onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-slate-800/80 text-white hover:bg-slate-700 transition-colors shadow-lg"
+                className={`absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full shadow-lg transition-colors ${
+                  theme === 'dark' 
+                    ? 'bg-slate-800/80 text-white hover:bg-slate-700' 
+                    : 'bg-white/80 text-slate-900 hover:bg-white border border-slate-200'
+                }`}
                 aria-label="Previous slide"
               >
                 <ChevronLeft className="w-6 h-6" />
@@ -158,7 +186,11 @@ const Blog: React.FC = () => {
 
               <button
                 onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-slate-800/80 text-white hover:bg-slate-700 transition-colors shadow-lg"
+                className={`absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full shadow-lg transition-colors ${
+                  theme === 'dark' 
+                    ? 'bg-slate-800/80 text-white hover:bg-slate-700' 
+                    : 'bg-white/80 text-slate-900 hover:bg-white border border-slate-200'
+                }`}
                 aria-label="Next slide"
               >
                 <ChevronRight className="w-6 h-6" />
@@ -170,7 +202,9 @@ const Blog: React.FC = () => {
                     key={index}
                     onClick={() => goToSlide(index)}
                     className={`w-2 h-2 rounded-full transition-colors ${
-                      currentSlide === index ? 'bg-white' : 'bg-slate-600'
+                      currentSlide === index 
+                        ? (theme === 'dark' ? 'bg-white' : 'bg-slate-900')
+                        : (theme === 'dark' ? 'bg-slate-600' : 'bg-slate-400')
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
