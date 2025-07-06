@@ -56,8 +56,7 @@ const Experience = () => {
 
   const [current, setCurrent] = useState(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const cardsToShow = 2;
-  const maxIndex = Math.max(0, experiences.length - cardsToShow);
+  const maxIndex = experiences.length - 1;
 
   useEffect(() => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -71,12 +70,6 @@ const Experience = () => {
   const prev = () => setCurrent((prev) => (prev === 0 ? maxIndex : prev - 1));
   const next = () => setCurrent((prev) => (prev >= maxIndex ? 0 : prev + 1));
 
-  let visibleExperiences = experiences.slice(current, current + cardsToShow);
-  // If at the end, wrap around to show the first card(s)
-  if (visibleExperiences.length < cardsToShow) {
-    visibleExperiences = visibleExperiences.concat(Array(cardsToShow - visibleExperiences.length).fill(null));
-  }
-
   return (
     <section id="experience" className="section-padding bg-white dark:bg-slate-900">
       <div className="container">
@@ -87,7 +80,7 @@ const Experience = () => {
           <div className="flex items-center">
             <button
               onClick={prev}
-              className="hidden md:flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 shadow-lg transition-colors"
+              className="flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 shadow-lg transition-colors"
               style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
               aria-label="Previous Experience"
             >
@@ -101,55 +94,94 @@ const Experience = () => {
                   animate={{ x: 0, opacity: 1 }}
                   exit={{ x: -100, opacity: 0 }}
                   transition={{ duration: 0.5, ease: 'easeInOut' }}
-                  className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                  className="grid grid-cols-1 md:grid-cols-2 gap-4 no-x-overflow"
                 >
-                  {visibleExperiences.map((exp, idx) =>
-                    exp ? (
-                      <motion.div
-                        key={exp.role + exp.company}
-                        initial={false}
-                        whileHover={{ y: -5 }}
-                        className="card card-hover-effect h-full min-h-[260px] p-3"
-                      >
-                        <div className="p-8 flex flex-col h-full">
-                          <div className="flex items-center mb-6">
-                            <Briefcase className="w-6 h-6 text-blue-500 dark:text-blue-400 mr-3" />
-                            <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
-                              {exp.role}
-                            </h3>
-                          </div>
-                          <div className="flex items-center text-slate-600 dark:text-slate-400 mb-2">
-                            <span className="font-medium text-lg">{exp.company}</span>
-                          </div>
-                          <div className="flex items-center text-slate-500 dark:text-slate-400 mb-6">
-                            <Calendar className="w-5 h-5 mr-2" />
-                            <span className="text-base">{exp.period}</span>
-                          </div>
-                          <p className="text-slate-700 dark:text-slate-300 mb-6 font-medium leading-relaxed text-lg">
-                            {exp.description}
-                          </p>
-                          <ul className="space-y-3 pl-2 flex-grow">
-                            {exp.achievements.map((achievement, i) => (
-                              <li key={i} className="flex items-start">
-                                <span className="inline-block w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full mt-2.5 mr-4 flex-shrink-0"></span>
-                                <span className="text-slate-700 dark:text-slate-300 leading-relaxed text-base">
-                                  {achievement}
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
+                  {/* Show current experience on mobile, current + next on desktop */}
+                  <motion.div
+                    key={experiences[current].role + experiences[current].company}
+                    initial={false}
+                    whileHover={{ y: -5 }}
+                    className="card card-hover-effect h-full min-h-[260px] p-3"
+                  >
+                    <div className="p-8 flex flex-col h-full">
+                      <div className="flex items-center mb-6">
+                        <Briefcase className="w-6 h-6 text-blue-500 dark:text-blue-400 mr-3" />
+                        <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+                          {experiences[current].role}
+                        </h3>
+                      </div>
+                      <div className="flex items-center text-slate-600 dark:text-slate-400 mb-2">
+                        <span className="font-medium text-lg">{experiences[current].company}</span>
+                      </div>
+                      <div className="flex items-center text-slate-500 dark:text-slate-400 mb-6">
+                        <Calendar className="w-5 h-5 mr-2" />
+                        <span className="text-base">{experiences[current].period}</span>
+                      </div>
+                      <p className="text-slate-700 dark:text-slate-300 mb-6 font-medium leading-relaxed text-lg">
+                        {experiences[current].description}
+                      </p>
+                      <ul className="space-y-3 pl-2 flex-grow">
+                        {experiences[current].achievements.map((achievement, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="inline-block w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full mt-2.5 mr-4 flex-shrink-0"></span>
+                            <span className="text-slate-700 dark:text-slate-300 leading-relaxed text-base">
+                              {achievement}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                  
+                  {/* Show next experience on desktop only */}
+                  {current + 1 < experiences.length && (
+                    <motion.div
+                      key={experiences[current + 1].role + experiences[current + 1].company}
+                      initial={false}
+                      whileHover={{ y: -5 }}
+                      className="card card-hover-effect h-full min-h-[260px] p-3 hidden md:block"
+                    >
+                      <div className="p-8 flex flex-col h-full">
+                        <div className="flex items-center mb-6">
+                          <Briefcase className="w-6 h-6 text-blue-500 dark:text-blue-400 mr-3" />
+                          <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+                            {experiences[current + 1].role}
+                          </h3>
                         </div>
-                      </motion.div>
-                    ) : (
-                      <div key={idx} className="invisible md:block h-full min-h-[260px]" />
-                    )
+                        <div className="flex items-center text-slate-600 dark:text-slate-400 mb-2">
+                          <span className="font-medium text-lg">{experiences[current + 1].company}</span>
+                        </div>
+                        <div className="flex items-center text-slate-500 dark:text-slate-400 mb-6">
+                          <Calendar className="w-5 h-5 mr-2" />
+                          <span className="text-base">{experiences[current + 1].period}</span>
+                        </div>
+                        <p className="text-slate-700 dark:text-slate-300 mb-6 font-medium leading-relaxed text-lg">
+                          {experiences[current + 1].description}
+                        </p>
+                        <ul className="space-y-3 pl-2 flex-grow">
+                          {experiences[current + 1].achievements.map((achievement, i) => (
+                            <li key={i} className="flex items-start">
+                              <span className="inline-block w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full mt-2.5 mr-4 flex-shrink-0"></span>
+                              <span className="text-slate-700 dark:text-slate-300 leading-relaxed text-base">
+                                {achievement}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </motion.div>
+                  )}
+                  
+                  {/* Placeholder for last card on desktop */}
+                  {current + 1 >= experiences.length && (
+                    <div className="hidden md:block h-full min-h-[260px]" />
                   )}
                 </motion.div>
               </AnimatePresence>
             </div>
             <button
               onClick={next}
-              className="hidden md:flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 shadow-lg transition-colors"
+              className="flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 shadow-lg transition-colors"
               style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
               aria-label="Next Experience"
             >

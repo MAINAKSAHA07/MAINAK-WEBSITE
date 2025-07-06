@@ -84,7 +84,7 @@ const About = () => {
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-800 dark:text-white mb-16 tracking-tight">
           About Me
         </h2>
-        <div className="flex flex-col md:flex-row gap-12 md:gap-16">
+        <div className="flex flex-col md:flex-row gap-12 md:gap-16 no-x-overflow">
           <div className="md:w-1/2 min-w-0">
             <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-slate-700 dark:text-slate-300 tracking-tight">
               Education

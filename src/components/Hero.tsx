@@ -19,7 +19,7 @@ const Hero = () => {
     <section 
       ref={sectionRef}
       id="home" 
-      className="min-h-screen flex items-center justify-center pt-16 section-fade-in relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center pt-[88px] md:pt-[104px] lg:pt-[120px] section-fade-in relative overflow-x-hidden"
     >
       {/* Modern gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
@@ -40,15 +40,23 @@ const Hero = () => {
         <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
         <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-purple-400 rounded-full animate-ping" style={{ animationDelay: '3s' }}></div>
         <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-indigo-400 rounded-full animate-ping" style={{ animationDelay: '5s' }}></div>
+        {/* More blinking bubbles */}
+        <div className="absolute top-10 left-1/2 w-2 h-2 bg-pink-400 rounded-full animate-ping" style={{ animationDelay: '2.2s' }}></div>
+        <div className="absolute bottom-10 right-1/2 w-3 h-3 bg-green-400 rounded-full animate-ping" style={{ animationDelay: '4.1s' }}></div>
+        <div className="absolute top-1/5 right-1/5 w-2.5 h-2.5 bg-yellow-400 rounded-full animate-ping" style={{ animationDelay: '1.7s' }}></div>
+        <div className="absolute bottom-1/5 left-1/5 w-2 h-2 bg-blue-300 rounded-full animate-ping" style={{ animationDelay: '3.3s' }}></div>
+        <div className="absolute top-1/3 left-1/6 w-2 h-2 bg-purple-300 rounded-full animate-ping" style={{ animationDelay: '2.8s' }}></div>
+        <div className="absolute bottom-1/3 right-1/6 w-2.5 h-2.5 bg-pink-300 rounded-full animate-ping" style={{ animationDelay: '4.7s' }}></div>
+        <div className="absolute top-1/2 right-10 w-2 h-2 bg-green-300 rounded-full animate-ping" style={{ animationDelay: '3.9s' }}></div>
       </div>
 
-      <div className="container relative z-10">
+      <div className="container relative z-10 no-x-overflow">
         <div className="text-center max-w-4xl mx-auto">
-          <div className="mb-12">
+          <div className="mb-12 mt-20 md:mt-28 lg:mt-32">
             <img
               src="/assets/Mainak-RESUME-PHOTO.webp"
               alt="Mainak Malay Saha"
-              className="w-48 h-48 md:w-56 md:h-56 rounded-full mx-auto shadow-2xl object-cover ring-4 ring-white dark:ring-slate-700 transition-transform duration-300 hover:scale-105 hero-bounce"
+              className="w-32 h-32 sm:w-48 sm:h-48 md:w-56 md:h-56 max-w-full rounded-full mx-auto shadow-2xl object-cover ring-4 ring-white dark:ring-slate-700 transition-transform duration-300 hover:scale-105 hero-bounce"
             />
           </div>
           

@@ -7,7 +7,8 @@
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     height: 100%;
-    overflow-y: auto;
+    max-width: 100vw;
+    overflow-x: hidden;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   }
   
@@ -15,6 +16,7 @@
     @apply antialiased bg-white dark:bg-slate-900 text-slate-900 dark:text-white transition-colors duration-300;
     width: 100%;
     height: 100%;
+    max-width: 100vw;
     overflow-y: auto;
     overflow-x: hidden;
     font-size: 14px;
@@ -25,6 +27,8 @@
 
   #root {
     height: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
     overflow-y: auto;
   }
 
@@ -155,6 +159,11 @@
 
   .card-hover-effect {
     @apply hover:shadow-xl hover:border-slate-300 dark:hover:border-slate-600 hover:-translate-y-1;
+  }
+
+  .no-x-overflow {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
   }
 }
 

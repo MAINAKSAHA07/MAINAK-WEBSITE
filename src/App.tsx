@@ -30,7 +30,7 @@ function App() {
           <ParticleBackground />
         </div>
         <Navbar />
-        <div className="relative z-10">
+        <div className="relative z-10 pb-24 md:pb-0">
           <Routes>
             <Route path="/" element={
               <main>

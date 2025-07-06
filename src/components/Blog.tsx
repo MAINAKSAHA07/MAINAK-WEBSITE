@@ -85,7 +85,7 @@ const Blog: React.FC = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+              className="grid grid-cols-1 md:grid-cols-3 gap-8 no-x-overflow"
             >
               {visibleBlogs.map((blog) => (
                 <motion.div
