@@ -56,6 +56,71 @@ const staticQA = [
     ],
     answer: 'You can find Mainak’s projects and source code on his GitHub: <a href="https://github.com/MAINAKSAHA07" target="_blank" rel="noopener noreferrer" class="underline text-blue-600 dark:text-blue-400">github.com/MAINAKSAHA07</a>'
   },
+  {
+    keywords: [
+      'experience', 'work experience', 'his exp', 'mainak experience', 'mainak exp', 'professional background', 'jobs', 'internships', 'work history'
+    ],
+    answer: `<b>Experience:</b><br/>
+- Graduate Research Assistant at ASU Center for Engagement Science – Adidas, ASU (2024–Present): Motion analysis, real-time feedback, iOS/Swift, OpenCV.<br/>
+- Data Engineering Intern at Looqup.AI, Boston (2024): Revenue forecasting, MLOps, Azure, Docker.<br/>
+- Full-Stack Developer at The Language Network (2021): Built scalable website, SEO, React, Node.js, MongoDB.`
+  },
+  {
+    keywords: [
+      'education', 'degree', 'school', 'university', 'mainak education', 'mainak degree', 'academic background'
+    ],
+    answer: `<b>Education:</b><br/>
+- M.S. in Robotics and Autonomous Systems (AI), Arizona State University (2024–2026, expected)<br/>
+- B.E. in Computer Engineering, Mumbai University (2020–2024)`
+  },
+  {
+    keywords: [
+      'awards', 'achievements', 'honors', 'recognition', 'mainak awards', 'mainak achievements'
+    ],
+    answer: 'Mainak has received multiple academic scholarships, won hackathons, and has been recognized for his research and leadership in robotics and AI.'
+  },
+  {
+    keywords: [
+      'publications', 'papers', 'research papers', 'mainak publications', 'mainak papers'
+    ],
+    answer: 'Mainak has contributed to research in robotics and AI, with papers in motion analysis and real-time feedback systems. (Ask for more details!)'
+  },
+  {
+    keywords: [
+      'fun fact', 'something fun', 'hobbies', 'random', 'tell me something fun', 'mainak fun fact'
+    ],
+    answer: 'Fun fact: Mainak is a football enthusiast and loves exploring new tech gadgets in his free time!'
+  },
+  {
+    keywords: [
+      'thank you', 'thanks', 'appreciate', 'grateful'
+    ],
+    answer: 'You’re welcome! If you have more questions, just ask.'
+  },
+  {
+    keywords: [
+      'how are you', 'how is it going', 'how do you do'
+    ],
+    answer: 'I’m just a bot, but I’m here to help you 24/7!'
+  },
+  {
+    keywords: [
+      'resume', 'cv', 'download resume', 'mainak resume', 'mainak cv'
+    ],
+    answer: 'You can view or download Mainak’s resume <a href="/assets/MAINAKSAHA_RESUME_jun22.pdf" target="_blank" rel="noopener noreferrer" class="underline text-blue-600 dark:text-blue-400">here</a>.'
+  },
+  {
+    keywords: [
+      'blog', 'blogs', 'blog posts', 'mainak blog', 'mainak blogs', 'articles'
+    ],
+    answer: 'Check out Mainak’s latest blog posts in the Blog section for insights on robotics, AI, and technology!'
+  },
+  {
+    keywords: [
+      'projects', 'mainak projects', 'project list', 'show me projects', 'portfolio'
+    ],
+    answer: 'You can explore Mainak’s projects in the Projects section, including robotics, AI, computer vision, and more!'
+  },
 ];
 
 const defaultResponse = "I'm Mainak's AI assistant. Try asking about the site, contact, or say hi!";
@@ -120,7 +185,8 @@ const ChatBot: React.FC = () => {
         style={{ display: open ? 'none' : 'flex' }}
         aria-label="Open chat bot"
       >
-        <MessageCircle className="w-7 h-7" />
+        {/* Custom icon: Favicon image */}
+        <img src="/src/IMages/favicon-32x32.png" alt="Chat Icon" className="w-7 h-7 rounded-full border-2 border-blue-600 bg-white shadow-md object-cover" />
       </button>
       {/* Chat window */}
       {open && (

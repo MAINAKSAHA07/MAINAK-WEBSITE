@@ -20,7 +20,7 @@ const Projects = () => {
     {
       "title": "Smart Wearable Safety Device for Women",
       "description": "Conceptualizing an IoT-enabled wearable device integrating GPS tracking, emergency alerts, and physiological monitoring to enhance women's security.",
-      "image": "https://i.imghippo.com/files/Le6101SXQ.webp",
+      "image": "/assets/women.png",
       "tags": ["IoT", "Embedded Systems", "AI", "Safety Tech"],
       "achievements": [
         "Designed a concept for real-time GPS tracking and emergency alerts",
@@ -28,7 +28,8 @@ const Projects = () => {
         "Exploring electric shock deterrents for self-defense",
         "Developing a multi-tier emergency response mechanism"
       ],
-      "status": "In Idea & Research Stage"
+      "status": "In Idea & Research Stage",
+      "liveLink": "https://streeguardian.netlify.app/"
     },
     {
       "title": "Automated Warehouse Scenario",
@@ -227,6 +228,17 @@ const Projects = () => {
                           </div>
 
                           <div className="flex space-x-4 mt-auto">
+                            {project.liveLink && (
+                              <a 
+                                href={project.liveLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200"
+                              >
+                                <ExternalLink className="w-5 h-5 mr-2" />
+                                Live Demo
+                              </a>
+                            )}
                             <a 
                               href={project.githubLink || "https://github.com/MAINAKSAHA07"}
                               target="_blank"

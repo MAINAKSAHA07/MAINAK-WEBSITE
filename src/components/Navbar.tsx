@@ -4,9 +4,13 @@ import { useTheme } from '../context/ThemeContext';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Logo from './Logo';
 
+const sectionIds = ['about', 'projects', 'experience', 'leadership', 'blog', 'games', 'contact'];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+  const [isHeroVisible, setIsHeroVisible] = useState(true);
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
   const navigate = useNavigate();
@@ -19,14 +23,49 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // IntersectionObserver for Hero section visibility
+  useEffect(() => {
+    const hero = document.getElementById('home');
+    if (!hero) return;
+    const observer = new window.IntersectionObserver(
+      ([entry]: IntersectionObserverEntry[]) => {
+        setIsHeroVisible(entry.isIntersecting);
+      },
+      { root: null, threshold: 0.1 }
+    );
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
+
+  // IntersectionObserver for active section highlighting
+  useEffect(() => {
+    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+    const observer = new window.IntersectionObserver(handleIntersect, {
+      root: null,
+      rootMargin: '0px 0px -60% 0px', // Trigger when section is 40% from top
+      threshold: 0.2
+    });
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
   const navLinks = [
-    { name: 'About', path: '/#about' },
-    { name: 'Projects', path: '/#projects' },
-    { name: 'Experience', path: '/#experience' },
-    { name: 'Leadership', path: '/#leadership' },
-    { name: 'Blogs', path: '/blog' },
-    { name: 'Games', path: '/games' },
-    { name: 'Contact', path: '/#contact' }
+    { name: 'About', path: '/#about', id: 'about' },
+    { name: 'Projects', path: '/#projects', id: 'projects' },
+    { name: 'Experience', path: '/#experience', id: 'experience' },
+    { name: 'Leadership', path: '/#leadership', id: 'leadership' },
+    { name: 'Blogs', path: '/blog', id: 'blog' },
+    { name: 'Games', path: '/games', id: 'games' },
+    { name: 'Contact', path: '/#contact', id: 'contact' }
   ];
 
   const handleNavClick = (path: string, e: React.MouseEvent) => {
@@ -34,17 +73,13 @@ const Navbar = () => {
     if (path.startsWith('/#')) {
       e.preventDefault();
       const targetId = path.substring(2);
-      
       if (location.pathname === '/') {
         const element = document.getElementById(targetId);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
       } else {
-        // Navigate to home page first
         navigate('/', { replace: true });
-        
-        // Wait for the home page to load and then scroll to the target section
         const scrollToTarget = () => {
           const element = document.getElementById(targetId);
           if (element) {
@@ -53,17 +88,12 @@ const Navbar = () => {
           }
           return false;
         };
-
-        // Try to scroll immediately
         if (!scrollToTarget()) {
-          // If the element isn't found yet, try again after a short delay
           const interval = setInterval(() => {
             if (scrollToTarget()) {
               clearInterval(interval);
             }
           }, 100);
-
-          // Clear the interval after 2 seconds to prevent infinite checking
           setTimeout(() => {
             clearInterval(interval);
           }, 2000);
@@ -73,8 +103,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 shadow-md border-b border-slate-200 dark:border-slate-700
-      ${isScrolled ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-md' : 'bg-white/80 dark:bg-slate-900/80 backdrop-blur'}
+    <nav className={`fixed w-full z-50 transition-all duration-300 animate-navbar-fade-in
+      ${isHeroVisible ? 'bg-transparent shadow-none border-none backdrop-blur-0' : 'bg-white/90 dark:bg-slate-900/90 shadow-md border-b border-slate-200 dark:border-slate-700 backdrop-blur-md'}
     `} style={{ minHeight: '72px' }}>
       <div className="container py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-3 group">
@@ -90,7 +120,7 @@ const Navbar = () => {
               key={link.name}
               to={link.path}
               onClick={(e) => handleNavClick(link.path, e)}
-              className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200 transform hover:scale-105 font-medium text-base"
+              className={`text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200 transform hover:scale-105 font-medium text-base ${activeSection === link.id ? 'text-blue-600 dark:text-blue-400 font-bold underline underline-offset-8' : ''}`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {link.name}
@@ -146,7 +176,7 @@ const Navbar = () => {
                 key={link.name}
                 to={link.path}
                 onClick={(e) => handleNavClick(link.path, e)}
-                className="block px-4 py-3 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg transition-all duration-300 animate-slide-right font-medium text-base"
+                className={`block px-4 py-3 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg transition-all duration-300 animate-slide-right font-medium text-base ${activeSection === link.id ? 'text-blue-600 dark:text-blue-400 font-bold underline underline-offset-8' : ''}`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {link.name}

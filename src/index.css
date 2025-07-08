@@ -339,3 +339,12 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
 .hero-bounce {
   animation: hero-bounce 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
+
+@keyframes navbar-fade-in {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-navbar-fade-in {
+  animation: navbar-fade-in 0.8s cubic-bezier(0.4,0,0.2,1) both;
+}
