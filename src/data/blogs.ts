@@ -1500,7 +1500,7 @@ export const blogs = [
     readTime: "7 min read",
     category: "Education",
     tags: ["AI", "Education", "Technology", "Learning"],
-    likes: 0,
+    likes: 9,
     comments: 0
   },
   {
@@ -1631,7 +1631,7 @@ export const blogs = [
     readTime: "8 min read",
     category: "Psychology",
     tags: ["Psychology", "Emotions", "Mental Health", "Personal Development"],
-    likes: 0,
+    likes: 1,
     comments: 0
   },
   {
@@ -1763,7 +1763,7 @@ export const blogs = [
     readTime: "7 min read",
     category: "Technology",
     tags: ["AI", "Food Delivery", "Technology", "Innovation"],
-    likes: 0,
+    likes: 6,
     comments: 0
   },
   {
@@ -1895,7 +1895,7 @@ export const blogs = [
     readTime: "8 min read",
     category: "Business",
     tags: ["Analytics", "Business", "Data Science", "Strategy"],
-    likes: 0,
+    likes: 7,
     comments: 0
   },
   {
@@ -1978,7 +1978,402 @@ export const blogs = [
     readTime: "7 min read",
     category: "Technology",
     tags: ["Sentiment Analysis", "Health Tech", "AI", "Fitness"],
-    likes: 0,
+    likes: 3,
     comments: 0
-  }
+  },
+  {
+    id: 17,
+    title: "Navigating International Student Life: A Comprehensive Guide",
+    excerpt: "Essential insights and practical advice for international students adapting to life abroad, from cultural adjustment to academic success and building meaningful connections.",
+    content: `
+      <div class="space-y-6">
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          Embarking on an international education journey is both exciting and challenging. From navigating cultural differences to managing academic responsibilities in a foreign environment, international students face unique experiences that shape their personal and professional growth. This comprehensive guide explores the various aspects of international student life and provides practical strategies for success.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-white">Key Challenges & Opportunities</h3>
+          <ul class="list-disc list-inside space-y-3 text-slate-600 dark:text-slate-300">
+            <li>Cultural adaptation and language barriers</li>
+            <li>Academic system differences and expectations</li>
+            <li>Building social networks and support systems</li>
+            <li>Financial management and budgeting</li>
+            <li>Career development and networking opportunities</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4 text-slate-800 dark:text-white">Cultural Adaptation</h2>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          One of the most significant challenges international students face is adapting to a new cultural environment. This process involves understanding social norms, communication styles, and cultural values that may differ significantly from their home country.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div class="${standardCardStyle}">
+            <h3 class="${standardHeadingStyle}">Common Challenges</h3>
+            <ul class="list-disc list-inside space-y-3 ${standardTextStyle}">
+              <li>Language barriers and communication</li>
+              <li>Different social customs and etiquette</li>
+              <li>Food and dietary adjustments</li>
+              <li>Weather and climate adaptation</li>
+            </ul>
+          </div>
+          <div class="${standardCardStyle}">
+            <h3 class="${standardHeadingStyle}">Adaptation Strategies</h3>
+            <ul class="list-disc list-inside space-y-3 ${standardTextStyle}">
+              <li>Join cultural exchange programs</li>
+              <li>Participate in local events and festivals</li>
+              <li>Learn about local customs and traditions</li>
+              <li>Connect with other international students</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4 text-slate-800 dark:text-white">Academic Success</h2>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          Academic systems vary significantly across countries, and international students must quickly adapt to new teaching methods, assessment styles, and academic expectations. Understanding these differences is crucial for academic success.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-6 text-slate-800 dark:text-white">Academic Adaptation</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="${standardCardStyle} text-center">
+              <div class="${standardIconWrapperStyle}">
+                <svg class="${standardIconStyle}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2a10 10 0 0110 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 6a4 4 0 100 8 4 4 0 000-8z"/>
+                </svg>
+              </div>
+              <h4 class="${standardHeadingStyle}">Study Methods</h4>
+              <p class="text-sm ${standardTextStyle}">Adapting to new learning styles and expectations</p>
+            </div>
+            <div class="${standardCardStyle} text-center">
+              <div class="${standardIconWrapperStyle}">
+                <svg class="${standardIconStyle}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2a10 10 0 0110 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 6v4l3 3"/>
+                </svg>
+              </div>
+              <h4 class="${standardHeadingStyle}">Time Management</h4>
+              <p class="text-sm ${standardTextStyle}">Balancing academic and personal responsibilities</p>
+            </div>
+            <div class="${standardCardStyle} text-center">
+              <div class="${standardIconWrapperStyle}">
+                <svg class="${standardIconStyle}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+              </div>
+              <h4 class="${standardHeadingStyle}">Academic Support</h4>
+              <p class="text-sm ${standardTextStyle}">Utilizing university resources and services</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4 text-slate-800 dark:text-white">Building Social Networks</h2>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          Creating meaningful connections is essential for emotional well-being and academic success. International students often need to be proactive in building their social networks and finding support systems in their new environment.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-white">Networking Opportunities</h3>
+          <ul class="list-disc list-inside space-y-3 text-slate-600 dark:text-slate-300">
+            <li>International student organizations and clubs</li>
+            <li>University orientation programs and events</li>
+            <li>Language exchange programs and conversation partners</li>
+            <li>Professional networking events and career fairs</li>
+            <li>Community volunteer opportunities and local organizations</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4 text-slate-800 dark:text-white">Financial Management</h2>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          Managing finances in a foreign country can be challenging, especially when dealing with different currencies, banking systems, and cost of living. International students need to develop strong financial planning skills to ensure their educational journey is sustainable.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div class="${standardCardStyle}">
+            <h3 class="${standardHeadingStyle}">Financial Planning</h3>
+            <ul class="list-disc list-inside space-y-3 ${standardTextStyle}">
+              <li>Budget creation and expense tracking</li>
+              <li>Understanding tuition and living costs</li>
+              <li>Exploring scholarship and funding opportunities</li>
+              <li>Managing currency exchange and banking</li>
+            </ul>
+          </div>
+          <div class="${standardCardStyle}">
+            <h3 class="${standardHeadingStyle}">Cost-Saving Strategies</h3>
+            <ul class="list-disc list-inside space-y-3 ${standardTextStyle}">
+              <li>Student discounts and benefits</li>
+              <li>Shared accommodation options</li>
+              <li>Cooking meals and grocery shopping</li>
+              <li>Public transportation and travel planning</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4 text-slate-800 dark:text-white">Career Development</h2>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          International students often have unique career development opportunities and challenges. Understanding the local job market, building professional networks, and developing relevant skills are crucial for post-graduation success.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-6 text-slate-800 dark:text-white">Career Opportunities</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="${standardCardStyle}">
+              <h4 class="${standardHeadingStyle}">Internships and Work Experience</h4>
+              <p class="${standardTextStyle}">Gaining practical experience in the local market</p>
+            </div>
+            <div class="${standardCardStyle}">
+              <h4 class="${standardHeadingStyle}">Professional Networking</h4>
+              <p class="${standardTextStyle}">Building connections with industry professionals</p>
+            </div>
+            <div class="${standardCardStyle}">
+              <h4 class="${standardHeadingStyle}">Skill Development</h4>
+              <p class="${standardTextStyle}">Acquiring market-relevant skills and certifications</p>
+            </div>
+            <div class="${standardCardStyle}">
+              <h4 class="${standardHeadingStyle}">Global Perspective</h4>
+              <p class="${standardTextStyle}">Leveraging international experience for career advantage</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4 text-slate-800 dark:text-white">Mental Health and Well-being</h2>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          The international student experience can be emotionally challenging, with homesickness, stress, and cultural adjustment affecting mental health. It's important to recognize these challenges and seek support when needed.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-white">Wellness Strategies</h3>
+          <ul class="list-disc list-inside space-y-3 text-slate-600 dark:text-slate-300">
+            <li>Maintaining regular communication with family and friends back home</li>
+            <li>Seeking counseling and mental health services when needed</li>
+            <li>Practicing self-care and stress management techniques</li>
+            <li>Building a support network of fellow international students</li>
+            <li>Engaging in activities that bring joy and relaxation</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4 text-slate-800 dark:text-white">Future Prospects</h2>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          The international student experience provides valuable skills and perspectives that can enhance career opportunities and personal growth. Understanding how to leverage this experience is key to long-term success.
+        </p>
+
+        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg my-8">
+          <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-white">Long-term Benefits</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold mb-2 text-slate-800 dark:text-white">Global Network</h4>
+              <p class="text-slate-600 dark:text-slate-300">International connections and professional relationships</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2 text-slate-800 dark:text-white">Cultural Competence</h4>
+              <p class="text-slate-600 dark:text-slate-300">Enhanced understanding of diverse perspectives</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2 text-slate-800 dark:text-white">Adaptability</h4>
+              <p class="text-slate-600 dark:text-slate-300">Resilience and flexibility in changing environments</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2 text-slate-800 dark:text-white">Career Advantage</h4>
+              <p class="text-slate-600 dark:text-slate-300">Competitive edge in global job markets</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `,
+    image: "/assets/int.png",
+    author: "Mainak Saha",
+    date: "May 10, 2024",
+    readTime: "10 min read",
+    category: "Education",
+    tags: ["International Students", "Education", "Cultural Adaptation", "Student Life"],
+    likes: 5,
+    comments: 1
+  },
+  {
+    id: 18,
+    title: "The Visa Barrier: Why International Students Struggle to Find Jobs in the US",
+    excerpt: "Exploring the challenges international students face in the US job market due to visa restrictions, and why STEM graduates with OPT extensions deserve more opportunities.",
+    content: `
+      <div class="space-y-6">
+        <p class="text-lg leading-relaxed text-slate-600ark:text-slate-300">
+          Despite possessing world-class education and valuable skills, international students in the United States face significant barriers when entering the job market. The primary obstacle? Visa status concerns that often overshadow their qualifications and potential contributions to American companies. This article examines the challenges these students face and argues for giving STEM graduates with OPT extensions the opportunities they deserve.
+        </p>
+
+        <div class=bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold mb-4 text-slate-80 dark:text-white>Key Challenges</h3>
+          <ul class="list-disc list-inside space-y-3 text-slate-600ark:text-slate-30>
+            <li>Employer misconceptions about visa sponsorship requirements</li>
+            <li>STEM graduates have 3 years of OPT extension without sponsorship</li>
+            <li>Fresh graduates bring innovation and diverse perspectives</li>
+            <li>Companies missing out on top international talent</li>
+            <li>Economic benefits of hiring international students</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2 font-bold mt-8b-4 text-slate-80 dark:text-white">The OPT Advantage for STEM Graduates</h2>
+        <p class="text-lg leading-relaxed text-slate-600ark:text-slate-30>
+          One of the most significant advantages for international students with STEM degrees is the Optional Practical Training (OPT) program. STEM graduates are eligible for a 24h extension beyond the standard 12-month OPT period, giving them a total of 3ars to work in the United States without requiring employer sponsorship.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6my-8        <div class="$[object Object]standardCardStyle}>         <h3 class=${standardHeadingStyle}>OPT Benefits</h3         <ul class="list-disc list-inside space-y-3 $[object Object]standardTextStyle}>
+              <li>3 years of work authorization for STEM graduates</li>
+              <li>No employer sponsorship required</li>
+              <li>Flexibility to change employers</li>
+              <li>Time to prove value to companies</li>
+            </ul>
+          </div>
+          <div class="$[object Object]standardCardStyle}>         <h3 class=${standardHeadingStyle}">Employer Advantages</h3         <ul class="list-disc list-inside space-y-3 $[object Object]standardTextStyle}>
+              <li>No immediate sponsorship costs</li>
+              <li>Access to diverse talent pool</li>
+              <li>Fresh perspectives and innovation</li>
+              <li>Proven academic excellence</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="text-2 font-bold mt-8b-4 text-slate-80 dark:text-white">Common Misconceptions</h2>
+        <p class="text-lg leading-relaxed text-slate-600ark:text-slate-300    Many employers hold misconceptions about hiring international students, often assuming immediate sponsorship requirements or complex legal processes. These misconceptions prevent companies from accessing valuable talent and limit opportunities for qualified graduates.
+        </p>
+
+        <div class=bg-slate-50 dark:bg-slate-800 p-6rounded-lg my-8         <h3 class="text-xl font-semibold mb-6 text-slate-80 dark:text-white">Myths vs. Reality</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8>
+            <div class="$[object Object]standardCardStyle} text-center>              <div class="${standardIconWrapperStyle}>
+                <svg class="${standardIconStyle}viewBox=0 0 24fill="none" stroke="currentColor" stroke-width="2">
+                  <path d=M12 2a1010 0 11010c0 5523-4.477 10-10 10 170.5232 12 6.477 22 2zm0 6a4 0 1008/>
+                </svg>
+              </div>
+              <h4 class=${standardHeadingStyle}">Myth: Immediate Sponsorship</h4>
+              <p class="text-sm $[object Object]standardTextStyle}">Reality: STEM graduates have 3 years without sponsorship</p>
+            </div>
+            <div class="$[object Object]standardCardStyle} text-center>              <div class="${standardIconWrapperStyle}>
+                <svg class="${standardIconStyle}viewBox=0 0 24fill="none" stroke="currentColor" stroke-width="2">
+                  <path d=M12 2a1010 0 11010c0 5523-4.477 10-10 10 170.5232 12 6.47722/>
+                </svg>
+              </div>
+              <h4 class=${standardHeadingStyle}">Myth: Complex Process</h4>
+              <p class="text-sm $[object Object]standardTextStyle}">Reality: Hiring process is similar to US citizens</p>
+            </div>
+            <div class="$[object Object]standardCardStyle} text-center>              <div class="${standardIconWrapperStyle}>
+                <svg class="${standardIconStyle}viewBox=0 0 24fill="none" stroke="currentColor" stroke-width="2">
+                  <path d=M132L3 14h9l-110/>
+                </svg>
+              </div>
+              <h4 class=${standardHeadingStyle}">Myth: Limited Value</h4>
+              <p class="text-sm $[object Object]standardTextStyle}">Reality: Bring diverse perspectives and innovation</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-2 font-bold mt-8b-4 text-slate-80 dark:text-white">The Value of International Students</h2>
+        <p class="text-lg leading-relaxed text-slate-600ark:text-slate-300">
+          International students bring unique value to American companies through their diverse perspectives, global experience, and often exceptional academic backgrounds. Many have overcome significant challenges to study in the US, demonstrating resilience and determination that translates well to the workplace.
+        </p>
+
+        <div class=bg-slate-50 dark:bg-slate-800 p-6rounded-lg my-8         <h3 class="text-xl font-semibold mb-4 text-slate-80 dark:text-white">Unique Contributions</h3>
+          <ul class="list-disc list-inside space-y-3 text-slate-600ark:text-slate-30>
+            <li>Global perspective and cultural diversity</li>
+            <li>Multilingual capabilities and international market insights</li>
+            <li>Strong problem-solving skills developed through adaptation</li>
+            <li>Fresh approaches to innovation and creativity</li>
+            <li>Proven academic excellence and work ethic</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2 font-bold mt-8b-4 text-slate-80 dark:text-white">Economic Benefits for Companies</h2>
+        <p class="text-lg leading-relaxed text-slate-600ark:text-slate-300">
+          Hiring international students, particularly STEM graduates, provides significant economic benefits to companies. These employees often bring specialized skills, contribute to innovation, and help companies expand into international markets.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6my-8        <div class="$[object Object]standardCardStyle}>         <h3 class=${standardHeadingStyle}">Business Advantages</h3         <ul class="list-disc list-inside space-y-3 $[object Object]standardTextStyle}>
+              <li>Access to specialized technical skills</li>
+              <li>Enhanced innovation through diverse perspectives</li>
+              <li>International market expansion opportunities</li>
+              <li>Cost-effective talent acquisition</li>
+            </ul>
+          </div>
+          <div class="$[object Object]standardCardStyle}>         <h3 class=${standardHeadingStyle}>Competitive Edge</h3         <ul class="list-disc list-inside space-y-3 $[object Object]standardTextStyle}>
+              <li>Diverse workforce attracts top talent</li>
+              <li>Global perspective on product development</li>
+              <li>Enhanced problem-solving capabilities</li>
+              <li>Improved company culture and inclusivity</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="text-2 font-bold mt-8b-4 text-slate-80 dark:text-white">Strategies for Success</h2>
+        <p class="text-lg leading-relaxed text-slate-600ark:text-slate-300">
+          International students can take proactive steps to overcome visa-related barriers and demonstrate their value to potential employers. Understanding the system and effectively communicating their advantages is crucial for success.
+        </p>
+
+        <div class=bg-slate-50 dark:bg-slate-800 p-6rounded-lg my-8         <h3 class="text-xl font-semibold mb-6 text-slate-80 dark:text-white">Proactive Approaches</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6>
+            <div class="$[object Object]standardCardStyle}>
+              <h4 class=${standardHeadingStyle}">Education and Communication</h4>
+              <p class="$[object Object]standardTextStyle}">Clearly explain OPT benefits to employers</p>
+            </div>
+            <div class="$[object Object]standardCardStyle}>
+              <h4 class=${standardHeadingStyle}>Networking</h4>
+              <p class="$[object Object]standardTextStyle}">Build relationships with industry professionals</p>
+            </div>
+            <div class="$[object Object]standardCardStyle}>
+              <h4 class=${standardHeadingStyle}">Skill Development</h4>
+              <p class="$[object Object]standardTextStyle}">Focus on in-demand technical and soft skills</p>
+            </div>
+            <div class="$[object Object]standardCardStyle}>
+              <h4 class=${standardHeadingStyle}">Cultural Integration</h4>
+              <p class="$[object Object]standardTextStyle}">Demonstrate understanding of American workplace culture</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-2 font-bold mt-8b-4 text-slate-80 dark:text-white">Call to Action for Employers</h2>
+        <p class="text-lg leading-relaxed text-slate-600ark:text-slate-300">
+          American companies have a unique opportunity to access world-class talent by giving international students, especially STEM graduates, the chance they deserve. The 3-year OPT extension provides ample time to evaluate performance and make informed decisions about long-term employment.
+        </p>
+
+        <div class=bg-slate-50 dark:bg-slate-800 p-6rounded-lg my-8         <h3 class="text-xl font-semibold mb-4 text-slate-80 dark:text-white">Recommendations for Employers</h3>
+          <ul class="list-disc list-inside space-y-3 text-slate-600ark:text-slate-30>
+            <li>Educate HR teams about OPT benefits and requirements</li>
+            <li>Include international students in recruitment efforts</li>
+            <li>Provide clear information about visa policies</li>
+            <li>Create inclusive hiring practices</li>
+            <li>Recognize the value of diverse perspectives</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2 font-bold mt-8b-4 text-slate-80 dark:text-white>Future Outlook</h2>
+        <p class="text-lg leading-relaxed text-slate-600ark:text-slate-300>
+          As the global economy becomes increasingly interconnected, the value of international talent will continue to grow. Companies that embrace diversity and provide opportunities to international students will be better positioned for success in the global marketplace.
+        </p>
+
+        <div class=bg-slate-50 dark:bg-slate-800 p-6rounded-lg my-8         <h3 class="text-xl font-semibold mb-4 text-slate-80 dark:text-white">Long-term Benefits</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6>
+            <div>
+              <h4 class=font-semibold mb-2 text-slate-80 dark:text-white">Global Talent Pool</h4>
+              <p class="text-slate-600ark:text-slate-300">Access to diverse, highly skilled professionals</p>
+            </div>
+            <div>
+              <h4 class=font-semibold mb-2 text-slate-80 dark:text-white>Innovation</h4>
+              <p class="text-slate-600ark:text-slate-300">Fresh perspectives drive creative solutions</p>
+            </div>
+            <div>
+              <h4 class=font-semibold mb-2 text-slate-80 dark:text-white>Market Expansion</h4>
+              <p class="text-slate-600ark:text-slate-300rnational insights for global growth</p>
+            </div>
+            <div>
+              <h4 class=font-semibold mb-2 text-slate-80 dark:text-white">Competitive Advantage</h4>
+              <p class="text-slate-600ark:text-slate-300">Diverse workforce attracts top talent</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `,
+    image: "/assets/int.png",
+    author: "Mainak Saha",
+    date: "May 10, 2024",
+    readTime: "10 min read",
+    category: "Education",
+    tags: ["International Students", "Education", "Cultural Adaptation", "Student Life"],
+    likes: 5,
+    comments: 1
+  },
 ]; 

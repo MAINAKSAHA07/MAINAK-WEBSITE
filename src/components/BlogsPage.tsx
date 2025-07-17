@@ -18,7 +18,9 @@ const BlogsPage: React.FC = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogs.map((blog: Blog) => (
+          {blogs
+            .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+            .map((blog: Blog) => (
             <div 
               key={blog.id}
               className="bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"

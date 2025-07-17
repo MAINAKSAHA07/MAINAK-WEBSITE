@@ -23,7 +23,8 @@ const Blog: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const maxSlides = isMobile ? blogs.length - 1 : Math.ceil(blogs.length / 3) - 1;
+  const sortedBlogs = blogs.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const maxSlides = isMobile ? sortedBlogs.length - 1 : Math.ceil(sortedBlogs.length / 3) - 1;
 
   const resetTimeout = () => {
     if (timeoutRef.current) {
@@ -59,10 +60,10 @@ const Blog: React.FC = () => {
     setIsAutoSliding(false);
     resetTimeout();
   };
-
+  
   const visibleBlogs = isMobile
-    ? [blogs[currentSlide]]
-    : blogs.slice(currentSlide * 3, currentSlide * 3 + 3);
+    ? [sortedBlogs[currentSlide]]
+    : sortedBlogs.slice(currentSlide * 3, currentSlide * 3 + 3);
 
   return (
     <section id="blog" className={`py-20 ${theme === 'dark' ? 'bg-slate-900' : 'bg-white'}`}>
@@ -170,7 +171,7 @@ const Blog: React.FC = () => {
             </motion.div>
           </AnimatePresence>
 
-          {blogs.length > (isMobile ? 1 : 3) && (
+          {sortedBlogs.length > (isMobile ? 1 : 3) && (
             <>
               <button
                 onClick={prevSlide}
