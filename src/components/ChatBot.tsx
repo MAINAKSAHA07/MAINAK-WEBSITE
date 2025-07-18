@@ -7,37 +7,8 @@ const genAI = import.meta.env.VITE_GEMINI_API_KEY
   ? new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY)
   : null;
 
-// System context about Mainak
-const systemContext = `You are Mainak Malay Saha's AI assistant on his personal website. Here's information about him:
-
-**About Mainak:**
-- Master's student in Robotics and Autonomous Systems (AI) at Arizona State University (2024-2026)
-- Bachelor's in Computer Engineering from Mumbai University (2020-2024)
-- Passionate about robotics, AI, computer vision, and real-time systems
-
-**Experience:**
-- Graduate Research Assistant at ASU Center for Engagement Science – Adidas, ASU (2024–Present): Motion analysis, real-time feedback, iOS/Swift, OpenCV
-- Data Engineering Intern at Looqup.AI, Boston (2024): Revenue forecasting, MLOps, Azure, Docker
-- Full-Stack Developer at The Language Network (2021): Built scalable website, SEO, React, Node.js, MongoDB
-
-**Skills:**
-- Programming: Python, C++, JavaScript, TypeScript, Swift
-- Frameworks: React, Node.js, ROS, OpenCV, TensorFlow, PyTorch
-- Technologies: AI/ML, Computer Vision, Robotics, Full-stack development
-- Tools: Docker, Azure, Firebase, MongoDB
-
-**Contact:**
-- Email: msaha4@asu.edu
-- GitHub: https://github.com/MAINAKSAHA07
-- Resume: Available on the website
-
-**Interests:**
-- Robotics and AI research
-- Sports analytics and computer vision
-- Football enthusiast
-- Building innovative tech solutions
-
-Keep responses concise, helpful, and friendly. If asked about topics outside of Mainak's background, politely redirect to his expertise areas or suggest contacting him directly.`;
+// Debug: Check if API key is loaded
+console.log('Gemini API Key loaded:', !!import.meta.env.VITE_GEMINI_API_KEY);
 
 interface Message {
   from: 'user' | 'bot';
@@ -49,7 +20,7 @@ const ChatBot: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Message[]>([
-    { from: 'bot', text: 'Hi! I am Mainak\'s AI assistant. How can I help you learn more about Mainak\'s work and experience?', timestamp: new Date() }
+    { from: 'bot', text: 'Hi there! 👋 I\'m Mainak\'s AI assistant. I can help you learn about his robotics projects, AI research, experience, and skills. I can also answer general questions! What would you like to know?', timestamp: new Date() }
   ]);
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -60,60 +31,144 @@ const ChatBot: React.FC = () => {
     }
   }, [messages, open]);
 
+  // Cache for responses to avoid repeated API calls
+  const responseCache = useRef<Map<string, string>>(new Map());
+
+  // Check if question is specifically about Mainak (use fallback for speed)
+  const isMainakSpecific = (userMsg: string): boolean => {
+    const mainakKeywords = [
+      'mainak', 'your', 'his', 'contact', 'email', 'github', 
+      'skills', 'experience', 'education', 'projects', 'resume', 'cv'
+    ];
+    const normalizedMsg = userMsg.toLowerCase();
+    return mainakKeywords.some(keyword => normalizedMsg.includes(keyword));
+  };
+
   const getBotResponse = async (userMsg: string): Promise<string> => {
+    // Check cache first
+    const cacheKey = userMsg.toLowerCase().trim();
+    if (responseCache.current.has(cacheKey)) {
+      return responseCache.current.get(cacheKey)!;
+    }
+
+    // Only use fallback if genAI is not available
+    if (!genAI) {
+      const response = getFallbackResponse(userMsg);
+      responseCache.current.set(cacheKey, response);
+      return response;
+    }
+
     try {
-      const model = genAI?.getGenerativeModel({ model: "gemini-1.5-flash" });
+      console.log('Attempting to call Gemini API...');
+      const model = genAI.getGenerativeModel({ 
+        model: "gemini-1.5-flash",
+        generationConfig: {
+          maxOutputTokens: 300, // Increased for better responses
+          temperature: 0.7,
+        },
+      });
       
-      const prompt = `${systemContext}
+      // Enhanced prompt for all questions
+      const prompt = `You are Mainak Malay Saha's AI assistant on his personal website. You're knowledgeable, helpful, and can answer both questions about Mainak and general topics.
+
+About Mainak:
+- MS in Robotics & Autonomous Systems (AI) at Arizona State University
+- Graduate Research Assistant working on motion analysis & real-time feedback with Adidas
+- Skilled in Python, C++, JavaScript, React, AI/ML, Robotics, Computer Vision
+- Email: msaha4@asu.edu | GitHub: github.com/MAINAKSAHA07
 
 User Question: ${userMsg}
 
-Please provide a helpful response about Mainak Malay Saha based on the context provided. Keep it concise and friendly.`;
+Instructions:
+- Answer any question helpfully and accurately
+- If it's about Mainak, provide specific details from his background
+- If it's a general question (science, math, technology, programming, etc.), answer knowledgeably
+- If it's about AI/ML/Robotics, you can reference how it relates to Mainak's work
+- Keep responses informative but conversational
+- Use emojis sparingly for friendliness
+- If you're unsure about something, be honest about it
 
-      const result = await model?.generateContent(prompt);
-      const response = await result?.response;
-      return response?.text() || '';
+Response:`;
+
+      // Set a timeout for the API call
+      const timeoutPromise = new Promise<string>((_, reject) =>
+        setTimeout(() => reject(new Error('Timeout')), 10000) // Increased timeout
+      );
+
+      const apiPromise = model.generateContent(prompt).then(result => {
+        console.log('Gemini API response received');
+        return result.response.text();
+      });
+
+      const response = await Promise.race([apiPromise, timeoutPromise]);
+      console.log('Response:', response);
+      responseCache.current.set(cacheKey, response);
+      return response;
     } catch (error) {
       console.error('Error calling Gemini API:', error);
-      return "I'm sorry, I'm having trouble connecting right now. Please try again later or contact Mainak directly at msaha4@asu.edu.";
+      const errorObj = error as Error;
+      console.error('Error details:', {
+        message: errorObj.message,
+        name: errorObj.name,
+        stack: errorObj.stack
+      });
+      
+      // Provide a more helpful error message
+      const errorMessage = `I'm having trouble connecting to my AI service right now. Error: ${errorObj.message}. For questions about Mainak, I can still help with his experience, skills, projects, and contact info. Please try again in a moment!`;
+      responseCache.current.set(cacheKey, errorMessage);
+      return errorMessage;
     }
   };
 
   const fallbackResponses = {
-    greeting: "Hello! I'm Mainak's AI assistant. I'd love to help you learn more about his work and experience!",
-    experience: "Mainak is currently a Graduate Research Assistant at ASU Center for Engagement Science working with Adidas on motion analysis and real-time feedback systems. He has also worked as a Data Engineering Intern at Looqup.AI and as a Full-Stack Developer at The Language Network.",
-    skills: "Mainak is skilled in Python, C++, JavaScript, TypeScript, Swift, React, Node.js, ROS, OpenCV, TensorFlow, PyTorch, Docker, Azure, and Firebase. He specializes in AI/ML, Computer Vision, Robotics, and Full-stack development.",
-    education: "Mainak is pursuing his Master's in Robotics and Autonomous Systems (AI) at Arizona State University (2024-2026) and completed his Bachelor's in Computer Engineering from Mumbai University (2020-2024).",
-    contact: "You can reach Mainak at msaha4@asu.edu or check out his projects on GitHub at https://github.com/MAINAKSAHA07",
-    default: "I'm here to help you learn about Mainak's background in robotics, AI, and software development. Feel free to ask about his experience, skills, education, or projects!"
+    greeting: "Hi! 👋 I'm Mainak's AI assistant. I can help with questions about Mainak's work, or answer general questions too!",
+    experience: "🎓 Mainak is a Graduate Research Assistant at ASU working with Adidas on motion analysis & real-time feedback. Previously: Data Engineering Intern at Looqup.AI (Boston) and Full-Stack Developer at The Language Network.",
+    skills: "💻 **Tech Stack:** Python, C++, JavaScript, React, Node.js, ROS, OpenCV, TensorFlow, PyTorch, Docker, Azure, Firebase. **Specialties:** AI/ML, Computer Vision, Robotics, Full-stack development.",
+    education: "🎓 **Current:** MS in Robotics & Autonomous Systems (AI) at Arizona State University (2024-2026). **Previous:** BE in Computer Engineering, Mumbai University (2020-2024).",
+    contact: "📧 Email:msaha4@asu.edu | 💻 GitHub: [github.com/MAINAKSAHA07](https://github.com/MAINAKSAHA07) | 📄 **Resume:** Available on this website!",
+    projects: "🚀 Check out the Projects section to see Mainak's work in robotics, AI, computer vision, sports analytics, and full-stack development!",
+    research: "🔬 Mainak's current research focuses on motion analysis and real-time feedback systems using AI/ML, computer vision, and iOS development at ASU's Center for Engagement Science.",
+    general: "I'm Mainak's AI assistant and I can help with both questions about Mainak and general topics! What would you like to know?",
+    default: "I'm here to help with questions about Mainak's background in robotics, AI, and software development, or I can try to answer general questions too! What can I help you with? 🤖"
   };
 
-  const getKeywords = (text: string) => text.toLowerCase().split(' ');
+  const getKeywords = (text: string) => text.toLowerCase().replace(/[^\w\s]/g, '').split(/\s+/);
 
   const getFallbackResponse = (userMsg: string): string => {
     const keywords = getKeywords(userMsg);
     
+    // Mainak-specific questions
+    if (keywords.some(word => ['experience', 'work', 'job', 'position', 'role', 'career', 'employment'].includes(word))) {
+      return fallbackResponses.experience;
+    }
+    
+    if (keywords.some(word => ['skills', 'technologies', 'programming', 'languages', 'tools', 'tech', 'stack'].includes(word))) {
+      return fallbackResponses.skills;
+    }
+    
+    if (keywords.some(word => ['education', 'degree', 'university', 'college', 'study', 'school', 'academic'].includes(word))) {
+      return fallbackResponses.education;
+    }
+    
+    if (keywords.some(word => ['contact', 'email', 'reach', 'github', 'connect', 'social'].includes(word))) {
+      return fallbackResponses.contact;
+    }
+    
+    if (keywords.some(word => ['projects', 'portfolio', 'work', 'built', 'created', 'developed'].includes(word))) {
+      return fallbackResponses.projects;
+    }
+    
+    if (keywords.some(word => ['research', 'paper', 'publication', 'study', 'analysis'].includes(word))) {
+      return fallbackResponses.research;
+    }
+    
+    // General greetings
     if (keywords.some(word => ['hi', 'hello', 'hey', 'greetings'].includes(word))) {
       return fallbackResponses.greeting;
     }
     
-    if (keywords.some(word => ['experience', 'work', 'job', 'position', 'role'].includes(word))) {
-      return fallbackResponses.experience;
-    }
-    
-    if (keywords.some(word => ['skills', 'technologies', 'programming', 'languages', 'tools'].includes(word))) {
-      return fallbackResponses.skills;
-    }
-    
-    if (keywords.some(word => ['education', 'degree', 'university', 'college', 'study'].includes(word))) {
-      return fallbackResponses.education;
-    }
-    
-    if (keywords.some(word => ['contact', 'email', 'reach', 'github', 'connect'].includes(word))) {
-      return fallbackResponses.contact;
-    }
-    
-    return fallbackResponses.default;
+    // For general questions when API is not available
+    return "I'd love to help answer that! However, I need my full AI capabilities for general questions. For now, I can quickly answer questions about Mainak's experience, skills, education, projects, or contact info. What would you like to know about Mainak?";
   };
 
   const handleSend = async () => {
@@ -124,24 +179,49 @@ Please provide a helpful response about Mainak Malay Saha based on the context p
     setInput('');
     setIsLoading(true);
     
+    // For very common queries, respond immediately
+    const quickResponse = getQuickResponse(userMsg);
+    if (quickResponse) {
+      setTimeout(() => {
+        setMessages((msgs) => [...msgs, { from: 'bot', text: quickResponse, timestamp: new Date() }]);
+        setIsLoading(false);
+      }, 200); // Small delay to feel natural
+      return;
+    }
+    
     try {
-      let response;
-      if (genAI) {
-        response = await getBotResponse(userMsg);
-      } else {
-        response = getFallbackResponse(userMsg);
-      }
+      const response = await getBotResponse(userMsg);
       setMessages((msgs) => [...msgs, { from: 'bot', text: response, timestamp: new Date() }]);
     } catch (error) {
       console.error('Error:', error);
       setMessages((msgs) => [...msgs, { 
         from: 'bot', 
-        text: "I apologize, but I'm having trouble processing your request right now. Please try again later.",
+        text: getFallbackResponse(userMsg),
         timestamp: new Date()
       }]);
     } finally {
       setIsLoading(false);
     }
+  };
+
+  // Quick responses for instant feedback
+  const getQuickResponse = (userMsg: string): string | null => {
+    const msg = userMsg.toLowerCase();
+    
+    if (/^(hi|hello|hey)$/i.test(userMsg.trim())) {
+      return "Hi there! 👋 I'm Mainak's AI assistant. I can answer questions about Mainak's work or help with general questions too. What would you like to know?";
+    }
+    
+    if (msg.includes('thank') || msg.includes('thanks')) {
+      return "You're welcome! Feel free to ask anything else - about Mainak's projects, experience, or any general questions! 😊";
+    }
+    
+    if (msg.includes('bye') || msg.includes('goodbye')) {
+      return "Goodbye! Thanks for visiting Mainak's website. Have a great day! 👋";
+    }
+    
+    // No quick response for other questions - let them go through AI processing
+    return null;
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -225,7 +305,7 @@ Please provide a helpful response about Mainak Malay Saha based on the context p
             <input
               type="text"
               className="flex-1 bg-slate-100 dark:bg-slate-800 rounded-full px-4 py-2 text-sm text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-              placeholder="Ask about Mainak's experience, projects, or skills..."
+              placeholder="Ask about Mainak, or any general question..."
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
