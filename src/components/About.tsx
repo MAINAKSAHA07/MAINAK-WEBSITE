@@ -1,6 +1,7 @@
 import React from 'react';
 import { Code2, Cpu, Database, Brain, Cloud, Settings, Zap } from 'lucide-react';
-import { SiPython, SiJavascript, SiCplusplus, SiReact, SiNodedotjs, SiTensorflow, SiPytorch, SiFastapi, SiPandas, SiScikitlearn, SiKeras, SiOpencv, SiDocker, SiLinux, SiRos, SiGit, SiVercel, SiMongodb, SiSwift } from 'react-icons/si';
+import { SiPython, SiJavascript, SiCplusplus, SiReact, SiNodedotjs, SiTensorflow, SiPytorch, SiFastapi, SiPandas, SiScikitlearn, SiKeras, SiOpencv, SiDocker, SiLinux, SiRos, SiGit, SiVercel, SiMongodb, SiSwift, SiFirebase } from 'react-icons/si';
+import { FaAws } from 'react-icons/fa6';
 
 // --- Old skills array and carousel logic (commented for reference) ---
 /*
@@ -45,8 +46,10 @@ const skillIcons = [
   { name: 'Python', icon: SiPython },
   { name: 'JavaScript', icon: SiJavascript },
   { name: 'C++', icon: SiCplusplus },
-  { name: 'Swift', icon: SiSwift }, // Assuming SiMathworks is a placeholder for MATLAB
+  { name: 'Swift', icon: SiSwift }, 
   { name: 'React', icon: SiReact },
+  { name: 'Firebase', icon: SiFirebase },
+  { name: 'AWS', icon: FaAws },
   { name: 'Node.js', icon: SiNodedotjs },
   { name: 'TensorFlow', icon: SiTensorflow },
   { name: 'PyTorch', icon: SiPytorch },
@@ -60,7 +63,7 @@ const skillIcons = [
   { name: 'ROS', icon: SiRos },
   { name: 'Git', icon: SiGit },
   { name: 'MongoDB', icon: SiMongodb },
-//  { name: 'Vercel', icon: SiVercel },
+  { name: 'Vercel', icon: SiVercel },
 ];
 
 const education = [
