@@ -18,6 +18,20 @@ const Projects = () => {
 
   const projects = [
     {
+      "title": "Audio-Vibration Rating Explorer",
+      "description": "Advanced interactive web application for exploring how well four vibration designs match real-world sounds, featuring comprehensive data visualization, audio/vibration playback, waveform analysis, and AI-powered research assistance.",
+      "image": "/assets/audio.png",
+      "tags": ["React", "TypeScript", "D3.js", "Data Visualization"],
+      "achievements": [
+        "Built comprehensive dashboard with 6 different visualizations",
+        "Implemented dual-view audio player with waveform visualization",
+        "Created AI research assistant for data-driven insights",
+        "Developed interactive charts including volcano contour plots"
+      ],
+      "liveLink": "https://audiovibration.netlify.app/",
+      "githubLink": "https://github.com/MAINAKSAHA07/Audio-Vibration-Rating-Explorer"
+    },
+    {
       "title": "Smart Wearable Safety Device for Women",
       "description": "Conceptualizing an IoT-enabled wearable device integrating GPS tracking, emergency alerts, and physiological monitoring to enhance women's security.",
       "image": "/assets/women.png",
