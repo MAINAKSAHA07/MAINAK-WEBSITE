@@ -1,14 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
-import { GoogleGenerativeAI } from '@google/generative-ai';
-
-// Initialize Gemini AI
-const genAI = import.meta.env.VITE_GEMINI_API_KEY 
-  ? new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY)
-  : null;
-
-// Debug: Check if API key is loaded
-console.log('Gemini API Key loaded:', !!import.meta.env.VITE_GEMINI_API_KEY);
 
 interface Message {
   from: 'user' | 'bot';
@@ -20,7 +11,7 @@ const ChatBot: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Message[]>([
-    { from: 'bot', text: 'Hi there! 👋 I\'m Mainak\'s AI assistant. I can help you learn about his robotics projects, AI research, experience, and skills. I can also answer general questions! What would you like to know?', timestamp: new Date() }
+    { from: 'bot', text: 'Hi there! 👋 I\'m Mainak\'s AI assistant. I can help you learn about his data engineering projects, AI research, experience, and skills. I can also answer general questions! What would you like to know?', timestamp: new Date() }
   ]);
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -31,7 +22,7 @@ const ChatBot: React.FC = () => {
     }
   }, [messages, open]);
 
-  // Cache for responses to avoid repeated API calls
+  // Cache for responses to avoid repeated processing
   const responseCache = useRef<Map<string, string>>(new Map());
 
   // Check if question is specifically about Mainak (use fallback for speed)
@@ -51,85 +42,25 @@ const ChatBot: React.FC = () => {
       return responseCache.current.get(cacheKey)!;
     }
 
-    // Only use fallback if genAI is not available
-    if (!genAI) {
-      const response = getFallbackResponse(userMsg);
-      responseCache.current.set(cacheKey, response);
-      return response;
-    }
-
-    try {
-      console.log('Attempting to call Gemini API...');
-      const model = genAI.getGenerativeModel({ 
-        model: "gemini-1.5-flash",
-        generationConfig: {
-          maxOutputTokens: 300, // Increased for better responses
-          temperature: 0.7,
-        },
-      });
-      
-      // Enhanced prompt for all questions
-      const prompt = `You are Mainak Malay Saha's AI assistant on his personal website. You're knowledgeable, helpful, and can answer both questions about Mainak and general topics.
-
-About Mainak:
-- MS in Robotics & Autonomous Systems (AI) at Arizona State University
-- Graduate Research Assistant working on motion analysis & real-time feedback with Adidas
-- Skilled in Python, C++, JavaScript, React, AI/ML, Robotics, Computer Vision
-- Email: msaha4@asu.edu | GitHub: github.com/MAINAKSAHA07
-
-User Question: ${userMsg}
-
-Instructions:
-- Answer any question helpfully and accurately
-- If it's about Mainak, provide specific details from his background
-- If it's a general question (science, math, technology, programming, etc.), answer knowledgeably
-- If it's about AI/ML/Robotics, you can reference how it relates to Mainak's work
-- Keep responses informative but conversational
-- Use emojis sparingly for friendliness
-- If you're unsure about something, be honest about it
-
-Response:`;
-
-      // Set a timeout for the API call
-      const timeoutPromise = new Promise<string>((_, reject) =>
-        setTimeout(() => reject(new Error('Timeout')), 10000) // Increased timeout
-      );
-
-      const apiPromise = model.generateContent(prompt).then(result => {
-        console.log('Gemini API response received');
-        return result.response.text();
-      });
-
-      const response = await Promise.race([apiPromise, timeoutPromise]);
-      console.log('Response:', response);
-      responseCache.current.set(cacheKey, response);
-      return response;
-    } catch (error) {
-      console.error('Error calling Gemini API:', error);
-      const errorObj = error as Error;
-      console.error('Error details:', {
-        message: errorObj.message,
-        name: errorObj.name,
-        stack: errorObj.stack
-      });
-      
-      // Provide a more helpful error message
-      const errorMessage = `I'm having trouble connecting to my AI service right now. Error: ${errorObj.message}. For questions about Mainak, I can still help with his experience, skills, projects, and contact info. Please try again in a moment!`;
-      responseCache.current.set(cacheKey, errorMessage);
-      return errorMessage;
-    }
+    // Use fallback response system
+    const response = getFallbackResponse(userMsg);
+    responseCache.current.set(cacheKey, response);
+    return response;
   };
 
   const fallbackResponses = {
     greeting: "Hi! 👋 I'm Mainak's AI assistant. I can help with questions about Mainak's work, or answer general questions too!",
     experience: "🎓 Mainak is a Graduate Research Assistant at ASU working with Adidas on motion analysis & real-time feedback. Previously: Data Engineering Intern at Looqup.AI (Boston) and Full-Stack Developer at The Language Network.",
-    skills: "💻 **Tech Stack:** Python, C++, JavaScript, React, Node.js, ROS, OpenCV, TensorFlow, PyTorch, Docker, Azure, Firebase. **Specialties:** AI/ML, Computer Vision, Robotics, Full-stack development.",
+    skills: "💻 **Tech Stack:** Python, C++, JavaScript, React, Node.js, Apache Spark, Kafka, Airflow, Docker, Azure, Firebase, SQL, NoSQL. **Specialties:** Data Engineering, AI/ML, Computer Vision, Full-stack development.",
     education: "🎓 **Current:** MS in Robotics & Autonomous Systems (AI) at Arizona State University (2024-2026). **Previous:** BE in Computer Engineering, Mumbai University (2020-2024).",
-    contact: "📧 Email:msaha4@asu.edu | 💻 GitHub: [github.com/MAINAKSAHA07](https://github.com/MAINAKSAHA07) | 📄 **Resume:** Available on this website!",
-    projects: "🚀 Check out the Projects section to see Mainak's work in robotics, AI, computer vision, sports analytics, and full-stack development!",
+    contact: "📧 Email: msaha4@asu.edu | 💻 GitHub: github.com/MAINAKSAHA07 | 📄 **Resume:** Available on this website!",
+    projects: "🚀 Check out the Projects section to see Mainak's work in data engineering, AI, computer vision, sports analytics, and full-stack development!",
     research: "🔬 Mainak's current research focuses on motion analysis and real-time feedback systems using AI/ML, computer vision, and iOS development at ASU's Center for Engagement Science.",
+    ai: "🤖 AI (Artificial Intelligence) is a field of computer science focused on creating systems that can perform tasks requiring human intelligence. Mainak works extensively with AI/ML in data engineering, computer vision, and motion analysis.",
+    dataEngineering: "📊 Data Engineering involves designing, building, and maintaining data pipelines and infrastructure. Mainak has experience with Apache Spark, Kafka, Airflow, and big data technologies for processing and analyzing large datasets.",
+    programming: "💻 Programming is the process of creating instructions for computers. Mainak is skilled in Python, C++, JavaScript, SQL, and many other languages for data engineering, AI, and web development.",
     general: "I'm Mainak's AI assistant and I can help with both questions about Mainak and general topics! What would you like to know?",
-    default: "I'm here to help with questions about Mainak's background in robotics, AI, and software development, or I can try to answer general questions too! What can I help you with? 🤖"
+    default: "I'm here to help with questions about Mainak's background in data engineering, AI, and software development, or I can try to answer general questions too! What can I help you with? 🤖"
   };
 
   const getKeywords = (text: string) => text.toLowerCase().replace(/[^\w\s]/g, '').split(/\s+/);
@@ -167,8 +98,21 @@ Response:`;
       return fallbackResponses.greeting;
     }
     
-    // For general questions when API is not available
-    return "I'd love to help answer that! However, I need my full AI capabilities for general questions. For now, I can quickly answer questions about Mainak's experience, skills, education, projects, or contact info. What would you like to know about Mainak?";
+    // AI and technology related questions
+    if (keywords.some(word => ['ai', 'artificial', 'intelligence', 'machine', 'learning', 'ml'].includes(word))) {
+      return fallbackResponses.ai;
+    }
+    
+    if (keywords.some(word => ['data', 'engineering', 'pipeline', 'spark', 'kafka', 'airflow', 'etl', 'big', 'data'].includes(word))) {
+      return fallbackResponses.dataEngineering;
+    }
+    
+    if (keywords.some(word => ['programming', 'coding', 'code', 'software', 'development', 'developer'].includes(word))) {
+      return fallbackResponses.programming;
+    }
+    
+    // For other general questions, provide a helpful response
+    return "I'm here to help with questions about Mainak's background in data engineering, AI, and software development! I can tell you about his experience, skills, education, projects, research, and contact information. What would you like to know about Mainak? 🤖";
   };
 
   const handleSend = async () => {
@@ -209,7 +153,7 @@ Response:`;
     const msg = userMsg.toLowerCase();
     
     if (/^(hi|hello|hey)$/i.test(userMsg.trim())) {
-      return "Hi there! 👋 I'm Mainak's AI assistant. I can answer questions about Mainak's work or help with general questions too. What would you like to know?";
+      return "Hi there! 👋 I'm Mainak's AI assistant. I can answer questions about Mainak's data engineering work, AI research, or help with general questions too. What would you like to know?";
     }
     
     if (msg.includes('thank') || msg.includes('thanks')) {
@@ -252,7 +196,6 @@ Response:`;
             <div className="flex items-center space-x-2">
               <Bot className="w-5 h-5" />
               <span className="font-semibold">Mainak's Assistant</span>
-              {/* <span className="text-xs bg-white/20 px-2 py-1 rounded-full">Gemini</span> */}
             </div>
             <button onClick={() => setOpen(false)} aria-label="Close chat" className="hover:text-blue-200 transition-colors">
               <X className="w-5 h-5" />
