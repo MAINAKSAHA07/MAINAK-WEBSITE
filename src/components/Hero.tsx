@@ -65,7 +65,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed text-balance">
-            Welcome to my personal website! I'm a Master's student in Robotics and Autonomous Systems in Artificial Intelligence at Arizona State University, with a strong foundation in data engineering, programming, and AI technologies. Explore my skills and projects in data engineering, AI, and full-stack development, and feel free to connect with me!
+            Welcome to my personal website! I'm a Master's student in Artificial Intelligence at Arizona State University, with a strong foundation in data engineering, programming, and AI technologies. Explore my skills and projects in data engineering, AI, and full-stack development, and feel free to connect with me!
           </p>
           
           <div className="flex justify-center space-x-8 mb-16">
@@ -94,7 +94,7 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
             <a
-              href="/assets/MAINAKSAHA_RESUME_jun22.pdf"
+              href="/assets/MAINAKSAHA_RESUME_dance.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary group"

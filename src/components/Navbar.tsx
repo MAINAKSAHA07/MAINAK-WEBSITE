@@ -138,7 +138,7 @@ const Navbar = () => {
             )}
           </button>
           <a
-            href="/assets/MAINAKSAHA_RESUME_jun22.pdf"
+            href="/assets/MAINAKSAHA_RESUME_dance.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
