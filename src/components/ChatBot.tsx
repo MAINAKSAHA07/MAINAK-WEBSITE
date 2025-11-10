@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
+import OpenAI from 'openai';
+import { trainingData, systemPrompt } from '../data/trainingData';
 
 interface Message {
   from: 'user' | 'bot';
@@ -16,6 +18,12 @@ const ChatBot: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Initialize OpenAI client
+  const openai = new OpenAI({
+    apiKey: import.meta.env.VITE_chatgptapi,
+    dangerouslyAllowBrowser: true
+  });
+
   useEffect(() => {
     if (open && messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -25,16 +33,6 @@ const ChatBot: React.FC = () => {
   // Cache for responses to avoid repeated processing
   const responseCache = useRef<Map<string, string>>(new Map());
 
-  // Check if question is specifically about Mainak (use fallback for speed)
-  const isMainakSpecific = (userMsg: string): boolean => {
-    const mainakKeywords = [
-      'mainak', 'your', 'his', 'contact', 'email', 'github', 
-      'skills', 'experience', 'education', 'projects', 'resume', 'cv'
-    ];
-    const normalizedMsg = userMsg.toLowerCase();
-    return mainakKeywords.some(keyword => normalizedMsg.includes(keyword));
-  };
-
   const getBotResponse = async (userMsg: string): Promise<string> => {
     // Check cache first
     const cacheKey = userMsg.toLowerCase().trim();
@@ -42,10 +40,43 @@ const ChatBot: React.FC = () => {
       return responseCache.current.get(cacheKey)!;
     }
 
-    // Use fallback response system
-    const response = getFallbackResponse(userMsg);
-    responseCache.current.set(cacheKey, response);
-    return response;
+    try {
+      // Check if API key is configured
+      if (!import.meta.env.VITE_chatgptapi || import.meta.env.VITE_chatgptapi === 'your_openai_api_key_here') {
+        return "I'm not configured yet! Please add your OpenAI API key to the .env file to enable AI-powered responses.";
+      }
+
+      // Prepare conversation history
+      const conversationHistory = messages.map(msg => ({
+        role: msg.from === 'user' ? 'user' : 'assistant',
+        content: msg.text
+      }));
+
+      // Add current user message
+      conversationHistory.push({
+        role: 'user',
+        content: userMsg
+      });
+
+      // Call OpenAI API
+      const completion = await openai.chat.completions.create({
+        model: import.meta.env.VITE_CHATBOT_MODEL || 'gpt-3.5-turbo',
+        messages: [
+          { role: 'system', content: systemPrompt },
+          ...conversationHistory
+        ],
+        max_tokens: parseInt(import.meta.env.VITE_CHATBOT_MAX_TOKENS || '1000'),
+        temperature: parseFloat(import.meta.env.VITE_CHATBOT_TEMPERATURE || '0.7'),
+      });
+
+      const response = completion.choices[0]?.message?.content || 'Sorry, I couldn\'t generate a response.';
+      responseCache.current.set(cacheKey, response);
+      return response;
+
+    } catch (error) {
+      console.error('OpenAI API Error:', error);
+      return getFallbackResponse(userMsg);
+    }
   };
 
   const fallbackResponses = {

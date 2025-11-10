@@ -94,7 +94,7 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
             <a
-              href="/assets/MAINAKSAHA_RESUME_dance.pdf"
+              href="/assets/MAINAKSAHA.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary group"

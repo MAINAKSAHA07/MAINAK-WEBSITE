@@ -138,7 +138,7 @@ const Navbar = () => {
             )}
           </button>
           <a
-            href="/assets/MAINAKSAHA_RESUME_dance.pdf"
+            href="/assets/MAINAKSAHA.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
@@ -183,7 +183,7 @@ const Navbar = () => {
               </Link>
             ))}
             <a
-              href="/MAINAKSAHA_RESUME_Apr10.pdf"
+              href="/assets/MAINAKSAHA_SOFTWARE.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="block px-4 py-3 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg transition-all duration-300 animate-slide-right font-medium text-base"

@@ -5,6 +5,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Experience = () => {
   const experiences = [
     {
+      role: "Graduate Research Associate",
+      company: "Ira A. Fulton Schools of Engineering at Arizona State University",
+      period: "Aug 2025 – Present",
+      description: "Part-time research position at the Touch Experience and Action Learning (TEAL) Lab under Prof. Hasti Seifi, focusing on audio-vibration mapping and interactive web applications.",
+      achievements: [
+        "Built the Audio-Vibration Rating Explorer, an interactive web app to evaluate how four vibration designs map to 1,000 real-world sounds (4,000 ratings).",
+        "Developed an ML pipeline that converts real sound into the four vibration types—freqshift, hapticgen, percept, pitchmatch—including feature extraction, model inference, and automated batch processing/QA.",
+        "Implemented synchronized audio + vibration playback, real-time waveform and spectrogram views (WaveSurfer.js), plus A/B comparison across designs.",
+        "Storage & delivery: Amazon S3 for raw/derived audio & vibration assets; Amazon CloudFront CDN for low-latency global delivery to the web app."
+      ]
+    },
+    {
       role: "Graduate Research Assistant",
       company: "ASU Center for Engagement Science – Adidas, ASU",
       period: "May 25 – Present",
