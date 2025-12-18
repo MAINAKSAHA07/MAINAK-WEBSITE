@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
 import OpenAI from 'openai';
-import { trainingData, systemPrompt } from '../data/trainingData';
+import { systemPrompt } from '../data/trainingData';
 
 interface Message {
   from: 'user' | 'bot';
@@ -46,15 +46,18 @@ const ChatBot: React.FC = () => {
         return "I'm not configured yet! Please add your OpenAI API key to the .env file to enable AI-powered responses.";
       }
 
-      // Prepare conversation history
-      const conversationHistory = messages.map(msg => ({
-        role: msg.from === 'user' ? 'user' : 'assistant',
-        content: msg.text
-      }));
+      // Prepare conversation history (exclude initial greeting, keep last 10 messages for context)
+      const recentMessages = messages.slice(1); // Skip initial greeting
+      const conversationHistory: Array<{ role: 'user' | 'assistant'; content: string }> = recentMessages
+        .slice(-10) // Keep last 10 messages for context
+        .map(msg => ({
+          role: (msg.from === 'user' ? 'user' : 'assistant') as 'user' | 'assistant',
+          content: msg.text
+        }));
 
       // Add current user message
       conversationHistory.push({
-        role: 'user',
+        role: 'user' as const,
         content: userMsg
       });
 

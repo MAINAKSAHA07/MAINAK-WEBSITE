@@ -58,6 +58,26 @@ export const trainingData = {
       githubLink: "https://github.com/MAINAKSAHA07/Audio-Vibration-Rating-Explorer"
     },
     {
+      name: "Rave - Event Ticketing Platform",
+      description: "Full-stack event ticketing platform for India with multi-currency support, role-based access, and real-time seat inventory.",
+      technologies: ["Next.js", "Node.js", "TypeScript", "PocketBase", "Razorpay", "Docker", "AWS"],
+      impact: "Enabled end-to-end ticket sales with secure payments, QR-based check-in, and organizer analytics dashboards.",
+      role: "Full-Stack Developer",
+      duration: "2024",
+      liveLink: "https://rave-eta.vercel.app/",
+      githubLink: "https://github.com/MAINAKSAHA07/rave",
+    },
+    {
+      name: "Restaurant Management System",
+      description: "Multi-tenant restaurant management platform with customer ordering, backoffice dashboard, and kitchen display system.",
+      technologies: ["Next.js 14", "React 18", "TypeScript", "PocketBase", "Razorpay", "Tailwind CSS", "Docker"],
+      impact: "Streamlined orders, table management, and reporting for multiple restaurant locations with role-based access.",
+      role: "Full-Stack Developer",
+      duration: "2024",
+      liveLink: "https://restaurant-customer-web.netlify.app/",
+      backofficeLink: "https://restaurant-backoffice.netlify.app/orders",
+    },
+    {
       name: "Smart Wearable Safety Device for Women",
       description: "Conceptualizing an IoT-enabled wearable device integrating GPS tracking, emergency alerts, and physiological monitoring to enhance women's security.",
       technologies: ["IoT", "Embedded Systems", "AI", "Safety Tech", "GPS Tracking"],

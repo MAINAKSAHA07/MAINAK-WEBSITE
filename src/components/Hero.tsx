@@ -65,7 +65,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed text-balance">
-            Welcome to my personal website! I'm a Master's student in Artificial Intelligence at Arizona State University, with a strong foundation in data engineering, programming, and AI technologies. Explore my skills and projects in data engineering, AI, and full-stack development, and feel free to connect with me!
+            Welcome to my personal website! I'm a Master's student in RAS Artificial Intelligence at Arizona State University, with a strong foundation in data engineering, programming, and AI technologies. Explore my skills and projects in data engineering, AI, and full-stack development, and feel free to connect with me!
           </p>
           
           <div className="flex justify-center space-x-8 mb-16">

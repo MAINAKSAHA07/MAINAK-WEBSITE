@@ -59,6 +59,35 @@ const Projects = () => {
       "githubLink": "https://github.com/MAINAKSAHA07/Automated-Warehouse_Scenario"
     },
     {
+      title: "Rave - Event Ticketing Platform",
+      description: "Full-stack event ticketing platform for India with multi-currency support, role-based access, and real-time seat inventory.",
+      image: "/assets/rave.png",
+      tags: ["Next.js", "Node.js", "TypeScript", "PocketBase"],
+      achievements: [
+        "Built microservices-based architecture with separate customer app, organizer dashboard, and business logic service",
+        "Integrated Razorpay payments with refunds, T+2 settlements, and GST handling",
+        "Implemented role-based access control with PocketBase + Google OAuth",
+        "Added QR code check-in, seated + general admission tickets, and D3.js analytics dashboards"
+      ],
+      liveLink: "https://rave-eta.vercel.app/",
+      backofficeLink: "https://ravebackoffice.vercel.app/",
+      githubLink: "https://github.com/MAINAKSAHA07/rave",
+    },
+    {
+      title: "Restaurant Management System",
+      description: "Multi-tenant restaurant platform with online ordering, table management, and staff backoffice tools.",
+      image: "/assets/resturant.png",
+      tags: ["AWS", "React", "TypeScript", "PocketBase"],
+      achievements: [
+        "Built customer web app for real-time menu browsing, cart, coupons, and Razorpay payments",
+        "Developed drag-and-drop floor plan with live table status and direct order creation",
+        "Implemented kitchen display system (KDS) and backoffice dashboard for staff workflows",
+        "Added multi-tenant RBAC, sales/GST reports, and Docker-based deployment"
+      ],
+      liveLink: "https://restaurant-customer-web.netlify.app/",
+      backofficeLink: "https://restaurant-backoffice.netlify.app/orders",
+    },
+    {
       title: "Pololu 3pi + Robot",
       description: "Developed an autonomous line-following and maze-solving robot with 95% accuracy using embedded systems expertise.",
       image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
