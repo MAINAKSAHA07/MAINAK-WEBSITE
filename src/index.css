@@ -244,16 +244,72 @@
 }
 
 /* Custom cursor styles */
-* {
-  cursor: auto;
+.tc-hide-default-cursor * {
+  cursor: none !important;
 }
 
-a, button, input, textarea, [role="button"], [tabindex] {
-  cursor: pointer;
+.target-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  border: 2px solid rgba(96, 165, 250, 0.7); /* blue-400 */
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25); /* blue-500 */
+  pointer-events: none;
+  transform: translate3d(-999px, -999px, 0);
+  transition:
+    transform 0.18s ease-out,
+    width 0.2s ease,
+    height 0.2s ease,
+    border-radius 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+  z-index: 9999;
+  opacity: 1;
 }
 
-input[type="text"], input[type="email"], input[type="password"], textarea {
-  cursor: text;
+.target-cursor::before,
+.target-cursor::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: inherit;
+  border: 1px dashed rgba(129, 140, 248, 0.6); /* indigo-400 */
+  box-sizing: border-box;
+  animation: tc-spin var(--tc-spin-duration, 2s) linear infinite;
+}
+
+.target-cursor::after {
+  inset: 8px;
+  border-style: solid;
+  border-color: rgba(129, 140, 248, 0.4);
+  animation-direction: reverse;
+}
+
+.target-cursor.cursor-active {
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.25), transparent);
+  box-shadow:
+    0 0 0 2px rgba(59, 130, 246, 0.4),
+    0 0 20px rgba(37, 99, 235, 0.6);
+}
+
+.target-cursor.cursor-active::before,
+.target-cursor.cursor-active::after {
+  border-color: rgba(191, 219, 254, 0.9); /* blue-100 */
+}
+
+@keyframes tc-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Particle effect */

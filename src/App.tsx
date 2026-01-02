@@ -12,6 +12,7 @@ import BlogPost from './components/BlogPost';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
+import TargetCursor from './components/TargetCursor';
 import { useTheme } from './context/ThemeContext';
 import Games from './pages/Games';
 import InteractiveBallsGame from './pages/games/InteractiveBallsGame';
@@ -26,6 +27,7 @@ function App() {
       <div className={`min-h-screen w-full transition-colors duration-300 ${
         theme === 'dark' ? 'bg-slate-900' : 'bg-slate-50'
       }`}>
+        <TargetCursor spinDuration={2} hideDefaultCursor={false} parallaxOn={true} />
         <div className="fixed inset-0">
           <ParticleBackground />
         </div>

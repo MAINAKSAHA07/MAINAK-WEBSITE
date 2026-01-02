@@ -73,8 +73,8 @@ const ChatBot: React.FC = () => {
       });
 
       const response = completion.choices[0]?.message?.content || 'Sorry, I couldn\'t generate a response.';
-      responseCache.current.set(cacheKey, response);
-      return response;
+    responseCache.current.set(cacheKey, response);
+    return response;
 
     } catch (error) {
       console.error('OpenAI API Error:', error);
