@@ -18,6 +18,44 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "Rave — Event Ticketing Platform",
+      description: "Full-stack ticketing for Indian events: Next.js customer app, organizer dashboard, Node.js business logic, Razorpay, and role-based access.",
+      image: "/assets/rave.png",
+      tags: ["Next.js", "Node.js", "TypeScript", "PocketBase", "Razorpay"],
+      achievements: [
+        "Engineered multi-currency ticketing with Next.js frontend, organizer dashboard, and Node.js service layer.",
+        "Integrated Razorpay with automated refunds, GST-aware T+2 settlements, and PocketBase + Google OAuth RBAC (owner, organizer, marketer, volunteer).",
+        "Real-time seat inventory, QR check-in, and D3.js dashboards for sales, attendance, and revenue on AWS-ready Docker infra."
+      ],
+      liveLink: "https://rave-eta.vercel.app/",
+      backofficeLink: "https://ravebackoffice.vercel.app/",
+      githubLink: "https://github.com/MAINAKSAHA07/rave",
+    },
+    {
+      title: "Restaurant Management System — Multi-Tenant Platform",
+      description: "TurboRepo monorepo: customer web app, back-office, and marketing site with QR table ordering, GST-aware carts, and Razorpay.",
+      image: "/assets/resturant.png",
+      tags: ["Next.js 14", "TypeScript", "TurboRepo", "PocketBase", "Razorpay"],
+      achievements: [
+        "Built multi-tenant flows with QR ordering, coupons, GST-aware carts, and Razorpay payments.",
+        "Interactive floor plans with drag-and-drop tables, live table state, and a KDS for real-time tickets.",
+        "RBAC (Admin / Manager / Staff), tenant isolation on PocketBase, reservations, reporting, daily sales, and GST summaries."
+      ],
+      liveLink: "https://restaurant-customer-web.netlify.app/",
+      backofficeLink: "https://restaurant-backoffice.netlify.app/orders",
+    },
+    {
+      title: "Pololu 3pi + Robot",
+      description: "Developed an autonomous line-following and maze-solving robot with 95% accuracy using embedded systems expertise.",
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
+      tags: ["Embedded Systems", "C++", "Robotics", "Control Systems"],
+      achievements: [
+        "Achieved 95% accuracy in line-following and maze-solving",
+        "Optimized real-time response for better performance",
+        "Implemented advanced control algorithms"
+      ]
+    },
+    {
       title: "AI-Powered Emotion Detection & Intelligence Platform",
       description: "Full-stack platform for real-time emotion analysis from text—sentiment, valence, and arousal—with an adaptive conversational agent and operational dashboards.",
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
@@ -90,44 +128,6 @@ const Projects = () => {
         "Built multiple test instances for simulation"
       ],
       "githubLink": "https://github.com/MAINAKSAHA07/Automated-Warehouse_Scenario"
-    },
-    {
-      title: "Rave — Event Ticketing Platform",
-      description: "Full-stack ticketing for Indian events: Next.js customer app, organizer dashboard, Node.js business logic, Razorpay, and role-based access.",
-      image: "/assets/rave.png",
-      tags: ["Next.js", "Node.js", "TypeScript", "PocketBase", "Razorpay"],
-      achievements: [
-        "Engineered multi-currency ticketing with Next.js frontend, organizer dashboard, and Node.js service layer.",
-        "Integrated Razorpay with automated refunds, GST-aware T+2 settlements, and PocketBase + Google OAuth RBAC (owner, organizer, marketer, volunteer).",
-        "Real-time seat inventory, QR check-in, and D3.js dashboards for sales, attendance, and revenue on AWS-ready Docker infra."
-      ],
-      liveLink: "https://rave-eta.vercel.app/",
-      backofficeLink: "https://ravebackoffice.vercel.app/",
-      githubLink: "https://github.com/MAINAKSAHA07/rave",
-    },
-    {
-      title: "Restaurant Management System — Multi-Tenant Platform",
-      description: "TurboRepo monorepo: customer web app, back-office, and marketing site with QR table ordering, GST-aware carts, and Razorpay.",
-      image: "/assets/resturant.png",
-      tags: ["Next.js 14", "TypeScript", "TurboRepo", "PocketBase", "Razorpay"],
-      achievements: [
-        "Built multi-tenant flows with QR ordering, coupons, GST-aware carts, and Razorpay payments.",
-        "Interactive floor plans with drag-and-drop tables, live table state, and a KDS for real-time tickets.",
-        "RBAC (Admin / Manager / Staff), tenant isolation on PocketBase, reservations, reporting, daily sales, and GST summaries."
-      ],
-      liveLink: "https://restaurant-customer-web.netlify.app/",
-      backofficeLink: "https://restaurant-backoffice.netlify.app/orders",
-    },
-    {
-      title: "Pololu 3pi + Robot",
-      description: "Developed an autonomous line-following and maze-solving robot with 95% accuracy using embedded systems expertise.",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
-      tags: ["Embedded Systems", "C++", "Robotics", "Control Systems"],
-      achievements: [
-        "Achieved 95% accuracy in line-following and maze-solving",
-        "Optimized real-time response for better performance",
-        "Implemented advanced control algorithms"
-      ]
     },
     {
       title: "Fraud Detection in UPI Transactions",
@@ -210,9 +210,9 @@ const Projects = () => {
     : [...visibleProjects, ...Array(3 - visibleProjects.length).fill(null)];
 
   return (
-    <section id="projects" className="section-padding bg-white dark:bg-slate-900">
+    <section id="projects" className="section-padding bg-transparent text-white relative z-20">
       <div className="container">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-800 dark:text-white mb-16 tracking-tight">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-white mb-16 tracking-tight">
           Featured Projects
         </h2>
         
@@ -220,7 +220,7 @@ const Projects = () => {
           <div className="flex items-center">
             <button
               onClick={prevSlide}
-              className="hidden lg:flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 shadow-lg transition-colors"
+              className="hidden lg:flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-[rgba(3,0,20,0.8)] border border-[rgba(112,66,248,0.38)] text-white hover:bg-[#b49bff]/20 shadow-lg transition-colors"
               style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
               aria-label="Previous Slide"
             >
@@ -251,26 +251,26 @@ const Projects = () => {
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                           <div className="absolute top-4 left-4">
-                            <span className="px-3 py-1 bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white text-sm font-medium rounded-full">
+                            <span className="px-3 py-1 bg-[rgba(3,0,20,0.8)] border border-[rgba(112,66,248,0.38)] text-white text-sm font-medium rounded-full">
                               {project.tags[0]}
                             </span>
                           </div>
                         </div>
 
                         <div className="p-6 flex flex-col flex-grow">
-                          <h3 className="text-base md:text-lg font-semibold text-slate-800 dark:text-white mb-2 tracking-tight">
+                          <h3 className="text-base md:text-lg font-semibold text-white mb-2 tracking-tight">
                             {project.title}
                           </h3>
-                          <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300 mb-4 line-clamp-2 leading-relaxed">
+                          <p className="text-xs md:text-sm text-gray-400 mb-4 line-clamp-2 leading-relaxed">
                             {project.description}
                           </p>
 
                           <div className="mb-4 flex-grow">
-                            <h4 className="text-xs font-medium text-slate-700 dark:text-slate-300 mb-2">Key Achievements:</h4>
-                            <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-1">
+                            <h4 className="text-xs font-medium text-gray-300 mb-2">Key Achievements:</h4>
+                            <ul className="text-xs text-gray-400 space-y-1">
                               {project.achievements.map((achievement: string, i: number) => (
                                 <li key={i} className="flex items-start">
-                                  <span className="inline-block w-1 h-1 bg-slate-400 dark:bg-slate-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                                  <span className="inline-block w-1 h-1 bg-[#b49bff] rounded-full mt-2 mr-2 flex-shrink-0"></span>
                                   <span className="line-clamp-1 leading-relaxed">{achievement}</span>
                                 </li>
                               ))}
@@ -281,7 +281,7 @@ const Projects = () => {
                             {project.tags.slice(1).map((tag: string, i: number) => (
                               <span
                                 key={i}
-                                className="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-xs text-slate-600 dark:text-slate-300 rounded-full"
+                                className="px-2 py-1 bg-[#2A0E61] text-xs text-gray-400 rounded-full"
                               >
                                 {tag}
                               </span>
@@ -294,7 +294,7 @@ const Projects = () => {
                                 href={project.liveLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200"
+                                className="inline-flex items-center text-gray-400 hover:text-[#b49bff] transition-colors duration-200"
                               >
                                 <ExternalLink className="w-5 h-5 mr-2" />
                                 Live Demo
@@ -305,7 +305,7 @@ const Projects = () => {
                                 href={project.backofficeLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200"
+                                className="inline-flex items-center text-gray-400 hover:text-[#b49bff] transition-colors duration-200"
                               >
                                 <ExternalLink className="w-5 h-5 mr-2" />
                                 Backoffice
@@ -316,7 +316,7 @@ const Projects = () => {
                                 href={project.githubLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200"
+                                className="inline-flex items-center text-gray-400 hover:text-[#b49bff] transition-colors duration-200"
                               >
                                 <Github className="w-5 h-5 mr-2" />
                                 Code
@@ -334,7 +334,7 @@ const Projects = () => {
             </div>
             <button
               onClick={nextSlide}
-              className="hidden lg:flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 shadow-lg transition-colors"
+              className="hidden lg:flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-[rgba(3,0,20,0.8)] border border-[rgba(112,66,248,0.38)] text-white hover:bg-[#b49bff]/20 shadow-lg transition-colors"
               style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
               aria-label="Next Slide"
             >
@@ -348,7 +348,7 @@ const Projects = () => {
                   key={index}
                   onClick={() => goToSlide(index)}
                   className={`w-2 h-2 rounded-full transition-colors ${
-                    currentSlide === index ? 'bg-slate-800 dark:bg-white' : 'bg-slate-300 dark:bg-slate-600'
+                    currentSlide === index ? 'bg-[#b49bff]' : 'bg-[#2A0E61]'
                   }`}
                 />
               ))}

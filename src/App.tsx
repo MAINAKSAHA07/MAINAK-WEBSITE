@@ -11,7 +11,7 @@ import BlogsPage from './components/BlogsPage';
 import BlogPost from './components/BlogPost';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import ParticleBackground from './components/ParticleBackground';
+import { StarsCanvas } from './components/StarBackground';
 import TargetCursor from './components/TargetCursor';
 import { useTheme } from './context/ThemeContext';
 import Games from './pages/Games';
@@ -24,13 +24,9 @@ function App() {
 
   return (
     <Router>
-      <div className={`min-h-screen w-full transition-colors duration-300 ${
-        theme === 'dark' ? 'bg-slate-900' : 'bg-slate-50'
-      }`}>
+      <div className="min-h-screen w-full overflow-x-hidden bg-[#030014]">
         <TargetCursor spinDuration={2} hideDefaultCursor={false} parallaxOn={true} />
-        <div className="fixed inset-0">
-          <ParticleBackground />
-        </div>
+        <StarsCanvas />
         <Navbar />
         <div className="relative z-10 pb-24 md:pb-0">
           <Routes>

@@ -100,15 +100,15 @@ const Leadership = () => {
     : [...visibleAchievements, ...Array(2 - visibleAchievements.length).fill(null)];
 
   return (
-    <section id="leadership" className="py-20 bg-slate-50 dark:bg-slate-800">
+    <section id="leadership" className="py-20 bg-[#03001480] border border-[#7042f88b]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-slate-800 dark:text-white mb-16">Leadership & Achievements</h2>
+        <h2 className="text-3xl font-bold text-center text-white mb-16">Leadership & Achievements</h2>
 
         <div className="relative overflow-hidden">
           <div className="flex items-center">
             <button
               onClick={prevSlide}
-              className="hidden lg:flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/90 dark:bg-slate-700/90 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-600 shadow-lg transition-colors"
+              className="hidden lg:flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-[rgba(3,0,20,0.8)] border border-[rgba(112,66,248,0.38)] text-white hover:bg-[#b49bff]/20 shadow-lg transition-colors"
               aria-label="Previous Slide"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -133,19 +133,19 @@ const Leadership = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           whileHover={{ y: -5 }}
-                          className="block bg-white dark:bg-slate-700 rounded-xl shadow-md p-8 transition-all duration-200 hover:shadow-lg cursor-pointer"
+                          className="block card p-8 cursor-pointer"
                         >
                           <div className="flex items-center mb-6">
-                            <div className="p-3 bg-slate-100 dark:bg-slate-600 rounded-lg mr-4">
-                              <achievement.icon className="w-6 h-6 text-slate-600 dark:text-slate-200" />
+                            <div className="p-3 bg-[rgba(112,66,248,0.38)] rounded-lg mr-4 border border-[#7042f88b]">
+                              <achievement.icon className="w-6 h-6 text-[#b49bff]" />
                             </div>
                             <div className="flex-1">
-                              <h3 className="text-xl font-semibold text-slate-800 dark:text-white">{achievement.title}</h3>
-                              <p className="text-slate-600 dark:text-slate-300">{achievement.organization}</p>
+                              <h3 className="text-xl font-semibold text-white">{achievement.title}</h3>
+                              <p className="text-gray-400">{achievement.organization}</p>
                             </div>
                           </div>
 
-                          <p className="text-slate-600 dark:text-slate-300 mb-6">{achievement.description}</p>
+                          <p className="text-gray-400 mb-6">{achievement.description}</p>
 
                           <div className="mb-6 flex justify-center">
                             <div 
@@ -160,8 +160,8 @@ const Leadership = () => {
                           <ul className="space-y-3">
                             {achievement.highlights.map((highlight: string, i: number) => (
                               <li key={i} className="flex items-start">
-                                <span className="inline-block w-2 h-2 bg-slate-400 dark:bg-slate-500 rounded-full mt-2 mr-3"></span>
-                                <span className="text-slate-600 dark:text-slate-300">{highlight}</span>
+                                <span className="inline-block w-2 h-2 bg-[#b49bff] rounded-full mt-2 mr-3"></span>
+                                <span className="text-gray-400">{highlight}</span>
                               </li>
                             ))}
                           </ul>
@@ -170,25 +170,25 @@ const Leadership = () => {
                         <motion.div
                           key={index}
                           whileHover={{ y: -5 }}
-                          className="bg-white dark:bg-slate-700 rounded-xl shadow-md p-8 transition-transform duration-200"
+                          className="card p-8"
                         >
                           <div className="flex items-center mb-6">
-                            <div className="p-3 bg-slate-100 dark:bg-slate-600 rounded-lg mr-4">
-                              <achievement.icon className="w-6 h-6 text-slate-600 dark:text-slate-200" />
+                            <div className="p-3 bg-[rgba(112,66,248,0.38)] rounded-lg mr-4 border border-[#7042f88b]">
+                              <achievement.icon className="w-6 h-6 text-[#b49bff]" />
                             </div>
                             <div className="flex-1">
-                              <h3 className="text-xl font-semibold text-slate-800 dark:text-white">{achievement.title}</h3>
-                              <p className="text-slate-600 dark:text-slate-300">{achievement.organization}</p>
+                              <h3 className="text-xl font-semibold text-white">{achievement.title}</h3>
+                              <p className="text-gray-400">{achievement.organization}</p>
                             </div>
                           </div>
 
-                          <p className="text-slate-600 dark:text-slate-300 mb-6">{achievement.description}</p>
+                          <p className="text-gray-400 mb-6">{achievement.description}</p>
 
                           <ul className="space-y-3">
                             {achievement.highlights.map((highlight: string, i: number) => (
                               <li key={i} className="flex items-start">
-                                <span className="inline-block w-2 h-2 bg-slate-400 dark:bg-slate-500 rounded-full mt-2 mr-3"></span>
-                                <span className="text-slate-600 dark:text-slate-300">{highlight}</span>
+                                <span className="inline-block w-2 h-2 bg-[#b49bff] rounded-full mt-2 mr-3"></span>
+                                <span className="text-gray-400">{highlight}</span>
                               </li>
                             ))}
                           </ul>
@@ -204,7 +204,7 @@ const Leadership = () => {
 
             <button
               onClick={nextSlide}
-              className="hidden lg:flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/90 dark:bg-slate-700/90 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-600 shadow-lg transition-colors"
+              className="hidden lg:flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-[rgba(3,0,20,0.8)] border border-[rgba(112,66,248,0.38)] text-white hover:bg-[#b49bff]/20 shadow-lg transition-colors"
               aria-label="Next Slide"
             >
               <ChevronRight className="w-6 h-6" />
@@ -218,7 +218,7 @@ const Leadership = () => {
                   key={index}
                   onClick={() => goToSlide(index)}
                   className={`w-2 h-2 rounded-full transition-colors ${
-                    currentSlide === index ? 'bg-slate-800 dark:bg-white' : 'bg-slate-300 dark:bg-slate-600'
+                    currentSlide === index ? 'bg-[#b49bff]' : 'bg-[#2A0E61]'
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />

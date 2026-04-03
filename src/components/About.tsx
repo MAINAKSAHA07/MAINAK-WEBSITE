@@ -84,30 +84,30 @@ const education = [
 
 const About = () => {
   return (
-    <section id="about" className="section-padding bg-white dark:bg-slate-900">
+    <section id="about" className="section-padding bg-transparent text-white relative z-20">
       <div className="container">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-800 dark:text-white mb-16 tracking-tight">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-white mb-16 tracking-tight">
           About Me
         </h2>
         <div className="flex flex-col md:flex-row gap-12 md:gap-16 no-x-overflow">
-          <div className="md:w-1/2 min-w-0">
-            <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-slate-700 dark:text-slate-300 tracking-tight">
+          <div className="md:w-1/2 min-w-0 z-20">
+            <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-gray-300 tracking-tight">
               Education
             </h3>
             <div className="space-y-8">
               {education.map((edu, index) => (
                 <div key={index} className="flex items-start space-x-6">
-                  <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl">
-                    <edu.icon className="w-7 h-7 text-slate-600 dark:text-slate-300" />
+                  <div className="p-3 bg-[#03001480] border border-[#7042f88b] rounded-xl shadow-[0_0_10px_#bf97ff3d]">
+                    <edu.icon className="w-7 h-7 text-[#b49bff]" />
                   </div>
                   <div className="min-w-0 break-words">
-                    <h4 className="font-semibold text-lg text-slate-800 dark:text-white mb-2 tracking-tight">
+                    <h4 className="font-semibold text-lg text-gray-200 mb-2 tracking-tight">
                       {edu.degree}
                     </h4>
-                    <p className="text-slate-600 dark:text-slate-400 text-lg mb-1">
+                    <p className="text-gray-400 text-lg mb-1">
                       {edu.school}
                     </p>
-                    <p className="text-base text-slate-500 dark:text-slate-500">
+                    <p className="text-base text-gray-500">
                       {edu.period}
                     </p>
                   </div>
@@ -116,8 +116,8 @@ const About = () => {
             </div>
           </div>
 
-          <div className="md:w-1/2 min-w-0 overflow-x-auto">
-            <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-slate-700 dark:text-slate-300 tracking-tight">
+          <div className="md:w-1/2 min-w-0 overflow-x-auto z-20">
+            <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-gray-300 tracking-tight">
               Skills
             </h3>
             {/* New skills grid with icons */}
@@ -125,10 +125,10 @@ const About = () => {
               {skillIcons.map(({ name, icon: Icon }) => (
                 <div
                   key={name}
-                  className="flex flex-col items-center justify-center bg-slate-100 dark:bg-slate-800 rounded-xl p-4 shadow-sm transition-transform duration-200 hover:-translate-y-2 hover:shadow-lg group cursor-pointer"
+                  className="flex flex-col items-center justify-center bg-[#03001480] border border-[#7042f88b] rounded-xl p-4 shadow-[0_0_10px_#bf97ff3d] transition-transform duration-200 hover:-translate-y-2 hover:shadow-[0_0_20px_#bf97ff70] group cursor-pointer"
                 >
-                  <Icon className="w-8 h-8 md:w-10 md:h-10 text-slate-500 dark:text-slate-300 group-hover:text-blue-500 transition-colors duration-200" />
-                  <span className="mt-2 text-xs md:text-sm text-slate-700 dark:text-slate-200 font-medium text-center select-none">
+                  <Icon className="w-8 h-8 md:w-10 md:h-10 text-gray-400 group-hover:text-[#b49bff] transition-colors duration-200" />
+                  <span className="mt-2 text-xs md:text-sm text-gray-300 font-medium text-center select-none">
                     {name}
                   </span>
                 </div>

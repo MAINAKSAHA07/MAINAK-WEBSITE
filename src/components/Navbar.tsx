@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon } from 'lucide-react';
-import { useTheme } from '../context/ThemeContext';
+import { Menu, X } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Logo from './Logo';
 
@@ -8,34 +7,9 @@ const sectionIds = ['about', 'projects', 'experience', 'leadership', 'blog', 'ga
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
-  const [isHeroVisible, setIsHeroVisible] = useState(true);
-  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // IntersectionObserver for Hero section visibility
-  useEffect(() => {
-    const hero = document.getElementById('home');
-    if (!hero) return;
-    const observer = new window.IntersectionObserver(
-      ([entry]: IntersectionObserverEntry[]) => {
-        setIsHeroVisible(entry.isIntersecting);
-      },
-      { root: null, threshold: 0.1 }
-    );
-    observer.observe(hero);
-    return () => observer.disconnect();
-  }, []);
 
   // IntersectionObserver for active section highlighting
   useEffect(() => {
@@ -94,103 +68,62 @@ const Navbar = () => {
               clearInterval(interval);
             }
           }, 100);
-          setTimeout(() => {
-            clearInterval(interval);
-          }, 2000);
+          setTimeout(() => clearInterval(interval), 2000);
         }
       }
     }
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 animate-navbar-fade-in
-      ${isHeroVisible ? 'bg-transparent shadow-none border-none backdrop-blur-0' : 'bg-white/90 dark:bg-slate-900/90 shadow-md border-b border-slate-200 dark:border-slate-700 backdrop-blur-md'}
-    `} style={{ minHeight: '72px' }}>
-      <div className="container py-3 flex items-center justify-between">
-        <Link to="/" className="flex items-center space-x-3 group">
+    <nav className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001427] backdrop-blur-md z-50">
+      <div className="w-full h-full flex items-center justify-between m-auto px-[10px] md:px-[40px]">
+        {/* Logo + Name */}
+        <Link to="/" className="flex items-center group">
           <Logo />
-          <span className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600 dark:from-slate-200 dark:to-slate-400 group-hover:opacity-80 transition-opacity tracking-tight">
-            MS
+          <span className="hidden md:flex font-bold ml-[10px] text-gray-300 text-xl tracking-tight group-hover:text-white transition-colors">
+            Mainak Saha
           </span>
         </Link>
 
-        <div className="hidden md:flex items-center space-x-10">
-          {navLinks.map((link, index) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              onClick={(e) => handleNavClick(link.path, e)}
-              className={`text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200 transform hover:scale-105 font-medium text-base ${activeSection === link.id ? 'text-blue-600 dark:text-blue-400 font-bold underline underline-offset-8' : ''}`}
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <button
-            onClick={toggleTheme}
-            className="p-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 transform hover:rotate-180"
-            aria-label="Toggle theme"
-          >
-            {theme === 'dark' ? (
-              <Sun className="w-5 h-5 text-slate-300" />
-            ) : (
-              <Moon className="w-5 h-5 text-slate-600" />
-            )}
-          </button>
-          <a
-            href="/assets/MAINAKSAHA.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-          >
-            Resume
-          </a>
-        </div>
-
-        <div className="md:hidden flex items-center space-x-4">
-          <button
-            onClick={toggleTheme}
-            className="p-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 transform hover:rotate-180"
-            aria-label="Toggle theme"
-          >
-            {theme === 'dark' ? (
-              <Sun className="w-5 h-5 text-slate-300" />
-            ) : (
-              <Moon className="w-5 h-5 text-slate-600" />
-            )}
-          </button>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-slate-600 dark:text-slate-300 transition-transform duration-300 transform hover:scale-110 p-2"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
-      </div>
-
-      {isOpen && (
-        <div className="md:hidden">
-          <div className="px-4 pt-4 pb-6 space-y-2 bg-white dark:bg-slate-800 shadow-lg">
-            {navLinks.map((link, index) => (
+        {/* Web Navbar */}
+        <div className="hidden md:flex w-[600px] h-full flex-row items-center justify-between">
+          <div className="flex items-center justify-between w-full h-auto border border-[rgba(112,66,248,0.38)] bg-[rgba(3,0,20,0.37)] px-[20px] py-[10px] rounded-full text-gray-200">
+            {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
                 onClick={(e) => handleNavClick(link.path, e)}
-                className={`block px-4 py-3 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg transition-all duration-300 animate-slide-right font-medium text-base ${activeSection === link.id ? 'text-blue-600 dark:text-blue-400 font-bold underline underline-offset-8' : ''}`}
-                style={{ animationDelay: `${index * 100}ms` }}
+                className={`cursor-pointer hover:text-[rgb(112,66,248)] transition ${activeSection === link.id ? 'text-[#b49bff] font-bold' : ''}`}
               >
                 {link.name}
               </Link>
             ))}
-            <a
-              href="/assets/MAINAKSAHA_SOFTWARE.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block px-4 py-3 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg transition-all duration-300 animate-slide-right font-medium text-base"
-              style={{ animationDelay: `${navLinks.length * 100}ms` }}
-            >
-              Resume
-            </a>
+          </div>
+        </div>
+
+        {/* Hamburger Menu */}
+        <button
+          className="md:hidden text-white focus:outline-none"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="absolute top-[65px] left-0 w-full bg-[#030014] border-b border-[rgba(112,66,248,0.38)] p-5 flex flex-col items-center text-gray-300 md:hidden z-50">
+          <div className="flex flex-col items-center gap-4 w-full">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                onClick={(e) => handleNavClick(link.path, e)}
+                className={`w-full py-3 cursor-pointer hover:text-[rgb(112,66,248)] text-center transition border-b border-[rgba(112,66,248,0.1)] last:border-0 ${activeSection === link.id ? 'text-[#b49bff] font-bold' : ''}`}
+              >
+                {link.name}
+              </Link>
+            ))}
           </div>
         </div>
       )}

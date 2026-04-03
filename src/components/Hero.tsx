@@ -1,110 +1,99 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { SparklesIcon } from '@heroicons/react/24/solid';
 import { Github, Linkedin, Mail, FileDown } from 'lucide-react';
+import { slideInFromLeft, slideInFromRight, slideInFromTop } from '../utils/motion';
+import { mainResumePdfHref } from '../constants/resumeUrls';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
-
-// Declare the custom element for TypeScript/React
-// eslint-disable-next-line @typescript-eslint/no-namespace
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'a-hole': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-    }
-  }
-}
 
 const Hero = () => {
   const sectionRef = useIntersectionObserver();
 
   return (
-    <section 
-      ref={sectionRef}
-      id="home" 
-      className="min-h-screen flex items-center justify-center pt-[88px] md:pt-[104px] lg:pt-[120px] section-fade-in relative overflow-x-hidden"
-    >
-      {/* Modern gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-        {/* Animated gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-indigo-600/10 dark:from-blue-400/5 dark:via-purple-400/5 dark:to-indigo-400/5 animate-pulse"></div>
-        
-        {/* Floating blurred bubbles */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-blue-400/30 to-purple-400/30 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-indigo-400/30 to-pink-400/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-purple-400/20 to-blue-400/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
-        {/* More bubbles */}
-        <div className="absolute top-10 right-1/4 w-40 h-40 bg-gradient-to-br from-pink-400/30 to-blue-400/20 rounded-full blur-2xl animate-float" style={{ animationDelay: '1.5s' }}></div>
-        <div className="absolute bottom-10 left-1/4 w-56 h-56 bg-gradient-to-br from-green-400/20 to-blue-400/20 rounded-full blur-2xl animate-float" style={{ animationDelay: '3s' }}></div>
-        <div className="absolute top-1/3 right-10 w-32 h-32 bg-gradient-to-br from-yellow-400/20 to-pink-400/20 rounded-full blur-2xl animate-float" style={{ animationDelay: '2.5s' }}></div>
-        <div className="absolute bottom-1/3 left-10 w-24 h-24 bg-gradient-to-br from-indigo-400/20 to-green-400/20 rounded-full blur-2xl animate-float" style={{ animationDelay: '5s' }}></div>
-        
-        {/* Floating elements */}
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-purple-400 rounded-full animate-ping" style={{ animationDelay: '3s' }}></div>
-        <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-indigo-400 rounded-full animate-ping" style={{ animationDelay: '5s' }}></div>
-        {/* More blinking bubbles */}
-        <div className="absolute top-10 left-1/2 w-2 h-2 bg-pink-400 rounded-full animate-ping" style={{ animationDelay: '2.2s' }}></div>
-        <div className="absolute bottom-10 right-1/2 w-3 h-3 bg-green-400 rounded-full animate-ping" style={{ animationDelay: '4.1s' }}></div>
-        <div className="absolute top-1/5 right-1/5 w-2.5 h-2.5 bg-yellow-400 rounded-full animate-ping" style={{ animationDelay: '1.7s' }}></div>
-        <div className="absolute bottom-1/5 left-1/5 w-2 h-2 bg-blue-300 rounded-full animate-ping" style={{ animationDelay: '3.3s' }}></div>
-        <div className="absolute top-1/3 left-1/6 w-2 h-2 bg-purple-300 rounded-full animate-ping" style={{ animationDelay: '2.8s' }}></div>
-        <div className="absolute bottom-1/3 right-1/6 w-2.5 h-2.5 bg-pink-300 rounded-full animate-ping" style={{ animationDelay: '4.7s' }}></div>
-        <div className="absolute top-1/2 right-10 w-2 h-2 bg-green-300 rounded-full animate-ping" style={{ animationDelay: '3.9s' }}></div>
-      </div>
+    <section ref={sectionRef} id="home" className="relative flex flex-col h-screen w-full">
+      <video
+        autoPlay
+        muted
+        loop
+        className="rotate-180 absolute top-[-340px] left-0 w-full h-full object-cover -z-20"
+      >
+        <source src="/videos/blackhole.webm" type="video/webm" />
+      </video>
 
-      <div className="container relative z-10 no-x-overflow">
-        <div className="text-center max-w-4xl mx-auto">
-          <div className="mb-12 mt-20 md:mt-28 lg:mt-32">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        className="flex flex-col md:flex-row items-center justify-center px-10 md:px-20 mt-32 w-full z-[20] h-full"
+      >
+        <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start">
+          <motion.div
+            variants={slideInFromTop}
+            className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]"
+          >
+            <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
+            <h1 className="Welcome-text text-[13px]">
+              AI Engineer & Fullstack Developer
+            </h1>
+          </motion.div>
+
+          <motion.div
+            variants={slideInFromLeft(0.5)}
+            className="flex flex-col gap-6 mt-6 text-5xl md:text-6xl font-bold text-white max-w-[600px] w-auto h-auto"
+          >
+            <span>
+              Mainak{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+                Malay Saha
+              </span>
+            </span>
+          </motion.div>
+
+          <motion.p
+            variants={slideInFromLeft(0.8)}
+            className="text-lg text-gray-400 my-5 max-w-[600px]"
+          >
+            Full-stack developer and AI engineer with an M.S. in Robotics and Autonomous Systems (AI) from Arizona State University. I build scalable web platforms, real-time video analytics, and AI-powered systems with React, FastAPI, AWS, and OpenCV—explore my work below or get in touch.
+          </motion.p>
+
+          <motion.div variants={slideInFromLeft(1)} className="flex gap-4 items-center">
+            <a
+              href={mainResumePdfHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-2 px-4 button-primary flex items-center text-center text-white cursor-pointer rounded-lg w-max"
+            >
+              <FileDown className="w-5 h-5 mr-2" />
+              Download Resume
+            </a>
+            <div className="flex space-x-4">
+              <a href="https://github.com/mainaksaha07" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
+                <Github className="w-6 h-6" />
+              </a>
+              <a href="https://www.linkedin.com/in/mainaksaha08/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
+                <Linkedin className="w-6 h-6" />
+              </a>
+              <a href="mailto:msaha4@asu.edu" className="text-gray-400 hover:text-white transition-colors duration-200">
+                <Mail className="w-6 h-6" />
+              </a>
+            </div>
+          </motion.div>
+        </div>
+
+        <motion.div
+          variants={slideInFromRight(0.8)}
+          className="w-full h-full flex justify-center items-center mt-10 md:mt-0"
+        >
+          <div className="relative group w-[250px] h-[250px] md:w-[350px] md:h-[350px]">
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
             <img
               src="/assets/Mainak-RESUME-PHOTO.webp"
               alt="Mainak Malay Saha"
-              className="w-32 h-32 sm:w-48 sm:h-48 md:w-56 md:h-56 max-w-full rounded-full mx-auto shadow-2xl object-cover ring-4 ring-white dark:ring-slate-700 transition-transform duration-300 hover:scale-105 hero-bounce"
+              className="relative w-full h-full object-cover rounded-full border-4 border-[#030014] shadow-2xl"
+              draggable={false}
             />
           </div>
-          
-          <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold gradient-text mb-4 tracking-tight leading-tight">
-            Mainak Malay Saha
-          </h1>
-          
-          <p className="text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed text-balance">
-            Full-stack developer and AI engineer with an M.S. in Robotics and Autonomous Systems (AI) from Arizona State University. I build scalable web platforms, real-time video analytics, and AI-powered systems with React, FastAPI, AWS, and OpenCV—explore my work below or get in touch.
-          </p>
-          
-          <div className="flex justify-center space-x-8 mb-16">
-            <a 
-              href="https://github.com/mainaksaha07" 
-              className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-200 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
-              aria-label="GitHub Profile"
-            >
-              <Github className="w-7 h-7" />
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/mainaksaha08/" 
-              className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-200 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
-              aria-label="LinkedIn Profile"
-            >
-              <Linkedin className="w-7 h-7" />
-            </a>
-            <a 
-              href="mailto:msaha4@asu.edu" 
-              className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-200 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
-              aria-label="Email Contact"
-            >
-              <Mail className="w-7 h-7" />
-            </a>
-          </div>
-
-          <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <a
-              href="/assets/MAINAKSAHA.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary group"
-            >
-              <FileDown className="w-5 h-5 mr-2 transition-transform group-hover:translate-y-0.5" />
-              Download Resume
-            </a>
-          </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

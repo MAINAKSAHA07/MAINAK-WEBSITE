@@ -92,16 +92,16 @@ const Experience = () => {
   const next = () => setCurrent((prev) => (prev >= maxIndex ? 0 : prev + 1));
 
   return (
-    <section id="experience" className="section-padding bg-white dark:bg-slate-900">
+    <section id="experience" className="section-padding bg-transparent text-white relative z-20">
       <div className="container">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-slate-800 dark:text-white mb-16 tracking-tight">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-white mb-16 tracking-tight">
           Professional Experience
         </h2>
         <div className="relative overflow-visible">
           <div className="flex items-center">
             <button
               onClick={prev}
-              className="flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 shadow-lg transition-colors"
+              className="flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-[rgba(3,0,20,0.8)] border border-[rgba(112,66,248,0.38)] text-white hover:bg-[#b49bff]/20 shadow-lg transition-colors"
               style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
               aria-label="Previous Experience"
             >
@@ -127,25 +127,25 @@ const Experience = () => {
                     <div className="p-8 flex flex-col h-full">
                       <div className="flex items-center mb-6">
                         <Briefcase className="w-6 h-6 text-blue-500 dark:text-blue-400 mr-3" />
-                        <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+                        <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
                           {experiences[current].role}
                         </h3>
                       </div>
-                      <div className="flex items-center text-slate-600 dark:text-slate-400 mb-2">
+                      <div className="flex items-center text-gray-400 mb-2">
                         <span className="font-medium text-lg">{experiences[current].company}</span>
                       </div>
-                      <div className="flex items-center text-slate-500 dark:text-slate-400 mb-6">
+                      <div className="flex items-center text-gray-500 mb-6">
                         <Calendar className="w-5 h-5 mr-2" />
                         <span className="text-base">{experiences[current].period}</span>
                       </div>
-                      <p className="text-slate-700 dark:text-slate-300 mb-6 font-medium leading-relaxed text-lg">
+                      <p className="text-gray-300 mb-6 font-medium leading-relaxed text-lg">
                         {experiences[current].description}
                       </p>
                       <ul className="space-y-3 pl-2 flex-grow">
                         {experiences[current].achievements.map((achievement, i) => (
                           <li key={i} className="flex items-start">
                             <span className="inline-block w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full mt-2.5 mr-4 flex-shrink-0"></span>
-                            <span className="text-slate-700 dark:text-slate-300 leading-relaxed text-base">
+                            <span className="text-gray-300 leading-relaxed text-base">
                               {achievement}
                             </span>
                           </li>
@@ -165,25 +165,25 @@ const Experience = () => {
                       <div className="p-8 flex flex-col h-full">
                         <div className="flex items-center mb-6">
                           <Briefcase className="w-6 h-6 text-blue-500 dark:text-blue-400 mr-3" />
-                          <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+                          <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
                             {experiences[current + 1].role}
                           </h3>
                         </div>
-                        <div className="flex items-center text-slate-600 dark:text-slate-400 mb-2">
+                        <div className="flex items-center text-gray-400 mb-2">
                           <span className="font-medium text-lg">{experiences[current + 1].company}</span>
                         </div>
-                        <div className="flex items-center text-slate-500 dark:text-slate-400 mb-6">
+                        <div className="flex items-center text-gray-500 mb-6">
                           <Calendar className="w-5 h-5 mr-2" />
                           <span className="text-base">{experiences[current + 1].period}</span>
                         </div>
-                        <p className="text-slate-700 dark:text-slate-300 mb-6 font-medium leading-relaxed text-lg">
+                        <p className="text-gray-300 mb-6 font-medium leading-relaxed text-lg">
                           {experiences[current + 1].description}
                         </p>
                         <ul className="space-y-3 pl-2 flex-grow">
                           {experiences[current + 1].achievements.map((achievement, i) => (
                             <li key={i} className="flex items-start">
                               <span className="inline-block w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full mt-2.5 mr-4 flex-shrink-0"></span>
-                              <span className="text-slate-700 dark:text-slate-300 leading-relaxed text-base">
+                              <span className="text-gray-300 leading-relaxed text-base">
                                 {achievement}
                               </span>
                             </li>
@@ -202,7 +202,7 @@ const Experience = () => {
             </div>
             <button
               onClick={next}
-              className="flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 shadow-lg transition-colors"
+              className="flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-[rgba(3,0,20,0.8)] border border-[rgba(112,66,248,0.38)] text-white hover:bg-[#b49bff]/20 shadow-lg transition-colors"
               style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
               aria-label="Next Experience"
             >
@@ -215,7 +215,7 @@ const Experience = () => {
                 key={idx}
                 onClick={() => goTo(idx)}
                 className={`w-3 h-3 rounded-full transition-colors ${
-                  current === idx ? 'bg-blue-500 dark:bg-blue-400' : 'bg-slate-300 dark:bg-slate-600'
+                  current === idx ? 'bg-blue-500 dark:bg-blue-400' : 'bg-[#2A0E61]'
                 }`}
                 aria-label={`Go to experience ${idx + 1}`}
               />

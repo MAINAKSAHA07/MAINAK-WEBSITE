@@ -87,13 +87,13 @@ const BlogPost: React.FC = () => {
 
   if (!blog) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-transparent z-20 relative">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">Blog Not Found</h1>
-          <p className="text-gray-600 dark:text-gray-300 mb-8">The blog post you're looking for doesn't exist.</p>
+          <h1 className="text-4xl font-bold text-white mb-4">Blog Not Found</h1>
+          <p className="text-gray-400 mb-8">The blog post you're looking for doesn't exist.</p>
           <button
             onClick={() => navigate('/blog')}
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="px-6 py-3 bg-[rgba(112,66,248,0.38)] border border-[#7042f88b] text-white rounded-lg hover:bg-[#b49bff]/20 transition-colors"
           >
             Back to Blog
           </button>
@@ -148,35 +148,35 @@ const BlogPost: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12"
+      className="min-h-screen bg-transparent relative z-20 py-20"
     >
-      <div className="max-w-4xl mx-auto px-4">
-        <article className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+      <div className="max-w-4xl mx-auto px-4 mt-16">
+        <article className="card shadow-lg overflow-hidden border border-[#7042f88b]">
           <img
             src={blog.image}
             alt={blog.title}
             className="w-full h-96 object-cover"
           />
           <div className="p-8">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h1 className="text-4xl font-bold text-white mb-4">
               {blog.title}
             </h1>
-            <div className="flex items-center text-gray-600 dark:text-gray-300 mb-6">
-              <span className="mr-4">By {blog.author}</span>
-              <span className="mr-4">{blog.date}</span>
-              <span>{blog.readTime}</span>
+            <div className="flex items-center text-gray-400 mb-6 font-medium">
+              <span className="mr-4 flex items-center"><User className="w-4 h-4 mr-1" />{blog.author}</span>
+              <span className="mr-4 flex items-center"><Calendar className="w-4 h-4 mr-1" />{blog.date}</span>
+              <span className="flex items-center"><Clock className="w-4 h-4 mr-1" />{blog.readTime}</span>
             </div>
-            <div className="prose dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: blog.content }} />
+            <div className="prose prose-invert max-w-none text-gray-300" dangerouslySetInnerHTML={{ __html: blog.content }} />
             
             {/* Interactive Features */}
-            <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <div className="mt-8 pt-6 border-t border-[rgba(112,66,248,0.38)]">
               <div className="flex items-center space-x-4 mb-6">
                 <button
                   onClick={handleLike}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors ${
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors border ${
                     isLiked
-                      ? 'bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300'
-                      : 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                      ? 'bg-[rgba(112,66,248,0.38)] text-[#b49bff] border-[#7042f88b]'
+                      : 'bg-transparent text-gray-400 border-[rgba(112,66,248,0.38)] hover:bg-[rgba(112,66,248,0.2)]'
                   }`}
                 >
                   <ThumbsUp className="w-5 h-5" />
@@ -185,7 +185,7 @@ const BlogPost: React.FC = () => {
 
                 <button
                   onClick={() => setShowComments(!showComments)}
-                  className="flex items-center space-x-2 px-4 py-2 bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                  className="flex items-center space-x-2 px-4 py-2 bg-transparent border border-[rgba(112,66,248,0.38)] text-gray-400 rounded-lg hover:bg-[rgba(112,66,248,0.2)] transition-colors"
                 >
                   <MessageCircle className="w-5 h-5" />
                   <span>{comments.length}</span>
@@ -193,10 +193,10 @@ const BlogPost: React.FC = () => {
 
                 <button
                   onClick={handleBookmark}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors ${
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors border ${
                     isBookmarked
-                      ? 'bg-yellow-100 text-yellow-600 dark:bg-yellow-900 dark:text-yellow-300'
-                      : 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                      ? 'bg-[rgba(112,66,248,0.38)] text-[#b49bff] border-[#7042f88b]'
+                      : 'bg-transparent border-[rgba(112,66,248,0.38)] text-gray-400 hover:bg-[rgba(112,66,248,0.2)]'
                   }`}
                 >
                   <Bookmark className="w-5 h-5" />
@@ -205,18 +205,18 @@ const BlogPost: React.FC = () => {
                 <div className="relative">
                   <button
                     onClick={() => setShowShareMenu(!showShareMenu)}
-                    className="flex items-center space-x-2 px-4 py-2 bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                    className="flex items-center space-x-2 px-4 py-2 bg-transparent border border-[rgba(112,66,248,0.38)] text-gray-400 rounded-lg hover:bg-[rgba(112,66,248,0.2)] transition-colors"
                   >
                     <Share2 className="w-5 h-5" />
                   </button>
 
                   {showShareMenu && (
-                    <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-2 z-10">
+                    <div className="absolute right-0 mt-2 w-48 bg-[#030014] border border-[#7042f88b] rounded-lg shadow-[0_0_10px_#bf97ff3d] py-2 z-10">
                       {shareOptions.map((option) => (
                         <button
                           key={option.name}
                           onClick={() => handleShare(option.url)}
-                          className="w-full px-4 py-2 text-left text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                          className="w-full px-4 py-2 text-left text-gray-300 hover:bg-[rgba(112,66,248,0.2)] transition-colors"
                         >
                           {option.name}
                         </button>
@@ -229,18 +229,18 @@ const BlogPost: React.FC = () => {
               {/* Comments Section */}
               {showComments && (
                 <div className="mt-6">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Comments</h3>
+                  <h3 className="text-xl font-semibold text-white mb-4">Comments</h3>
                   <form onSubmit={handleAddComment} className="mb-6">
                     <textarea
                       value={newComment}
                       onChange={(e) => setNewComment(e.target.value)}
                       placeholder="Add a comment..."
-                      className="w-full px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-2 bg-[rgba(3,0,20,0.8)] border border-[#7042f88b] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b49bff]"
                       rows={3}
                     />
                     <button
                       type="submit"
-                      className="mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                      className="mt-2 px-4 py-2 bg-[rgba(112,66,248,0.38)] border border-[#7042f88b] text-white rounded-lg hover:bg-[#b49bff]/20 transition-colors"
                     >
                       Post Comment
                     </button>
@@ -248,12 +248,12 @@ const BlogPost: React.FC = () => {
 
                   <div className="space-y-4">
                     {comments.map((comment) => (
-                      <div key={comment.id} className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+                      <div key={comment.id} className="bg-[rgba(3,0,20,0.8)] border border-[rgba(112,66,248,0.38)] p-4 rounded-lg">
                         <div className="flex justify-between items-start mb-2">
-                          <span className="font-semibold text-gray-900 dark:text-white">{comment.author}</span>
-                          <span className="text-sm text-gray-500 dark:text-gray-400">{comment.date}</span>
+                          <span className="font-semibold text-white">{comment.author}</span>
+                          <span className="text-sm text-gray-400">{comment.date}</span>
                         </div>
-                        <p className="text-gray-700 dark:text-gray-300">{comment.content}</p>
+                        <p className="text-gray-300">{comment.content}</p>
                       </div>
                     ))}
                   </div>
