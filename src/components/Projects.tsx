@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ExternalLink, Github, Tag, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, Github, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Projects = () => {
@@ -18,18 +18,51 @@ const Projects = () => {
 
   const projects = [
     {
-      "title": "Audio-Vibration Rating Explorer",
-      "description": "Advanced interactive web application for exploring how well four vibration designs match real-world sounds, featuring comprehensive data visualization, audio/vibration playback, waveform analysis, and AI-powered research assistance.",
-      "image": "/assets/audio.png",
-      "tags": ["React", "TypeScript", "D3.js", "Data Visualization"],
-      "achievements": [
-        "Built comprehensive dashboard with 6 different visualizations",
-        "Implemented dual-view audio player with waveform visualization",
-        "Created AI research assistant for data-driven insights",
-        "Developed interactive charts including volcano contour plots"
+      title: "AI-Powered Emotion Detection & Intelligence Platform",
+      description: "Full-stack platform for real-time emotion analysis from text—sentiment, valence, and arousal—with an adaptive conversational agent and operational dashboards.",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
+      tags: ["FastAPI", "React", "PostgreSQL", "AWS EC2"],
+      achievements: [
+        "Built end-to-end AI services for real-time emotion analysis integrating sentiment, valence, and arousal with a conversational agent.",
+        "Architected FastAPI backend on AWS EC2 with PostgreSQL for low-latency inference and high-availability APIs.",
+        "Delivered dashboards for emotional trends, session history, and engagement analytics."
       ],
-      "liveLink": "https://audiovibration.netlify.app/",
-      "githubLink": "https://github.com/MAINAKSAHA07/Audio-Vibration-Rating-Explorer"
+    },
+    {
+      title: "Emotion Classification — Excitement vs Fear",
+      description: "ML pipeline classifying excitement and fear from physiological signals (HRV, SpO₂) using deep learning and signal processing.",
+      image: "https://images.unsplash.com/photo-1559757172-0ce075e128d7?auto=format&fit=crop&w=800&q=80",
+      tags: ["Python", "CNN", "LSTM", "Matplotlib"],
+      achievements: [
+        "Trained CNN and LSTM models on HRV and SpO₂ to distinguish excitement from fear in real time.",
+        "Applied signal processing for feature extraction and optimized for responsive deployment.",
+        "Visualized emotional transitions, signal dynamics, and model performance."
+      ],
+      githubLink: "https://github.com/MAINAKSAHA07/MLA_Project",
+    },
+    {
+      title: "Quit Hero — Addiction Recovery Platform",
+      description: "Mobile-first full-stack recovery app with a structured program, sessions, craving support, journaling, and achievements—PocketBase backend and Docker deployment.",
+      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80",
+      tags: ["React", "TypeScript", "PocketBase", "Tailwind", "Docker"],
+      achievements: [
+        "Shipped 10-day program flows, daily sessions, craving support, journaling, and achievement tracking.",
+        "Implemented multi-step KYC onboarding, quit-date tracking, reminders, React Query caching, and robust error handling.",
+        "Built admin backoffice with RBAC, analytics, support tickets, and Recharts progress visualizations."
+      ],
+    },
+    {
+      title: "Audio-Vibration Rating Explorer",
+      description: "Interactive research platform exploring how four vibration designs map to 1,000+ real-world sounds across 4,000+ ratings—audio/vibration playback and WaveSurfer.js visualization.",
+      image: "/assets/audio.png",
+      tags: ["React", "TypeScript", "WaveSurfer.js", "AWS EC2"],
+      achievements: [
+        "Built the explorer analyzing four vibration designs against 1,000+ sounds and 4,000+ ratings.",
+        "Deployed ML-driven audio-to-vibration with feature extraction, classification, and mapping plus synchronized playback.",
+        "Hosted on AWS EC2 for low-latency interaction; waveform views with WaveSurfer.js."
+      ],
+      liveLink: "https://audiovibration.netlify.app/",
+      githubLink: "https://github.com/MAINAKSAHA07/Audio-Vibration-Rating-Explorer",
     },
     {
       "title": "Smart Wearable Safety Device for Women",
@@ -59,30 +92,28 @@ const Projects = () => {
       "githubLink": "https://github.com/MAINAKSAHA07/Automated-Warehouse_Scenario"
     },
     {
-      title: "Rave - Event Ticketing Platform",
-      description: "Full-stack event ticketing platform for India with multi-currency support, role-based access, and real-time seat inventory.",
+      title: "Rave — Event Ticketing Platform",
+      description: "Full-stack ticketing for Indian events: Next.js customer app, organizer dashboard, Node.js business logic, Razorpay, and role-based access.",
       image: "/assets/rave.png",
-      tags: ["Next.js", "Node.js", "TypeScript", "PocketBase"],
+      tags: ["Next.js", "Node.js", "TypeScript", "PocketBase", "Razorpay"],
       achievements: [
-        "Built microservices-based architecture with separate customer app, organizer dashboard, and business logic service",
-        "Integrated Razorpay payments with refunds, T+2 settlements, and GST handling",
-        "Implemented role-based access control with PocketBase + Google OAuth",
-        "Added QR code check-in, seated + general admission tickets, and D3.js analytics dashboards"
+        "Engineered multi-currency ticketing with Next.js frontend, organizer dashboard, and Node.js service layer.",
+        "Integrated Razorpay with automated refunds, GST-aware T+2 settlements, and PocketBase + Google OAuth RBAC (owner, organizer, marketer, volunteer).",
+        "Real-time seat inventory, QR check-in, and D3.js dashboards for sales, attendance, and revenue on AWS-ready Docker infra."
       ],
       liveLink: "https://rave-eta.vercel.app/",
       backofficeLink: "https://ravebackoffice.vercel.app/",
       githubLink: "https://github.com/MAINAKSAHA07/rave",
     },
     {
-      title: "Restaurant Management System",
-      description: "Multi-tenant restaurant platform with online ordering, table management, and staff backoffice tools.",
+      title: "Restaurant Management System — Multi-Tenant Platform",
+      description: "TurboRepo monorepo: customer web app, back-office, and marketing site with QR table ordering, GST-aware carts, and Razorpay.",
       image: "/assets/resturant.png",
-      tags: ["AWS", "React", "TypeScript", "PocketBase"],
+      tags: ["Next.js 14", "TypeScript", "TurboRepo", "PocketBase", "Razorpay"],
       achievements: [
-        "Built customer web app for real-time menu browsing, cart, coupons, and Razorpay payments",
-        "Developed drag-and-drop floor plan with live table status and direct order creation",
-        "Implemented kitchen display system (KDS) and backoffice dashboard for staff workflows",
-        "Added multi-tenant RBAC, sales/GST reports, and Docker-based deployment"
+        "Built multi-tenant flows with QR ordering, coupons, GST-aware carts, and Razorpay payments.",
+        "Interactive floor plans with drag-and-drop tables, live table state, and a KDS for real-time tickets.",
+        "RBAC (Admin / Manager / Staff), tenant isolation on PocketBase, reservations, reporting, daily sales, and GST summaries."
       ],
       liveLink: "https://restaurant-customer-web.netlify.app/",
       backofficeLink: "https://restaurant-backoffice.netlify.app/orders",
@@ -134,19 +165,6 @@ const Projects = () => {
         "Built monitoring dashboard with Streamlit"
       ],
       githubLink: "https://github.com/MAINAKSAHA07/Email_automation_linkedin"
-    },
-    {
-      title: "Emotion Detection System",
-      description: "A machine learning project that analyzes physiological signals (EDA, EMG, ACC) to detect and classify emotions, particularly focusing on distinguishing between fear and excitement.",
-      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80",
-      tags: ["Machine Learning", "Python", "TensorFlow", "Data Analysis"],
-      achievements: [
-        "Implemented signal processing and feature extraction",
-        "Developed multiple model architectures (Random Forest, SVM, LSTM)",
-        "Created real-time prediction system",
-        "Achieved high accuracy in emotion classification"
-      ],
-      githubLink: "https://github.com/MAINAKSAHA07/MLA_Project"
     },
     {
       title: "Ball Tracking with Live Trajectory Visualization",
@@ -270,7 +288,7 @@ const Projects = () => {
                             ))}
                           </div>
 
-                          <div className="flex space-x-4 mt-auto">
+                          <div className="flex flex-wrap gap-x-4 gap-y-2 mt-auto">
                             {project.liveLink && (
                               <a 
                                 href={project.liveLink}
@@ -282,15 +300,28 @@ const Projects = () => {
                                 Live Demo
                               </a>
                             )}
-                            <a 
-                              href={project.githubLink || "https://github.com/MAINAKSAHA07"}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200"
-                            >
-                              <Github className="w-5 h-5 mr-2" />
-                              Code
-                            </a>
+                            {'backofficeLink' in project && project.backofficeLink && (
+                              <a
+                                href={project.backofficeLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200"
+                              >
+                                <ExternalLink className="w-5 h-5 mr-2" />
+                                Backoffice
+                              </a>
+                            )}
+                            {project.githubLink && (
+                              <a 
+                                href={project.githubLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200"
+                              >
+                                <Github className="w-5 h-5 mr-2" />
+                                Code
+                              </a>
+                            )}
                           </div>
                         </div>
                       </motion.div>

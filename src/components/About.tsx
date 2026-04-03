@@ -1,6 +1,5 @@
-import React from 'react';
-import { Code2, Cpu, Database, Brain, Cloud, Settings, Zap } from 'lucide-react';
-import { SiPython, SiJavascript, SiCplusplus, SiReact, SiNodedotjs, SiTensorflow, SiPytorch, SiFastapi, SiPandas, SiScikitlearn, SiKeras, SiOpencv, SiDocker, SiLinux, SiRos, SiGit, SiVercel, SiMongodb, SiSwift, SiFirebase } from 'react-icons/si';
+import { Code2, Cpu } from 'lucide-react';
+import { SiPython, SiJavascript, SiCplusplus, SiReact, SiNodedotjs, SiNextdotjs, SiTypescript, SiTensorflow, SiPytorch, SiFastapi, SiPandas, SiScikitlearn, SiKeras, SiOpencv, SiDocker, SiLinux, SiRos, SiGit, SiVercel, SiMongodb, SiSwift, SiPostgresql } from 'react-icons/si';
 import { FaAws } from 'react-icons/fa6';
 
 // --- Old skills array and carousel logic (commented for reference) ---
@@ -45,10 +44,11 @@ if (visibleSkills.length < cardsToShow) {
 const skillIcons = [
   { name: 'Python', icon: SiPython },
   { name: 'JavaScript', icon: SiJavascript },
+  { name: 'TypeScript', icon: SiTypescript },
   { name: 'C++', icon: SiCplusplus },
-  { name: 'Swift', icon: SiSwift }, 
+  { name: 'Swift', icon: SiSwift },
   { name: 'React', icon: SiReact },
-  { name: 'Firebase', icon: SiFirebase },
+  { name: 'Next.js', icon: SiNextdotjs },
   { name: 'AWS', icon: FaAws },
   { name: 'Node.js', icon: SiNodedotjs },
   { name: 'TensorFlow', icon: SiTensorflow },
@@ -63,20 +63,21 @@ const skillIcons = [
   { name: 'ROS', icon: SiRos },
   { name: 'Git', icon: SiGit },
   { name: 'MongoDB', icon: SiMongodb },
+  { name: 'PostgreSQL', icon: SiPostgresql },
   { name: 'Vercel', icon: SiVercel },
 ];
 
 const education = [
   {
     degree: "M.S. in Robotics and Autonomous Systems (Artificial Intelligence)",
-    school: "Arizona State University",
-    period: "2024 - 2026 (Expected)",
+    school: "Arizona State University, Tempe, AZ — GPA: 3.80",
+    period: "Aug 2024 – Dec 2025",
     icon: Cpu
   },
   {
     degree: "B.E. in Computer Engineering",
-    school: "Mumbai University",
-    period: "Graduated May 2024",
+    school: "Terna Engineering College, Mumbai University — GPA: 3.3",
+    period: "Aug 2020 – Jun 2024",
     icon: Code2
   }
 ];

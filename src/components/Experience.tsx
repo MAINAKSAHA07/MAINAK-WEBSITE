@@ -5,63 +5,72 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Experience = () => {
   const experiences = [
     {
+      role: "Backend Developer",
+      company: "Supatrack (Full-Stack Fitness & Coaching Platform)",
+      period: "Feb 2026 – Present",
+      description: "Building scalable backend services for meal logging, progress tracking, and coach–client workflows on a fitness platform.",
+      achievements: [
+        "Solved fragmented user tracking and coaching workflows by building scalable FastAPI services integrating meal logging, real-time progress tracking, and PT–client interactions.",
+        "Reduced manual effort and improved reliability by designing API pipelines integrating OpenAI, FatSecret, and external data sources for automated nutrition parsing.",
+        "Enabled real-time engagement by implementing WebSocket-based notification and chat systems, improving responsiveness and retention.",
+        "Supported end-to-end backend integration and deployment of iOS and Android apps backed by cloud infrastructure."
+      ]
+    },
+    {
+      role: "Graduate Research Assistant — Adidas Project",
+      company: "Arizona State University",
+      period: "May 2025 – Present",
+      description: "Research-driven sports technology: mobile apps, sensors, and AI systems for real-time capture and analysis.",
+      achievements: [
+        "Led end-to-end development as a solo engineer on research systems—mobile apps and sensor-integrated platforms for real-time data capture and analysis.",
+        "Developed real-time video analytics in Swift and OpenCV to detect and classify ball and human movement, optimizing accuracy and latency for mobile.",
+        "Built dual-device sensor streaming (ESP32 + iOS) enabling 500Hz ingestion, visualization, and CSV logging with synchronized analytics and haptic feedback.",
+        "Designed data pipelines for preprocessing, feature extraction, and visualization of multi-sensor signals for athletic performance insights.",
+        "Deployed AI systems including an emotion detection and conversational platform using FastAPI, AWS EC2, PostgreSQL, and React with real-time inference and dashboards."
+      ]
+    },
+    {
+      role: "Software Engineer (Bash/Linux)",
+      company: "AfterQuery Experts",
+      period: "Jul 2025 – Nov 2025",
+      description: "Remote role creating terminal-based tasks to train and evaluate LLMs on realistic Unix workflows.",
+      achievements: [
+        "Created complex terminal-based development tasks (via Terminal-Bench) used to train and evaluate large language models on Unix workflows, debugging, and infra repair.",
+        "Worked with engineers to expand high-quality datasets that improve AI reliability, multi-step reasoning, and system-level problem solving."
+      ]
+    },
+    {
       role: "Graduate Research Associate",
-      company: "Ira A. Fulton Schools of Engineering at Arizona State University",
-      period: "Aug 2025 – Present",
-      description: "Part-time research position at the Touch Experience and Action Learning (TEAL) Lab under Prof. Hasti Seifi, focusing on audio-vibration mapping and interactive web applications.",
+      company: "Arizona State University — TEAL Lab",
+      period: "Aug 2025 – Oct 2025",
+      description: "Touch Experience and Action Learning Lab: audio–vibration perception and interactive research tools.",
       achievements: [
-        "Built the Audio-Vibration Rating Explorer, an interactive web app to evaluate how four vibration designs map to 1,000 real-world sounds (4,000 ratings).",
-        "Developed an ML pipeline that converts real sound into the four vibration types—freqshift, hapticgen, percept, pitchmatch—including feature extraction, model inference, and automated batch processing/QA.",
-        "Implemented synchronized audio + vibration playback, real-time waveform and spectrogram views (WaveSurfer.js), plus A/B comparison across designs.",
-        "Storage & delivery: Amazon S3 for raw/derived audio & vibration assets; Amazon CloudFront CDN for low-latency global delivery to the web app."
-      ]
-    },
-    {
-      role: "Graduate Research Assistant",
-      company: "ASU Center for Engagement Science – Adidas, ASU",
-      period: "May 25 – Present",
-      description: "Collaborating on multidisciplinary research focused on motion analysis and real-time feedback for athletic performance enhancement.",
-      achievements: [
-        "Collaborating with Dr. Aurel Coza on a multidisciplinary research project focused on motion analysis and real-time feedback for athletic performance.",
-        "Developing an iOS application using Swift that integrates OpenCV for real-time video processing and motion detection.",
-        "Designing and implementing algorithms to analyze human movement patterns and provide actionable feedback for enhanced physical training outcomes.",
-        "Working closely with UI/UX and data science teams to ensure usability, performance, and data accuracy."
-      ]
-    },
-    {
-      role: "Data Engineering Intern",
-      company: "Looqup.AI, Boston, USA",
-      period: "Mar 25 – Apr 25",
-      description: "Developed advanced revenue forecasting models and contributed to MLOps pipeline development for merchant sales data.",
-      achievements: [
-        "Developed division-specific revenue forecasting models using Holt's Winter and SARIMA, improving sales prediction accuracy for individual merchants.",
-        "Spearheaded data preprocessing and feature engineering using Azure tools, enhancing dataset quality for superior model accuracy.",
-        "Contributed to building an end-to-end MLOps pipeline and gained hands-on experience with Docker for model containerization and backend integration.",
-        "Enabled more accurate monthly revenue forecasts, empowering leadership to make data-driven, strategic business decisions."
+        "Developed the Audio-Vibration Rating Explorer—an interactive platform analyzing how four vibration designs map to 1,000+ sounds across 4,000+ ratings.",
+        "Designed and deployed real-time audio-to-vibration generation using ML for feature extraction, classification, and vibration mapping with synchronized playback and waveform visualization (WaveSurfer.js).",
+        "Optimized deployment and scalability using AWS EC2 for hosting and model inference, ensuring low-latency interaction."
       ]
     },
     {
       role: "Full-Stack Developer",
       company: "The Language Network",
-      period: "Aug 2021 - Dec 2021",
-      description: "Led development of scalable website and implemented SEO improvements",
+      period: "Aug 2021 – Dec 2022",
+      description: "Mumbai, India — full-stack web platform, LMS, and growth through SEO and analytics.",
       achievements: [
-        "Developed the website for The Language Network from the bottom up, overseeing the development of the front-end (HTML, CSS, JavaScript, React JS) and back-end (Node.js, MongoDB) components.",
-        "Collaborated with cross-functional teams, leading to a scalable, user-friendly solution integrated with 5+ third-party services and ensuring optimal performance.",
-        "Utilized SEMrush and SEO strategies, resulting in a 60% increase in search engine visibility and a significant improvement in keyword rankings, with 10+ keywords reaching the first page",
-        "Succeeded in having a 50% increase in website traffic and user engagement, aided in the firm's overall growth."
+        "Designed and developed a full-stack web platform and LMS using React.js, Node.js, and MongoDB with scalable user management and third-party integrations.",
+        "Improved online visibility by 60% via SEO/SEM (SEMrush, Google Analytics), achieving first-page rankings for 10+ high-value keywords.",
+        "Built analytics dashboards with Salesforce to track engagement and conversions, increasing site traffic by 50%."
       ]
     },
     {
-      role: "Marketing & Business Development Intern",
-      company: "Ukiyo Stays",
-      period: "Jan 2023 - May 2023",
-      description: "Drove business growth through marketing initiatives and customer experience improvements",
+      role: "Data Engineering Intern",
+      company: "Looqup.AI",
+      period: "Mar 2025 – Apr 2025",
+      description: "Remote — revenue forecasting, Azure data workflows, and MLOps.",
       achievements: [
-        "Increased client satisfaction by 15%",
-        "Expanded brand awareness by 20%",
-        "Developed marketing strategies",
-        "Improved customer engagement"
+        "Built division-level revenue forecasting models using Holt–Winters and SARIMA, improving sales prediction accuracy for individual merchants.",
+        "Led data preprocessing and feature engineering with Azure-based workflows, improving dataset quality for downstream models.",
+        "Contributed to an end-to-end MLOps pipeline using Docker for model containerization and backend integration.",
+        "Delivered more accurate monthly revenue forecasts to support data-driven leadership decisions."
       ]
     }
   ];

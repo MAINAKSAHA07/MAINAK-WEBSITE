@@ -65,7 +65,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed text-balance">
-            Welcome to my personal website! I'm a Master's student in RAS Artificial Intelligence at Arizona State University, with a strong foundation in data engineering, programming, and AI technologies. Explore my skills and projects in data engineering, AI, and full-stack development, and feel free to connect with me!
+            Full-stack developer and AI engineer with an M.S. in Robotics and Autonomous Systems (AI) from Arizona State University. I build scalable web platforms, real-time video analytics, and AI-powered systems with React, FastAPI, AWS, and OpenCV—explore my work below or get in touch.
           </p>
           
           <div className="flex justify-center space-x-8 mb-16">
